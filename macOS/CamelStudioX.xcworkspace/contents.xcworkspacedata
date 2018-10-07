@@ -35,9 +35,6 @@
       location = "group:CSXLog/CSXLog.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Architecture Design.png">
-   </FileRef>
-   <FileRef
       location = "group:README.md">
    </FileRef>
 </Workspace>
