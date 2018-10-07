@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CSXSourceListViewController" customModule="CSXMake" customModuleProvider="target">
+            <connections>
+                <outlet property="listTitle" destination="bYQ-1x-D4d" id="9Aq-YR-201"/>
+                <outlet property="sourceList" destination="558-UK-Xe8" id="5rb-Qu-fD1"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="265" height="163"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-Yy-5Sc">
+                    <rect key="frame" x="0.0" y="-1" width="21" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="1Io-YO-pUW"/>
+                        <constraint firstAttribute="width" constant="21" id="2T6-39-1Ze"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarAddDetailTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="78b-0C-wMe">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onAddSource:" target="-2" id="B3H-NF-7VU"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pth-Ne-qHI">
+                    <rect key="frame" x="244" y="-1" width="21" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="eiG-T1-aKj"/>
+                        <constraint firstAttribute="height" constant="21" id="r6D-rI-oNE"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKF-1u-ABL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onRemoveSource:" target="-2" id="Udl-Yf-ynQ"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bYQ-1x-D4d">
+                    <rect key="frame" x="-2" y="146" width="37" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="5wE-m5-ZHi">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVu-oN-KkG">
+                    <rect key="frame" x="0.0" y="21" width="265" height="125"/>
+                    <clipView key="contentView" drawsBackground="NO" id="qhL-VT-ttb">
+                        <rect key="frame" x="1" y="1" width="263" height="123"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="558-UK-Xe8">
+                                <rect key="frame" x="0.0" y="0.0" width="263" height="123"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="260" minWidth="40" maxWidth="1000" id="eZy-MU-dGI">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" title="Text Cell" id="FcX-ce-pqC">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                        <nil key="backgroundColor"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="1jT-pm-vhf">
+                        <rect key="frame" x="1" y="102" width="263" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="glG-ZE-RwJ">
+                        <rect key="frame" x="248" y="1" width="16" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="xlp-Yy-5Sc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="5fe-wg-BdJ"/>
+                <constraint firstAttribute="trailing" secondItem="pth-Ne-qHI" secondAttribute="trailing" id="CZK-uQ-xDn"/>
+                <constraint firstItem="xlp-Yy-5Sc" firstAttribute="top" secondItem="tVu-oN-KkG" secondAttribute="bottom" id="GdC-t8-Q4T"/>
+                <constraint firstItem="pth-Ne-qHI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xlp-Yy-5Sc" secondAttribute="trailing" constant="10" id="JKl-WJ-nbq"/>
+                <constraint firstItem="tVu-oN-KkG" firstAttribute="top" secondItem="bYQ-1x-D4d" secondAttribute="bottom" id="MaV-in-gh3"/>
+                <constraint firstAttribute="bottom" secondItem="tVu-oN-KkG" secondAttribute="bottom" constant="21" id="Njg-KH-EVF"/>
+                <constraint firstItem="tVu-oN-KkG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="W8i-HG-wZZ"/>
+                <constraint firstItem="bYQ-1x-D4d" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="YBC-gu-c3Q"/>
+                <constraint firstItem="pth-Ne-qHI" firstAttribute="top" secondItem="tVu-oN-KkG" secondAttribute="bottom" id="a3p-yD-ltB"/>
+                <constraint firstAttribute="trailing" secondItem="tVu-oN-KkG" secondAttribute="trailing" id="cO0-r5-gRP"/>
+                <constraint firstItem="bYQ-1x-D4d" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="pGh-dv-jvh"/>
+                <constraint firstAttribute="bottom" secondItem="pth-Ne-qHI" secondAttribute="bottom" id="rL2-NJ-dqk"/>
+                <constraint firstAttribute="bottom" secondItem="xlp-Yy-5Sc" secondAttribute="bottom" id="sU1-pT-v9J"/>
+            </constraints>
+            <point key="canvasLocation" x="-67.5" y="212.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSTouchBarAddDetailTemplate" width="18" height="30"/>
+        <image name="NSTouchBarRemoveTemplate" width="14" height="30"/>
+    </resources>
+</document>

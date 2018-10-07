@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CSXWebViewController" customModule="CSXWebView" customModuleProvider="target">
+            <connections>
+                <outlet property="progressBar" destination="LA7-Ng-g41" id="DS6-nU-lB5"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="webView" destination="92b-m4-CAf" id="TpN-rp-rZw"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92b-m4-CAf">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="250"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0aZ-Qy-VLK">
+                    <rect key="frame" x="0.0" y="249" width="167" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="HZx-79-JuX"/>
+                        <constraint firstAttribute="width" constant="167" id="NXo-oP-J7c"/>
+                    </constraints>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="CyG-Ec-bq7">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment image="NSLeftFacingTriangleTemplate" width="80"/>
+                            <segment image="NSRightFacingTriangleTemplate" width="80" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="onForwardBackward:" target="-2" id="IAE-0A-nmt"/>
+                    </connections>
+                </segmentedControl>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="LA7-Ng-g41">
+                    <rect key="frame" x="175" y="253" width="16" height="16"/>
+                </progressIndicator>
+            </subviews>
+            <constraints>
+                <constraint firstItem="92b-m4-CAf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="3fx-cT-2o6"/>
+                <constraint firstAttribute="trailing" secondItem="92b-m4-CAf" secondAttribute="trailing" id="6pe-9F-uOy"/>
+                <constraint firstItem="LA7-Ng-g41" firstAttribute="leading" secondItem="0aZ-Qy-VLK" secondAttribute="trailing" constant="8" id="GBT-lR-1GG"/>
+                <constraint firstItem="92b-m4-CAf" firstAttribute="top" secondItem="LA7-Ng-g41" secondAttribute="bottom" constant="3" id="SkT-mN-9XE"/>
+                <constraint firstItem="0aZ-Qy-VLK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Yip-QZ-8Vk"/>
+                <constraint firstItem="LA7-Ng-g41" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="b43-JD-8Qr"/>
+                <constraint firstItem="92b-m4-CAf" firstAttribute="top" secondItem="0aZ-Qy-VLK" secondAttribute="bottom" id="coo-TB-VpZ"/>
+                <constraint firstItem="0aZ-Qy-VLK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="t4d-i3-LKc"/>
+                <constraint firstAttribute="bottom" secondItem="92b-m4-CAf" secondAttribute="bottom" id="tvk-LM-Odz"/>
+            </constraints>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
+    </resources>
+</document>
