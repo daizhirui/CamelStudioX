@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:CamelStudioX/CamelStudioX.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXWelcome/CSXWelcome.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXTabViewController/CSXTabViewController.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXFileBrowser/CSXFileBrowser.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXUtilities/CSXUtilities.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXSerialManager/ORSSerialPort-master/Framework Project/ORSSerialPort.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXSerialManager/CSXSerialManager.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXMake/CSXMake.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXCodeView/CSXCodeView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXWebView/CSXWebView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CSXLog/CSXLog.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Architecture Design.png">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+</Workspace>

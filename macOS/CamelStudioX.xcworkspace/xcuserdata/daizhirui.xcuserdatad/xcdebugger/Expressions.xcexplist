@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FileTreeNode.manager.didset:FileTreeNode.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CSXFileTreeManager.releaseAllSubNodes(of:):CSXFileTreeManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "child.descriptor.fullName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileTreeNode.initializeDirectory(from:to:baseURL:justStructure:):FileTreeNode.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "aChildNode.descriptor.fullname">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CSXFileTreeManager.getParentNode(with:):CSXFileTreeManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CSXFileBrowser.newFolderAction(_:):CSXFileBrowser.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CSXFileTreeManager.delete(nodeIdentifier:):CSXFileTreeManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nodeToDelete.descriptor.fullName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
