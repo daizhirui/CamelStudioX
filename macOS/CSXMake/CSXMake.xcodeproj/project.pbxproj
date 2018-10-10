@@ -135,6 +135,7 @@
 		23A5DD86215FE93200BCDB45 /* CSXMake */ = {
 			isa = PBXGroup;
 			children = (
+				23A754D6216A6AE3007A48D3 /* UserInterface */,
 				23A5E35A215FEADB00BCDB45 /* Toolchains */,
 				23A5DD87215FE93200BCDB45 /* CSXMake.h */,
 				23A5DD88215FE93200BCDB45 /* Info.plist */,
@@ -151,12 +152,6 @@
 				23A5E3642160745300BCDB45 /* CSXMake.swift */,
 				23D761052160C98A0078EABB /* MakeLogViewController.swift */,
 				23D761062160C98A0078EABB /* MakeLogView.xib */,
-				2397864421613407006B6153 /* CSXTargetManagerViewController.swift */,
-				2397864521613407006B6153 /* CSXTargetManagerView.xib */,
-				2397864A2161BE22006B6153 /* CSXSourceListViewController.swift */,
-				2397864B2161BE22006B6153 /* CSXSourceListView.xib */,
-				239786502161D380006B6153 /* NewTargetViewController.swift */,
-				239786512161D380006B6153 /* NewTargetView.xib */,
 			);
 			path = CSXMake;
 			sourceTree = "<group>";
@@ -173,6 +168,19 @@
 				23A5E37621607DAC00BCDB45 /* CSXMakeTest.entitlements */,
 			);
 			path = CSXMakeTest;
+			sourceTree = "<group>";
+		};
+		23A754D6216A6AE3007A48D3 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				2397864521613407006B6153 /* CSXTargetManagerView.xib */,
+				2397864421613407006B6153 /* CSXTargetManagerViewController.swift */,
+				2397864B2161BE22006B6153 /* CSXSourceListView.xib */,
+				2397864A2161BE22006B6153 /* CSXSourceListViewController.swift */,
+				239786512161D380006B6153 /* NewTargetView.xib */,
+				239786502161D380006B6153 /* NewTargetViewController.swift */,
+			);
+			path = UserInterface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -458,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

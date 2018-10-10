@@ -46,6 +46,10 @@ public class TabBar: NSScrollView {
     }
     /// Redraw tab bar
     public func reload() {
+        // The horizontal scroller bar may appear
+        // when system preference sets the scroller bar auto-appearing when an external mouse is connected.
+        let scrollerBarHeight: CGFloat = self.horizontalScroller?.frame.height ?? 0
+        self.setFrameSize(NSSize(width: self.frame.width, height: Tab.defaultHeight + scrollerBarHeight))
         let tabHeight = self.tabDict.first?.value.frame.height ?? Tab.defaultHeight
         let tabWidth = (self.tabDict.first?.value.frame.width ?? Tab.defaultWidth) + 1
         let allTabsWidth = tabWidth * CGFloat(self.tabDict.count)

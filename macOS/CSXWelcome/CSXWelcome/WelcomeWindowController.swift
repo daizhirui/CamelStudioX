@@ -143,13 +143,21 @@ extension WelcomeWindowController: NSTableViewDelegate {
         if let stackView = subviews?[0] as? NSStackView {
             if let projectNameLabel = stackView.subviews[0] as? NSTextField {
                 projectNameLabel.stringValue = value.deletingPathExtension().lastPathComponent
-                projectNameLabel.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
-                                                     bundle: Bundle(for: WelcomeWindowController.self))
+                if #available(macOS 10.13, *) {
+                    projectNameLabel.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
+                                                        bundle: Bundle(for: WelcomeWindowController.self))
+                } else {
+                    projectNameLabel.textColor = NSColor.systemGray
+                }
             }
             if let projectURLLabel = stackView.subviews[1] as? NSTextField {
                 projectURLLabel.stringValue = value.relativePath
-                projectURLLabel.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
-                                                    bundle: Bundle(for: WelcomeWindowController.self))
+                if #available(macOS 10.13, *) {
+                    projectURLLabel.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
+                                                        bundle: Bundle(for: WelcomeWindowController.self))
+                } else {
+                    projectURLLabel.textColor = NSColor.systemGray
+                }
             }
         }
         let projectImage = subviews?[1] as? NSImageView
@@ -159,10 +167,15 @@ extension WelcomeWindowController: NSTableViewDelegate {
     
     public func tableViewSelectionDidChange(_ notification: Notification) {
         // old selection
-        self.selectedProjectNameTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
-                                                               bundle: Bundle(for: WelcomeWindowController.self))
-        self.selectedProjectURLTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
-                                                              bundle: Bundle(for: WelcomeWindowController.self))
+        if #available(macOS 10.13, *) {
+            self.selectedProjectNameTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
+                                                                   bundle: Bundle(for: WelcomeWindowController.self))
+            self.selectedProjectURLTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
+                                                                  bundle: Bundle(for: WelcomeWindowController.self))
+        } else {
+            self.selectedProjectNameTextField.textColor = NSColor.systemGray
+            self.selectedProjectURLTextField.textColor = NSColor.systemGray
+        }
         // new selection
         if let stackView = self.getSelectedCellView()?.subviews[0] as? NSStackView {
             self.selectedProjectNameTextField = stackView.arrangedSubviews[0] as? NSTextField

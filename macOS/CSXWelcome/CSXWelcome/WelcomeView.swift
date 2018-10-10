@@ -15,8 +15,12 @@ class WelcomeView: NSView {
         // Drawing code here.
         // for dark mode
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor(named: NSColor.Name("WelcomeWindowBackgroundColor"),
-                                              bundle: Bundle(for: WelcomeWindowController.self))?.cgColor
+        if #available(macOS 10.13, *) {
+            self.layer?.backgroundColor = NSColor(named: NSColor.Name("WelcomeWindowBackgroundColor"),
+                                                  bundle: Bundle(for: WelcomeWindowController.self))?.cgColor
+        } else {
+            self.layer?.backgroundColor = NSColor.white.cgColor
+        }
         self.layer?.cornerRadius = 10.0
     }
     

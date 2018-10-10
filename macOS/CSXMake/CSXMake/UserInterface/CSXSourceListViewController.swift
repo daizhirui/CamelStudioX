@@ -22,6 +22,9 @@ class CSXSourceListViewController: NSViewController {
     @IBOutlet weak var sourceList: NSTableView!
     var fileList = Set<String>()
     
+    @IBOutlet weak var addItemButton: NSButton!
+    @IBOutlet weak var removeItemButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

@@ -10,15 +10,46 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Improvement to do
 
-- [] Unify debugging print
-- [] Add file system monitor to file browser
-- [] Update software structure diagram
-- [] Write a formal README.md file
+- [ ] Unify debugging print
+- [ ] Add file system monitor to file browser, update files modified other-where automatically 
+- [ ] Update software architecture diagram
+- [ ] Write a formal README.md file
 
-## pending features
+## Pending features
 
 - hardware debugging system
 
+## History
+
+### 4.0 Build 50
+Third generation of CamelStudioX, modular software architecture. Its UI is totally redesigned.
+
+Function List:
+
+- Binary Converter:
+    - supports converting optimized ELF files.
+- Toolchain Interface:
+    - does not need Xcode anymore!
+    - supports switching between different target profiles.
+    - supports processing multiple target profiles simultaneously.
+    - supports printing more compiling details.
+- Binary Uploader: 
+    - upload binary to M2 chips faster and stabler.
+    - supports uploading binary to different chips simultaneously.
+- Serial monitor: 
+    - a new stabler module architecture, all serial devices are managed by a manager. No more switching anymore.
+    - supports sending text via the window directly, "chat with your chip"
+    - supports sending file manually
+- Documentation and Tutorial Viewer:
+    - Now you can view the official documentation or the tutorial just inside the IDE, without switching to Safari.
+- File browser: 
+    - robuster file operation
+    - avoids opening none-text files
+- Code editor: 
+    - multiple tabs
+    - auto-completion
+    - Syntax highlighting
+    - auto-tab, auto-brace and auto-quotes
 
 ## Something to say
 

@@ -8,7 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CSXSourceListViewController" customModule="CSXMake" customModuleProvider="target">
             <connections>
+                <outlet property="addItemButton" destination="xlp-Yy-5Sc" id="g8N-hn-jD9"/>
                 <outlet property="listTitle" destination="bYQ-1x-D4d" id="9Aq-YR-201"/>
+                <outlet property="removeItemButton" destination="pth-Ne-qHI" id="ckH-kT-bD9"/>
                 <outlet property="sourceList" destination="558-UK-Xe8" id="5rb-Qu-fD1"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -25,7 +27,7 @@
                         <constraint firstAttribute="height" constant="21" id="1Io-YO-pUW"/>
                         <constraint firstAttribute="width" constant="21" id="2T6-39-1Ze"/>
                     </constraints>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarAddDetailTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="78b-0C-wMe">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="78b-0C-wMe">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -39,7 +41,7 @@
                         <constraint firstAttribute="width" constant="21" id="eiG-T1-aKj"/>
                         <constraint firstAttribute="height" constant="21" id="r6D-rI-oNE"/>
                     </constraints>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKF-1u-ABL">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKF-1u-ABL">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -115,7 +117,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="NSTouchBarAddDetailTemplate" width="18" height="30"/>
-        <image name="NSTouchBarRemoveTemplate" width="14" height="30"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

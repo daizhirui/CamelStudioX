@@ -29,18 +29,21 @@ public class CSXTargetManagerViewController: NSViewController {
     @IBOutlet weak var rodataAddressTextField: NSTextField!
     @IBOutlet weak var buildPathTextField: NSTextField!
     @IBOutlet weak var officialLibraryButton: NSPopUpButton!
+    @IBOutlet weak var multiTargetsView: NSView!
+    @IBOutlet weak var selectTargetButton: NSPopUpButton!
     // MARK:- SourceListViewControllers
     let cSourceListViewController = CSXSourceListViewController.initiate(title: "C Source:")
     let cppSourceListViewController = CSXSourceListViewController.initiate(title: "C++ Source:")
     let aSourceListViewController = CSXSourceListViewController.initiate(title: "Assembly Source:")
     let includeFolderListViewController = CSXSourceListViewController.initiate(title: "Include Folders:")
     let libraryListViewController = CSXSourceListViewController.initiate(title: "Libraries:")
+    let multiTargetsViewController = CSXSourceListViewController.initiate(title: "Build multiple targets:")
     // MARK:- Make System
     public let csxMake = CSXMake()
     public var delegate: CSXTargetManagerViewControllerDelegate?
     // MARK:- Target attributes
     public var defaultBuildFolder: URL?
-    @objc public var targets = [CSXTarget]()
+    public var targets = [CSXTarget]()
     var selectedTarget: CSXTarget? {
         willSet {
             if let target = self.selectedTarget {
@@ -66,6 +69,8 @@ public class CSXTargetManagerViewController: NSViewController {
         CSXTargetManagerViewController.addListView(of: self.aSourceListViewController, to: self.aSourceListView)
         CSXTargetManagerViewController.addListView(of: self.includeFolderListViewController, to: self.includeFolderListView)
         CSXTargetManagerViewController.addListView(of: self.libraryListViewController, to: self.libraryListView)
+        CSXTargetManagerViewController.addListView(of: self.multiTargetsViewController, to: self.multiTargetsView)
+        self.multiTargetsViewController.addItemButton.isHidden = true
     }
     
     public override func viewWillAppear() {
@@ -90,17 +95,19 @@ public class CSXTargetManagerViewController: NSViewController {
         return target
     }
     
-    func addTarget(_ target: CSXTarget) {
+    public func addTarget(_ target: CSXTarget) {
         self.targets.append(target)
         self.targetNameButton.addItem(withTitle: target.name)
+        self.selectTargetButton.addItem(withTitle: target.name)
         self.selectedTarget = target
     }
     
-    func deleteTarget(_ target: CSXTarget) {
+    public func deleteTarget(_ target: CSXTarget) {
         for (index, item) in self.targets.enumerated() {
             if item.targetName == target.targetName && item.targetType == target.targetType {
                 self.targets.remove(at: index)
                 self.targetNameButton.removeItem(withTitle: target.name)
+                self.selectTargetButton.removeItem(withTitle: target.name)
                 return
             }
         }
@@ -196,6 +203,7 @@ public class CSXTargetManagerViewController: NSViewController {
     }
     
     @IBAction public func onBuild(_ sender: NSButton?) {
+        self.delegate?.csxTargetManagerWillBuildTarget(self)
         guard let target = self.getSelectedTarget() else {
             self.csxMake.printLog("ERROR: No target is selected!\n")
             return
@@ -207,6 +215,29 @@ public class CSXTargetManagerViewController: NSViewController {
         self.delegate?.csxTargetManagerDidBuildTarget(self)
     }
     
+    @IBAction func onBuildTheseTargets(_ sender: NSButton) {
+        
+        self.delegate?.csxTargetManagerWillBuildTarget(self)
+        let targetNames = self.multiTargetsViewController.fileList
+        var selectedTargets = [CSXTarget]()
+        for target in self.targets {
+            if targetNames.contains(target.name) {
+                selectedTargets.append(target)
+            }
+        }
+        
+        for target in selectedTargets {
+            let messages = self.csxMake.build(target: target)
+            for message in messages {
+                message.check()
+            }
+        }
+        self.delegate?.csxTargetManagerDidBuildTarget(self)
+    }
+    @IBAction func onSelectTargetButton(_ sender: NSPopUpButton) {
+        self.multiTargetsViewController.fileList.insert(sender.title)
+        self.multiTargetsViewController.sourceList.reloadData()
+    }
     // MARK:- Static functions
     private static func addListView(of controller: CSXSourceListViewController, to superView: NSView) {
         let view = controller.view
@@ -223,5 +254,6 @@ public class CSXTargetManagerViewController: NSViewController {
 }
 
 public protocol CSXTargetManagerViewControllerDelegate {
+    func csxTargetManagerWillBuildTarget(_ targetManager: CSXTargetManagerViewController)
     func csxTargetManagerDidBuildTarget(_ targetManager: CSXTargetManagerViewController)
 }

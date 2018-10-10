@@ -21,10 +21,17 @@ class ToolchainTool: NSObject {
     func run() -> ToolchainMessage {
         let process = Process()
         
-        if let url = self.workingDirectory {
-            process.currentDirectoryURL = url
+        if #available(macOS 10.13, *) {
+            if let url = self.workingDirectory {
+                process.currentDirectoryURL = url
+            }
+            process.executableURL = self.url
+        } else {
+            if let url = self.workingDirectory {
+                process.currentDirectoryPath = url.relativePath
+            }
+            process.launchPath = self.url.relativePath
         }
-        process.executableURL = self.url
         
         // arguments: should be set by subclass
         process.arguments = self.arguments
