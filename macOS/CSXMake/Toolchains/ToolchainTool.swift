@@ -53,9 +53,13 @@ class ToolchainTool: NSObject {
         let stdoutString = String(data: stdoutData, encoding: .utf8)
         let stderrString = String(data: stderrData, encoding: .utf8)
         
-        DispatchQueue.main.async {
+        let timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(5), repeats: false) { (timer) in
             process.terminate()
         }
+        
+        while process.isRunning {}
+        
+        timer.invalidate()
         
         return ToolchainMessage(exitCode: Int(process.terminationStatus), stdoutString: stdoutString ?? "", stderrString: stderrString ?? "")
     }

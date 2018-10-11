@@ -22,6 +22,7 @@ public class CSXTarget: NSObject {
         case DataAddress = "DataAddress"
         case RodataAddress = "RodataAddress"
         case BuildFolder = "BuildFolder"
+        case OptimizationLevel = "OptimizationLevel"
     }
     
     public enum CSXTargetError: String, Error, LocalizedError {
@@ -40,6 +41,11 @@ public class CSXTarget: NSObject {
     }
     public enum ChipType: String {
         case M2 = "M2"
+    }
+    public enum OptimizationLevel: String {
+        case O0 = "O0"
+        case O2 = "O2"
+        case O3 = "O3"
     }
     var chipType: ChipType
     var targetType: TargetType
@@ -60,8 +66,9 @@ public class CSXTarget: NSObject {
     public var targetAddress: String
     var dataAddress: String
     var rodataAddress: String?
+    var optimizationLevel: CSXTarget.OptimizationLevel
     
-    @objc var name: String
+    var name: String
     
     public var dict: [String : Any] {
         get {
@@ -69,6 +76,7 @@ public class CSXTarget: NSObject {
             dict[CSXTarget.Key.TargetName.rawValue] = self.targetName
             dict[CSXTarget.Key.TargetType.rawValue] = self.targetType.rawValue
             dict[CSXTarget.Key.ChipType.rawValue] = self.chipType.rawValue
+            dict[CSXTarget.Key.OptimizationLevel.rawValue] = self.optimizationLevel.rawValue
             dict[CSXTarget.Key.C_Source.rawValue] = CSXTarget.URLArrayToPathStringArray(self.cSourceFiles)
             dict[CSXTarget.Key.Cpp_Source.rawValue] = CSXTarget.URLArrayToPathStringArray(self.cppSourceFiles)
             dict[CSXTarget.Key.A_Source.rawValue] = CSXTarget.URLArrayToPathStringArray(self.aSourceFiles)
@@ -82,7 +90,7 @@ public class CSXTarget: NSObject {
         }
     }
     
-    public init(chipType: CSXTarget.ChipType, targetType: CSXTarget.TargetType,
+    public init(chipType: CSXTarget.ChipType, targetType: CSXTarget.TargetType, optimization: CSXTarget.OptimizationLevel,
                 cSourceFiles: [URL], cppSourceFiles: [URL], aSourceFiles: [URL],
                 includeFolders: [URL], libraries: [URL], buildFolder: URL,
                 targetName: String, targetAddress: String, dataAddress: String, rodataAddress: String?) {
@@ -98,6 +106,7 @@ public class CSXTarget: NSObject {
         self.targetAddress = targetAddress
         self.dataAddress = dataAddress
         self.rodataAddress = rodataAddress
+        self.optimizationLevel = optimization
         self.name = "\(self.targetName)-\(self.targetType.rawValue)"
         super.init()
     }
@@ -122,6 +131,7 @@ public class CSXTarget: NSObject {
         self.targetAddress = try getAttribute(key: .TargetAddress, type: String())
         self.dataAddress = try getAttribute(key: .DataAddress, type: String())
         self.rodataAddress = try getAttribute(key: .RodataAddress, type: String())
+        self.optimizationLevel = CSXTarget.OptimizationLevel(rawValue: try getAttribute(key: .OptimizationLevel, type: String())) ?? CSXTarget.OptimizationLevel.O0
         self.buildFolder = URL(fileURLWithPath: try getAttribute(key: .BuildFolder, type: String()))
         self.name = "\(self.targetName)-\(self.targetType.rawValue)"
         super.init()

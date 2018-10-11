@@ -53,8 +53,10 @@ public class CSXMake: NSObject {
             let outputURL = target.getURLInBuildFolder(for: file, fileExtension: "o")
             objects.append(outputURL)
             let message = self.mipsGCC.compile(input: file, output: outputURL,
-                                               includeDirectories: includeFolders)
+                                               includeDirectories: includeFolders,
+                                               moreOptions: ["-\(target.optimizationLevel.rawValue)"])
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
                 encounterError = true
@@ -66,8 +68,10 @@ public class CSXMake: NSObject {
             let outputURL = target.getURLInBuildFolder(for: file, fileExtension: "o")
             objects.append(outputURL)
             let message = self.mipsGCPP.compile(input: file, output: outputURL,
-                                                includeDirectories: includeFolders)
+                                                includeDirectories: includeFolders,
+                                                moreOptions: ["-\(target.optimizationLevel.rawValue)"])
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
                 encounterError = true
@@ -79,7 +83,9 @@ public class CSXMake: NSObject {
             let outputURL = target.getURLInBuildFolder(for: file, fileExtension: "o")
             objects.append(outputURL)
             let message = self.mipsAS.compile(input: file, output: outputURL)
+            
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
                 encounterError = true
@@ -87,6 +93,7 @@ public class CSXMake: NSObject {
         }
         
         if encounterError { // There are some errors, exit
+            self.printLog("Detect error, exit!")
             return messages
         }
         
@@ -106,15 +113,19 @@ public class CSXMake: NSObject {
                                            targetAddress: target.targetAddress,
                                            dataAddress: target.dataAddress,
                                            rodataAddress: target.rodataAddress)
+            
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
                 return messages
             }
             
+            
             self.printLog("Converting.... TargetName: \(target.targetName)\n")
             message = self.csxConvert.convert(input: elfURL, buildDirectory: target.buildFolder)
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
             }
@@ -124,6 +135,7 @@ public class CSXMake: NSObject {
             self.printLog("Archiving.... TargetName: \(libURL.lastPathComponent)\n")
             let message = self.mipsAR.archive(inputs: objects, output: libURL)
             messages.append(message)
+            self.printLog(message.stdoutString)
             if message.exitCode != 0 {
                 self.printLog("ERROR: \(message.stderrString)\n")
             }

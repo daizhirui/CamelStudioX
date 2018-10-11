@@ -18,8 +18,9 @@ class CSXGCC: ToolchainTool {
         super.init(url: executableURL)
     }
     
-    func compile(input: URL, output: URL, includeDirectories: [URL]) -> ToolchainMessage {
+    func compile(input: URL, output: URL, includeDirectories: [URL], moreOptions: [String] = []) -> ToolchainMessage {
         self.arguments = CSXGCC.GCC_OPTIONS
+        self.arguments.append(contentsOf: moreOptions)
         for directory in includeDirectories {
             self.arguments.append(contentsOf: ["-I", directory.relativePath])
         }

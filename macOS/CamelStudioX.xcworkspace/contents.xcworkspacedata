@@ -23,7 +23,7 @@
       location = "group:CSXSerialManager/CSXSerialManager.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CSXMake/CSXMake.xcodeproj">
+      location = "group:/Users/daizhirui/Development/Camel/CamelStudioX/macOS/CSXMake/CSXToolchains.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:CSXCodeView/CSXCodeView.xcodeproj">

@@ -19,6 +19,7 @@ public class CSXTargetManagerViewController: NSViewController {
     @IBOutlet weak var targetNameButton: NSPopUpButton!
     @IBOutlet weak var chipTypeButton: NSPopUpButton!
     @IBOutlet weak var targetTypeButton: NSPopUpButton!
+    @IBOutlet weak var optimizationButton: NSPopUpButton!
     @IBOutlet weak var cSourceListView: NSView!
     @IBOutlet weak var cppSourceListView: NSView!
     @IBOutlet weak var aSourceListView: NSView!
@@ -115,6 +116,7 @@ public class CSXTargetManagerViewController: NSViewController {
     
     // MARK:- Target <-> SourceListViewControllers
     public func updateInfoOfTarget(_ target: CSXTarget) {
+        target.chipType = CSXTarget.ChipType(rawValue: self.chipTypeButton.title) ?? CSXTarget.ChipType.M2
         target.targetAddress = self.targetAddressTextField.stringValue
         target.dataAddress = self.dataAddressTextField.stringValue
         if self.rodataAddressTextField.stringValue.count > 0 {
@@ -122,6 +124,7 @@ public class CSXTargetManagerViewController: NSViewController {
         } else {
             target.rodataAddress = nil
         }
+        target.optimizationLevel = CSXTarget.OptimizationLevel(rawValue: self.optimizationButton.title) ?? CSXTarget.OptimizationLevel.O0
         target.buildFolder = URL(fileURLWithPath: self.buildPathTextField.stringValue)
         target.cSourceFiles = CSXTarget.PathStringSetToURLArray(self.cSourceListViewController.fileList)
         target.cppSourceFiles = CSXTarget.PathStringSetToURLArray(self.cppSourceListViewController.fileList)
@@ -139,6 +142,9 @@ public class CSXTargetManagerViewController: NSViewController {
         self.targetAddressTextField.stringValue = target.targetAddress
         self.dataAddressTextField.stringValue = target.dataAddress
         self.rodataAddressTextField.stringValue = target.rodataAddress ?? ""
+        self.optimizationButton.selectItem(withTitle: target.optimizationLevel.rawValue)
+        self.targetTypeButton.selectItem(withTitle: target.targetType.rawValue)
+        self.chipTypeButton.selectItem(withTitle: target.chipType.rawValue)
         self.buildPathTextField.stringValue = target.buildFolder.relativePath
     }
     
@@ -209,6 +215,8 @@ public class CSXTargetManagerViewController: NSViewController {
             return
         }
         let messages = self.csxMake.build(target: target)
+        self.csxMake.printLog("")
+        self.csxMake.makeLogViewController.view.updateLayer()
         for message in messages {
             message.check()
         }

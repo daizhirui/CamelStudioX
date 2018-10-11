@@ -41,8 +41,9 @@ class NewTargetViewController: NSViewController {
                 return
             }
         }
-        let target = CSXTarget(chipType: .M2, targetType: targetType, cSourceFiles: [], cppSourceFiles: [],
-                               aSourceFiles: [], includeFolders: [], libraries: [], buildFolder: buildFolder,
+        let target = CSXTarget(chipType: .M2, targetType: targetType, optimization: CSXTarget.OptimizationLevel.O0,
+                               cSourceFiles: [], cppSourceFiles: [], aSourceFiles: [],
+                               includeFolders: [], libraries: [], buildFolder: buildFolder,
                                targetName: targetName, targetAddress: "10000000", dataAddress: "01000010",
                                rodataAddress: nil)
         manager.addTarget(target)

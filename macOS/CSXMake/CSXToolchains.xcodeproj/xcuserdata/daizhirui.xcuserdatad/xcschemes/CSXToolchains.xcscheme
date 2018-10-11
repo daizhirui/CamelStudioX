@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23A5E36921607DAC00BCDB45"
-               BuildableName = "CSXMakeTest.app"
-               BlueprintName = "CSXMakeTest"
-               ReferencedContainer = "container:CSXMake.xcodeproj">
+               BlueprintIdentifier = "23A5DD83215FE93200BCDB45"
+               BuildableName = "CSXToolchains.framework"
+               BlueprintName = "CSXToolchains"
+               ReferencedContainer = "container:CSXToolchains.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23A5E36921607DAC00BCDB45"
-            BuildableName = "CSXMakeTest.app"
-            BlueprintName = "CSXMakeTest"
-            ReferencedContainer = "container:CSXMake.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23A5E36921607DAC00BCDB45"
-            BuildableName = "CSXMakeTest.app"
-            BlueprintName = "CSXMakeTest"
-            ReferencedContainer = "container:CSXMake.xcodeproj">
+            BlueprintIdentifier = "23A5DD83215FE93200BCDB45"
+            BuildableName = "CSXToolchains.framework"
+            BlueprintName = "CSXToolchains"
+            ReferencedContainer = "container:CSXToolchains.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23A5E36921607DAC00BCDB45"
-            BuildableName = "CSXMakeTest.app"
-            BlueprintName = "CSXMakeTest"
-            ReferencedContainer = "container:CSXMake.xcodeproj">
+            BlueprintIdentifier = "23A5DD83215FE93200BCDB45"
+            BuildableName = "CSXToolchains.framework"
+            BlueprintName = "CSXToolchains"
+            ReferencedContainer = "container:CSXToolchains.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

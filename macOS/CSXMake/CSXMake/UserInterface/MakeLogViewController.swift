@@ -14,13 +14,14 @@ public class MakeLogViewController: NSViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.logTextView.turnOffAllSmartOrAutoFunctionExceptLinkDetection()
     }
     
     @IBAction public func onSave(_ sender: NSButton) {
         let panel = NSSavePanel()
         panel.canCreateDirectories = true
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm-dd-yyyy hh:mm"
+        dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
         panel.nameFieldStringValue = "MakeLog-\(dateFormatter.string(from: Date())).txt"
         guard let mainWindow = NSApp.mainWindow else { return }
         panel.beginSheetModal(for: mainWindow) { (response: NSApplication.ModalResponse) in
@@ -34,3 +35,22 @@ public class MakeLogViewController: NSViewController {
         self.logTextView.string = ""
     }
 }
+
+extension NSTextView {
+    func turnOffAllSmartOrAutoFunctionExceptLinkDetection() {
+        self.isAutomaticDashSubstitutionEnabled = false;
+        self.isAutomaticTextReplacementEnabled = false;
+        self.isAutomaticQuoteSubstitutionEnabled = false
+        self.isAutomaticSpellingCorrectionEnabled = false
+        
+        if #available(OSX 10.12.2, *) {
+            self.isAutomaticTextCompletionEnabled = false
+        } else {
+            // Fallback on earlier versions
+        }
+        self.isAutomaticLinkDetectionEnabled = true
+        self.isContinuousSpellCheckingEnabled = false
+        self.isGrammarCheckingEnabled = false
+    }
+}
+

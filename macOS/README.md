@@ -8,6 +8,8 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Bugs to fix
 
+- [ ] Convert: 0x10000008 should be an instruction code which jumps to the real interrupt service routine entrance. Now 0x10000000 to 0x10000018 are codes which load address and jump to the real entrance of user's code. (FOR OPTIMIZATION 2). The instruction code of jump is `000010 26-bit`. Let `target` = 26-bit part. `target = (PC-(PC&0xf0000000))>>2`. `PC` is the address to jump to. (Code is modified already. Wait for test.)
+
 ## Improvement to do
 
 - [ ] Unify debugging print
@@ -17,7 +19,58 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Pending features
 
-- hardware debugging system
+- hardware debugging system: linker shouldn't use '-s' option!
+
+```bash
+~/D/C/C/Hello[14:10] > /Applications/CamelStudioX.app/Contents/Frameworks/CSXMake.framework/Resources/Toolchains/bin/mips-netbsd-elf-objdump -d --line-numbers release/Hello.o 
+
+release/Hello.o:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+00000000 <user_interrupt>:
+user_interrupt():
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:25
+0:    27bdfff8     addiu    sp,sp,-8
+4:    afbe0004     sw    s8,4(sp)
+8:    03a0f025     move    s8,sp
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:26
+c:    00000000     nop
+10:    03c0e825     move    sp,s8
+14:    8fbe0004     lw    s8,4(sp)
+18:    27bd0008     addiu    sp,sp,8
+1c:    03e00008     jr    ra
+20:    00000000     nop
+
+00000024 <main>:
+main():
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:34
+24:    27bdffe8     addiu    sp,sp,-24
+28:    afbf0014     sw    ra,20(sp)
+2c:    afbe0010     sw    s8,16(sp)
+30:    03a0f025     move    s8,sp
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:36
+34:    3c020000     lui    v0,0x0
+38:    24440000     addiu    a0,v0,0
+3c:    0c000000     jal    0 <user_interrupt>
+40:    00000000     nop
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:37
+44:    00000000     nop
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:39
+48:    3c020000     lui    v0,0x0
+4c:    24440008     addiu    a0,v0,8
+50:    0c000000     jal    0 <user_interrupt>
+54:    00000000     nop
+58:    00001025     move    v0,zero
+/Users/daizhirui/Development/Camel/CamelProject/Hello/Hello.c:40
+5c:    03c0e825     move    sp,s8
+60:    8fbf0014     lw    ra,20(sp)
+64:    8fbe0010     lw    s8,16(sp)
+68:    27bd0018     addiu    sp,sp,24
+6c:    03e00008     jr    ra
+70:    00000000     nop
+```
 
 ## History
 
