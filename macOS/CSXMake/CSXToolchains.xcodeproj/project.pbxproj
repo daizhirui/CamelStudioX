@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2347FC2B216FA7FA00274269 /* DWARFDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2347FC2A216FA7FA00274269 /* DWARFDefinition.swift */; };
 		235162B321620D4A009976CE /* CenteringClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235162B121620D3B009976CE /* CenteringClipView.swift */; };
 		23977C9C216F5147007E8F5A /* Toolchains in Resources */ = {isa = PBXBuildFile; fileRef = 23977C9B216F5147007E8F5A /* Toolchains */; };
 		23977C9E216F51A6007E8F5A /* CSXDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23977C9D216F51A6007E8F5A /* CSXDebugger.swift */; };
@@ -36,6 +37,7 @@
 		23A5E37421607DAC00BCDB45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A5E37221607DAC00BCDB45 /* Main.storyboard */; };
 		23A5E37A21607E4B00BCDB45 /* CSXToolchains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A5DD84215FE93200BCDB45 /* CSXToolchains.framework */; };
 		23A5E37B21607E4B00BCDB45 /* CSXToolchains.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A5DD84215FE93200BCDB45 /* CSXToolchains.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23AF9B7A216F766B00B23E2C /* CSXSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF9B79216F766B00B23E2C /* CSXSymbol.swift */; };
 		23D761072160C98A0078EABB /* MakeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D761052160C98A0078EABB /* MakeLogViewController.swift */; };
 		23D761082160C98A0078EABB /* MakeLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D761062160C98A0078EABB /* MakeLogView.xib */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2347FC2A216FA7FA00274269 /* DWARFDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWARFDefinition.swift; sourceTree = "<group>"; };
 		235162B121620D3B009976CE /* CenteringClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringClipView.swift; sourceTree = "<group>"; };
 		23977C9B216F5147007E8F5A /* Toolchains */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Toolchains; sourceTree = "<group>"; };
 		23977C9D216F51A6007E8F5A /* CSXDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSXDebugger.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		23A5E37321607DAC00BCDB45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23A5E37521607DAC00BCDB45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23A5E37621607DAC00BCDB45 /* CSXMakeTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CSXMakeTest.entitlements; sourceTree = "<group>"; };
+		23AF9B79216F766B00B23E2C /* CSXSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSXSymbol.swift; sourceTree = "<group>"; };
 		23D761052160C98A0078EABB /* MakeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeLogViewController.swift; sourceTree = "<group>"; };
 		23D761062160C98A0078EABB /* MakeLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakeLogView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,12 +124,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2347FC29216FA7D300274269 /* DWARFSupport */ = {
+			isa = PBXGroup;
+			children = (
+				2347FC2A216FA7FA00274269 /* DWARFDefinition.swift */,
+			);
+			path = DWARFSupport;
+			sourceTree = "<group>";
+		};
 		23977C98216F5076007E8F5A /* CSXDebugger */ = {
 			isa = PBXGroup;
 			children = (
 				23977C9D216F51A6007E8F5A /* CSXDebugger.swift */,
 				23977C9F216F51BE007E8F5A /* DebuggerInfoItem.swift */,
 				23977CA1216F51CE007E8F5A /* CSXBreakpoint.swift */,
+				23AF9B79216F766B00B23E2C /* CSXSymbol.swift */,
 			);
 			path = CSXDebugger;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 		23A5DD7A215FE93200BCDB45 = {
 			isa = PBXGroup;
 			children = (
+				2347FC29216FA7D300274269 /* DWARFSupport */,
 				23977C99216F5093007E8F5A /* Support */,
 				23977C9A216F50B8007E8F5A /* Toolchains */,
 				23977C98216F5076007E8F5A /* CSXDebugger */,
@@ -340,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23977CA0216F51BE007E8F5A /* DebuggerInfoItem.swift in Sources */,
+				2347FC2B216FA7FA00274269 /* DWARFDefinition.swift in Sources */,
 				23A5E3632160729800BCDB45 /* CSXConvert.swift in Sources */,
 				23A5E35D215FEB9A00BCDB45 /* Shared.swift in Sources */,
 				23A5E35F215FED2700BCDB45 /* ToolchainTool.swift in Sources */,
@@ -349,6 +364,7 @@
 				23A5DD94215FE99D00BCDB45 /* CSXGCPP.swift in Sources */,
 				23A5DD90215FE97900BCDB45 /* CSXGCC.swift in Sources */,
 				23A5E3652160745300BCDB45 /* CSXMake.swift in Sources */,
+				23AF9B7A216F766B00B23E2C /* CSXSymbol.swift in Sources */,
 				2397864F2161D0D1006B6153 /* CSXTarget.swift in Sources */,
 				23D761072160C98A0078EABB /* MakeLogViewController.swift in Sources */,
 				23A5DD98215FE9BE00BCDB45 /* CSXLD.swift in Sources */,

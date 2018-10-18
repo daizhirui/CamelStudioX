@@ -9,5 +9,14 @@
 import Cocoa
 
 class DebuggerInfoItem: NSObject {
-
+    var fileURL: URL
+    var lineNumber: Int
+    var assemblyCodeRange: NSRange
+    
+    init(fileURL: URL, lineNumber: Int, assemblyCodeRange: NSRange) {
+        self.fileURL = fileURL
+        self.lineNumber = lineNumber
+        self.assemblyCodeRange = assemblyCodeRange
+        super.init()
+    }
 }

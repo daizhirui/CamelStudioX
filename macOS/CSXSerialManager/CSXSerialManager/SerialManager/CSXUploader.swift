@@ -126,7 +126,8 @@ class CSXUploader: NSObject {
                                                 self.heartBeatTimer = nil
                                                 self.nextStep(with: setBaudrate9600Request1)
         })!
-        let sendBinaryRequest2 = SerialRequest(command: "\(targetAddress)\n", response: "Waiting for binary image linked at 10000000",
+        let sendBinaryRequest2 = SerialRequest(command: "\(targetAddress.uppercased())\n",
+                                               response: "Waiting for binary image linked at \(targetAddress.uppercased())",
                                                searchingRangeLength: 200, timeout: 10, userInfo: [CSXUploader.UploadStage.sendBinary],
                                                execute: {
                                                 guard let binaryData = try? Data(contentsOf: binaryURL) else {

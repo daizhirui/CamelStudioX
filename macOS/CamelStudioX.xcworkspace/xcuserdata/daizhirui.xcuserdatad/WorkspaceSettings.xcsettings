@@ -12,8 +12,10 @@
 	<string>Build/Products</string>
 	<key>CustomIndexStorePath</key>
 	<string>Index/DataStore</string>
+	<key>DerivedDataCustomLocation</key>
+	<string>DerivedData</string>
 	<key>DerivedDataLocationStyle</key>
-	<string>Default</string>
+	<string>WorkspaceRelativePath</string>
 	<key>EnabledFullIndexStoreVisibility</key>
 	<false/>
 	<key>IssueFilterStyle</key>

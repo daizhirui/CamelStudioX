@@ -23,6 +23,7 @@ public class SerialMonitorViewController: NSViewController {
     @IBOutlet weak var baudrateLabel: NSTextField!
     @IBOutlet weak var sendTextView: NSTextView!
     @IBOutlet weak var autoClearSendTextView: NSButton!
+    
     @IBOutlet weak public var targetAddress: NSTextField!
     @IBOutlet weak public var binaryPath: NSTextField!
     @IBOutlet weak var loadButton: NSButton!

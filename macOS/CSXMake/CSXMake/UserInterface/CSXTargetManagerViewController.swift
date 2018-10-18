@@ -161,7 +161,7 @@ public class CSXTargetManagerViewController: NSViewController {
         let name = sender.title
         for target in self.targets {
             if target.name == name {
-                self.selectedTarget = target
+                self.selectedTarget = target    // target will be auto-updated
                 return
             }
         }

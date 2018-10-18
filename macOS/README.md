@@ -8,7 +8,7 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Bugs to fix
 
-- [ ] Convert: 0x10000008 should be an instruction code which jumps to the real interrupt service routine entrance. Now 0x10000000 to 0x10000018 are codes which load address and jump to the real entrance of user's code. (FOR OPTIMIZATION 2). The instruction code of jump is `000010 26-bit`. Let `target` = 26-bit part. `target = (PC-(PC&0xf0000000))>>2`. `PC` is the address to jump to. (Code is modified already. Wait for test.)
+- [x] Convert: 0x10000008 should be an instruction code which jumps to the real interrupt service routine entrance. Now 0x10000000 to 0x10000018 are codes which load address and jump to the real entrance of user's code. (FOR OPTIMIZATION 2). The instruction code of jump is `000010 26-bit`. Let `target` = 26-bit part. `target = (PC-(PC&0xf0000000))>>2`. `PC` is the address to jump to. (Code is modified already. Wait for test.)
 
 ## Improvement to do
 
@@ -19,7 +19,7 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Pending features
 
-- hardware debugging system: linker shouldn't use '-s' option!
+- [ ] hardware debugging system: linker shouldn't use '-s' option!
 
 ```bash
 ~/D/C/C/Hello[14:10] > /Applications/CamelStudioX.app/Contents/Frameworks/CSXMake.framework/Resources/Toolchains/bin/mips-netbsd-elf-objdump -d --line-numbers release/Hello.o 
