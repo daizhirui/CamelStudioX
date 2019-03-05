@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Installation}{3}
+\contentsline {section}{\numberline {2}Welcome Window}{4}
+\contentsline {section}{\numberline {3}Create a new project}{4}
+\contentsline {section}{\numberline {4}Main Window}{5}
+\contentsline {subsection}{\numberline {4.1}Side Panel}{5}
+\contentsline {subsubsection}{\numberline {4.1.1}Project Setting}{6}
+\contentsline {subsubsection}{\numberline {4.1.2}Serial Monitor}{8}
+\contentsline {subsection}{\numberline {4.2}Editor Area}{8}
+\contentsline {section}{\numberline {5}Documentation}{10}

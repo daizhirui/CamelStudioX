@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <menu autoenablesItems="NO" id="m0f-YH-10o" customClass="FileBrowserMenu" customModule="CSXFileBrowser" customModuleProvider="target">
+            <items>
+                <menuItem title="Show in Finder" id="LeY-3m-6Xa">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showInFinder:" target="-1" id="sJE-Hk-K7k"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="a2k-uN-KWR"/>
+                <menuItem title="New File..." id="DXr-1h-iis">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="newFileAction:" target="-1" id="Nk8-j7-kO2"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="New Folder" id="XC6-bc-nvi">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="newFolderAction:" target="-1" id="hg0-hA-G8X"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="xPu-Lt-kVm"/>
+                <menuItem title="Add Files" id="wOc-de-1mN">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="addItemAction:" target="-1" id="cr3-KI-bEh"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Rename" id="HCQ-6Q-2sq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="renameItemAction:" target="-1" id="XlN-wG-yQ9"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="u5e-59-Ige"/>
+                <menuItem title="Delete" id="CpJ-ve-IL5">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="deleteItemAction:" target="-1" id="8NI-iB-h8L"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Id9-to-EbS"/>
+                <menuItem title="Refresh" id="ouc-hc-rdW">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="refresh:" target="-1" id="EXJ-b0-p12"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Refresh From Disk" id="7ea-JJ-hQk">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="__refreshFromDisk:" target="-1" id="NXR-Ca-cGl"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="addFilesMenuItem" destination="wOc-de-1mN" id="y1I-ZR-6zY"/>
+                <outlet property="deleteMenuItem" destination="CpJ-ve-IL5" id="S6a-hT-EFh"/>
+                <outlet property="newFileMenuItem" destination="DXr-1h-iis" id="Frl-5A-HZE"/>
+                <outlet property="newFolderMenuItem" destination="XC6-bc-nvi" id="MQZ-q9-aDt"/>
+                <outlet property="renameMenuItem" destination="HCQ-6Q-2sq" id="tUY-rU-Iwb"/>
+            </connections>
+            <point key="canvasLocation" x="125.5" y="128"/>
+        </menu>
+    </objects>
+</document>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="RequireNameViewController" customModule="CSXFileBrowser" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="kFC-qy-zQ9" id="DlL-2O-pRa"/>
+                <outlet property="nameTextField" destination="EVK-7V-Ra1" id="P3h-uf-j2I"/>
+                <outlet property="tipLabel" destination="tSv-gI-9a9" id="eCx-Fr-YKe"/>
+                <outlet property="view" destination="3BA-Lz-pBQ" id="uzm-AY-gxE"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="3BA-Lz-pBQ" userLabel="Ask Name View">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EVK-7V-Ra1">
+                    <rect key="frame" x="88" y="49" width="374" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="374" id="BXP-4d-Es3"/>
+                        <constraint firstAttribute="height" constant="22" id="LTr-jv-GsM"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7DZ-dL-ors">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="okAction:" target="-1" id="Gi2-TK-Nay"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-gI-9a9">
+                    <rect key="frame" x="86" y="79" width="378" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="cyH-pz-VNl">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4PZ-wr-CnZ">
+                    <rect key="frame" x="386" y="13" width="82" height="32"/>
+                    <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nQY-Sn-Dk4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="okAction:" target="-2" id="N4Z-hy-FMM"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wrr-zm-MBi">
+                    <rect key="frame" x="305" y="13" width="82" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="9ej-sb-a61"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cxf-fG-mqr">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cancelAction:" target="-2" id="MZk-no-WOw"/>
+                    </connections>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kFC-qy-zQ9">
+                    <rect key="frame" x="20" y="34" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="CPQ-cC-mg2"/>
+                        <constraint firstAttribute="height" constant="48" id="WQe-Zf-3RK"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="0Y5-pO-Jgt"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4PZ-wr-CnZ" firstAttribute="width" secondItem="wrr-zm-MBi" secondAttribute="width" id="2YM-SD-x0j"/>
+                <constraint firstAttribute="trailing" secondItem="tSv-gI-9a9" secondAttribute="trailing" constant="20" id="49z-Hg-k0b"/>
+                <constraint firstAttribute="trailing" secondItem="4PZ-wr-CnZ" secondAttribute="trailing" constant="20" id="8TG-nj-WLc"/>
+                <constraint firstItem="EVK-7V-Ra1" firstAttribute="top" secondItem="tSv-gI-9a9" secondAttribute="bottom" constant="8" id="CWx-4f-pFq"/>
+                <constraint firstItem="4PZ-wr-CnZ" firstAttribute="leading" secondItem="wrr-zm-MBi" secondAttribute="trailing" constant="11" id="LzV-UR-8lV"/>
+                <constraint firstItem="4PZ-wr-CnZ" firstAttribute="top" secondItem="EVK-7V-Ra1" secondAttribute="bottom" constant="8" id="OYM-ao-VBe"/>
+                <constraint firstAttribute="trailing" secondItem="EVK-7V-Ra1" secondAttribute="trailing" constant="20" id="S5Y-H8-i4s"/>
+                <constraint firstItem="tSv-gI-9a9" firstAttribute="top" secondItem="3BA-Lz-pBQ" secondAttribute="top" constant="20" id="VBh-uF-FMq"/>
+                <constraint firstAttribute="bottom" secondItem="kFC-qy-zQ9" secondAttribute="bottom" constant="34" id="YLT-CP-tOL"/>
+                <constraint firstItem="kFC-qy-zQ9" firstAttribute="top" secondItem="3BA-Lz-pBQ" secondAttribute="top" constant="34" id="YPC-lH-x2C"/>
+                <constraint firstItem="EVK-7V-Ra1" firstAttribute="leading" secondItem="kFC-qy-zQ9" secondAttribute="trailing" constant="20" id="YXX-qY-nK9"/>
+                <constraint firstAttribute="bottom" secondItem="4PZ-wr-CnZ" secondAttribute="bottom" constant="20" id="fag-Og-sdZ"/>
+                <constraint firstAttribute="bottom" secondItem="wrr-zm-MBi" secondAttribute="bottom" constant="20" id="fkq-wE-mag"/>
+                <constraint firstItem="kFC-qy-zQ9" firstAttribute="leading" secondItem="3BA-Lz-pBQ" secondAttribute="leading" constant="20" id="ppE-z1-EtM"/>
+                <constraint firstItem="tSv-gI-9a9" firstAttribute="leading" secondItem="EVK-7V-Ra1" secondAttribute="leading" id="qid-hP-M75"/>
+            </constraints>
+            <point key="canvasLocation" x="554.5" y="-67"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+    </resources>
+</document>

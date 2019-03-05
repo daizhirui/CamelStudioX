@@ -1,0 +1,34 @@
+{
+  "SerialPortName" : "",
+  "CodeThemeName" : "",
+  "Targets" : [
+    {
+      "C_Source" : [
+        "\/Users\/daizhirui\/Downloads\/Hello\/Hello.c"
+      ],
+      "IncludeFolders" : [
+
+      ],
+      "TargetType" : "Binary",
+      "ChipType" : "M2",
+      "TargetName" : "Hello",
+      "Cpp_Source" : [
+
+      ],
+      "OptimizationLevel" : "O0",
+      "BuildFolder" : "\/Users\/daizhirui\/Downloads\/Hello\/build",
+      "TargetAddress" : "10000000",
+      "A_Source" : [
+
+      ],
+      "DataAddress" : "01000010",
+      "Libraries" : [
+        "\/Applications\/CamelStudioX.app\/Contents\/Frameworks\/CSXToolchains.framework\/Resources\/Toolchains\/lib\/M2\/libstdio.a"
+      ],
+      "RodataAddress" : ""
+    }
+  ],
+  "ProjectURL" : "\/Users\/daizhirui\/Downloads\/Hello",
+  "CMSXVersion" : "1.0",
+  "ProjectName" : "Hello"
+}

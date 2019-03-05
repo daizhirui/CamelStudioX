@@ -1,0 +1,585 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- For Mobile Devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta name="generator" content="Doxygen 1.8.14" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <title>Camel Library Documentaion: /Users/daizhirui/Development/Camel_Library/release/include/Interrupt.h File Reference</title>
+    <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script> <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script> 
+    <link href="doxygen.css" rel="stylesheet" type="text/css" /> <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="doxy-boot.js"></script>
+    <style>
+        /*a {color: darkblue;}*/
+        container {background-color: white}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-light sticky-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- justify-content-end -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active align-self-center">
+                        <a class="navbar-brand" href="#"><img src="cmstudio.png" width="30px">  Camel Library Documentaion    </a>
+                    </li>
+                    <li class="nav-item active align-self-center">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown align-self-center">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Related links</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="files.html">File&nbsp;List</a>
+                            <a class="dropdown-item" href="annotated.html">Data&nbsp;Structure</a>
+                            <a class="dropdown-item" href="classes.html">Data&nbsp;Structure&nbsp;Index</a>
+                            <a class="dropdown-item" href="https://rink.hockeyapp.net/apps/798a2dae49b04400bcadaf69bda80417">CamelStudioX For Mac</a>
+                            <a class="dropdown-item" href="https://github.com/daizhirui/CamelStudio_Library">GitHub Project</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="MSearchBox" class="MSearchBoxInactive justify-content-end">
+                <span class="left">
+                    <img id="MSearchSelect" src="search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+                    <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+                </span><span class="right">
+                    <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()" style="display: none;"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""></a>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <div id="top">
+        <div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(0)" href="javascript:void(0)"><span class="SelectionMark">•</span>All</a><a class="SelectItem" onclick="searchBox.OnSelectItem(1)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Classes</a>
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(2)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" onclick="searchBox.OnSelectItem(3)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Functions</a>
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(4)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" onclick="searchBox.OnSelectItem(5)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Typedefs</a>
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(6)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" onclick="searchBox.OnSelectItem(7)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Enumerator</a>
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(8)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Friends</a><a class="SelectItem" onclick="searchBox.OnSelectItem(9)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Modules</a>
+            <a class="SelectItem" onclick="searchBox.OnSelectItem(10)" href="javascript:void(0)"><span class="SelectionMark">&nbsp;</span>Pages</a>
+        </div>
+        <div id="MSearchResultsWindow" style="display: none; top: 52px; left: 1221px;">
+            <iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe>
+        </div>
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div class="content" id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 panel " style="padding-bottom: 15px;">
+                        <div style="margin-bottom: 15px;">
+                            <!-- end header part -->
+<!-- Generated by Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('a00011.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Interrupt.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interrupt Library for M2.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00020.html">mcu.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afa38f6b3d96898de1e521bf88e097a4c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4c">SYSINT_DEVICE</a> { <b>SYSINT_SPIINT</b> = 0x8, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca0363b01262967c7900f56bf11fb3541d">SYSINT_UART1INT</a> = 0x7, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4caa245202adffe4900175deab41b6518fc">SYSINT_WDTINT</a> = 0x6, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4caf7b71238d06781c61f2d4894f74b12c3">SYSINT_EXTINT</a> = 0x5, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca108e51031e1626a71e03626005ee11c2">SYSINT_DBGINT</a> = 0x4, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4cace28a954633dd9ea0cdef0ad00fe87a2">SYSINT_TC2INT</a> = 0x3, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca6a6e9a3e70344b1de433dcde4bfa569d">SYSINT_TC1INT</a> = 0x2, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca046fae26abf2ef23f7ea24607cd837f5">SYSINT_TC0INT</a> = 0x1, 
+<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca3fce9e90d8963a30d0fdb51cd9009db9">SYSINT_UART0INT</a> = 0x0
+ }</td></tr>
+<tr class="separator:afa38f6b3d96898de1e521bf88e097a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11f5754cc92430795a63bb53d964cd4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4">EXTINT_PORT</a> { <b>EXINT0</b> = 0x0, 
+<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a6c87103fd7c63fc99ee4b631c0a4dac4">EXINT1</a> = 0x1, 
+<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a92c5398067978d1aefd4ba3c276dec32">EXINT2</a> = 0x2, 
+<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a3c37ddaa34bf4297b421d8577be06895">EXINT3</a> = 0x3, 
+<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a766aca243fc0f7aa292c791202bef6e7">EXINT4</a> = 0x4, 
+<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4af59c814bf9818345f24bb79e7533945c">EXINT5</a> = 0x5
+ }</td></tr>
+<tr class="separator:af11f5754cc92430795a63bb53d964cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aca7d297005ee41b91c0e638a40bec585"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#aca7d297005ee41b91c0e638a40bec585">RT_SYSINT_GetFlag</a> (<a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4c">SYSINT_DEVICE</a> device)</td></tr>
+<tr class="memdesc:aca7d297005ee41b91c0e638a40bec585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check interrupt flag of SPI, UART1, WatchDog, ExternalInterrupt, Debug, Timer2, Timer1, Timer0 or UART0.  <a href="#aca7d297005ee41b91c0e638a40bec585">More...</a><br /></td></tr>
+<tr class="separator:aca7d297005ee41b91c0e638a40bec585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae38d9088d19c0550caf1dacec0b3475b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ae38d9088d19c0550caf1dacec0b3475b">RT_SYSINT_On</a> ()</td></tr>
+<tr class="memdesc:ae38d9088d19c0550caf1dacec0b3475b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on system interrupt.  <a href="#ae38d9088d19c0550caf1dacec0b3475b">More...</a><br /></td></tr>
+<tr class="separator:ae38d9088d19c0550caf1dacec0b3475b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf51664514fdf6f702d8209e95e445dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#acf51664514fdf6f702d8209e95e445dc">RT_SYSINT_Off</a> ()</td></tr>
+<tr class="memdesc:acf51664514fdf6f702d8209e95e445dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off system interrupt.  <a href="#acf51664514fdf6f702d8209e95e445dc">More...</a><br /></td></tr>
+<tr class="separator:acf51664514fdf6f702d8209e95e445dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2664665be12652ffe3d884f1423f672"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ac2664665be12652ffe3d884f1423f672">RT_EXINT_Setup</a> (<a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4">EXTINT_PORT</a> port, <a class="el" href="a00020.html#a6d33f21be3f0c5cf91c5d638e8aca086">trigger_mode_t</a> mode)</td></tr>
+<tr class="memdesc:ac2664665be12652ffe3d884f1423f672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the external interrupt.  <a href="#ac2664665be12652ffe3d884f1423f672">More...</a><br /></td></tr>
+<tr class="separator:ac2664665be12652ffe3d884f1423f672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9889abece7fc3ef133b0a93d7b5e54f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a9889abece7fc3ef133b0a93d7b5e54f2">RT_EXINT_Off</a> (port)</td></tr>
+<tr class="memdesc:a9889abece7fc3ef133b0a93d7b5e54f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close an external interrupt port.  <a href="#a9889abece7fc3ef133b0a93d7b5e54f2">More...</a><br /></td></tr>
+<tr class="separator:a9889abece7fc3ef133b0a93d7b5e54f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8100842e1feca5062f1712116abe97d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a8100842e1feca5062f1712116abe97d0">RT_EXINT_Clear</a> (port)</td></tr>
+<tr class="memdesc:a8100842e1feca5062f1712116abe97d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear interrupt flag from specific external interrupt port.  <a href="#a8100842e1feca5062f1712116abe97d0">More...</a><br /></td></tr>
+<tr class="separator:a8100842e1feca5062f1712116abe97d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62cc2402f1e2466bdd167cb75ad3cb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a62cc2402f1e2466bdd167cb75ad3cb74">RT_EXINT_ClearAll</a> ()</td></tr>
+<tr class="memdesc:a62cc2402f1e2466bdd167cb75ad3cb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all external interrupt flag.  <a href="#a62cc2402f1e2466bdd167cb75ad3cb74">More...</a><br /></td></tr>
+<tr class="separator:a62cc2402f1e2466bdd167cb75ad3cb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89b52c64e3041f59ff80bcc0a4682015"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a89b52c64e3041f59ff80bcc0a4682015">RT_EXINT_GetAllFlag</a> ()</td></tr>
+<tr class="memdesc:a89b52c64e3041f59ff80bcc0a4682015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the external interrupt flag table.  <a href="#a89b52c64e3041f59ff80bcc0a4682015">More...</a><br /></td></tr>
+<tr class="separator:a89b52c64e3041f59ff80bcc0a4682015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359121bf1f9306a694a4958cb14f6e61"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a359121bf1f9306a694a4958cb14f6e61">RT_EXINT_GetFlag</a> (port)</td></tr>
+<tr class="memdesc:a359121bf1f9306a694a4958cb14f6e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the flag of specific external interrupt port.  <a href="#a359121bf1f9306a694a4958cb14f6e61">More...</a><br /></td></tr>
+<tr class="separator:a359121bf1f9306a694a4958cb14f6e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interrupt Library for M2. </p>
+<dl class="section author"><dt>Author</dt><dd>Zhirui Dai </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16 Jun 2018 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>2018 Zhirui </dd></dl>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="af11f5754cc92430795a63bb53d964cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11f5754cc92430795a63bb53d964cd4">&#9670;&nbsp;</a></span>EXTINT_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4">EXTINT_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af11f5754cc92430795a63bb53d964cd4a6c87103fd7c63fc99ee4b631c0a4dac4"></a>EXINT1&#160;</td><td class="fielddoc"><p>Enternal interrupt 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af11f5754cc92430795a63bb53d964cd4a92c5398067978d1aefd4ba3c276dec32"></a>EXINT2&#160;</td><td class="fielddoc"><p>Enternal interrupt 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af11f5754cc92430795a63bb53d964cd4a3c37ddaa34bf4297b421d8577be06895"></a>EXINT3&#160;</td><td class="fielddoc"><p>Enternal interrupt 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af11f5754cc92430795a63bb53d964cd4a766aca243fc0f7aa292c791202bef6e7"></a>EXINT4&#160;</td><td class="fielddoc"><p>Enternal interrupt 3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af11f5754cc92430795a63bb53d964cd4af59c814bf9818345f24bb79e7533945c"></a>EXINT5&#160;</td><td class="fielddoc"><p>Enternal interrupt 4 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="afa38f6b3d96898de1e521bf88e097a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa38f6b3d96898de1e521bf88e097a4c">&#9670;&nbsp;</a></span>SYSINT_DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4c">SYSINT_DEVICE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4ca0363b01262967c7900f56bf11fb3541d"></a>SYSINT_UART1INT&#160;</td><td class="fielddoc"><p>SPI Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4caa245202adffe4900175deab41b6518fc"></a>SYSINT_WDTINT&#160;</td><td class="fielddoc"><p>UART1 Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4caf7b71238d06781c61f2d4894f74b12c3"></a>SYSINT_EXTINT&#160;</td><td class="fielddoc"><p>WDT Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4ca108e51031e1626a71e03626005ee11c2"></a>SYSINT_DBGINT&#160;</td><td class="fielddoc"><p>EXT Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4cace28a954633dd9ea0cdef0ad00fe87a2"></a>SYSINT_TC2INT&#160;</td><td class="fielddoc"><p>DBG Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4ca6a6e9a3e70344b1de433dcde4bfa569d"></a>SYSINT_TC1INT&#160;</td><td class="fielddoc"><p>TC2 Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4ca046fae26abf2ef23f7ea24607cd837f5"></a>SYSINT_TC0INT&#160;</td><td class="fielddoc"><p>TC1 Interrupt </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa38f6b3d96898de1e521bf88e097a4ca3fce9e90d8963a30d0fdb51cd9009db9"></a>SYSINT_UART0INT&#160;</td><td class="fielddoc"><p>TC0 Interrupt </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a8100842e1feca5062f1712116abe97d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8100842e1feca5062f1712116abe97d0">&#9670;&nbsp;</a></span>RT_EXINT_Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_EXINT_Clear </td>
+          <td>(</td>
+          <td class="paramtype">port&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear interrupt flag from specific external interrupt port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>the external interrupt port to clear irq flag, optional value: #EXINT0, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a6c87103fd7c63fc99ee4b631c0a4dac4">EXINT1</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a92c5398067978d1aefd4ba3c276dec32">EXINT2</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a3c37ddaa34bf4297b421d8577be06895">EXINT3</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a766aca243fc0f7aa292c791202bef6e7">EXINT4</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4af59c814bf9818345f24bb79e7533945c">EXINT5</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a62cc2402f1e2466bdd167cb75ad3cb74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62cc2402f1e2466bdd167cb75ad3cb74">&#9670;&nbsp;</a></span>RT_EXINT_ClearAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_EXINT_ClearAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear all external interrupt flag. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a89b52c64e3041f59ff80bcc0a4682015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b52c64e3041f59ff80bcc0a4682015">&#9670;&nbsp;</a></span>RT_EXINT_GetAllFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RT_EXINT_GetAllFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the external interrupt flag table. </p>
+<dl class="section return"><dt>Returns</dt><dd>the external interrupt flag table </dd></dl>
+
+</div>
+</div>
+<a id="a359121bf1f9306a694a4958cb14f6e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359121bf1f9306a694a4958cb14f6e61">&#9670;&nbsp;</a></span>RT_EXINT_GetFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RT_EXINT_GetFlag </td>
+          <td>(</td>
+          <td class="paramtype">port&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the flag of specific external interrupt port. </p>
+<dl class="section return"><dt>Returns</dt><dd>The flag of the external interrupt port. </dd></dl>
+
+</div>
+</div>
+<a id="a9889abece7fc3ef133b0a93d7b5e54f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9889abece7fc3ef133b0a93d7b5e54f2">&#9670;&nbsp;</a></span>RT_EXINT_Off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_EXINT_Off </td>
+          <td>(</td>
+          <td class="paramtype">port&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Close an external interrupt port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>the external interrupt port to close, optional value: #EXINT0, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a6c87103fd7c63fc99ee4b631c0a4dac4">EXINT1</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a92c5398067978d1aefd4ba3c276dec32">EXINT2</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a3c37ddaa34bf4297b421d8577be06895">EXINT3</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a766aca243fc0f7aa292c791202bef6e7">EXINT4</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4af59c814bf9818345f24bb79e7533945c">EXINT5</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ac2664665be12652ffe3d884f1423f672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2664665be12652ffe3d884f1423f672">&#9670;&nbsp;</a></span>RT_EXINT_Setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_EXINT_Setup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4">EXTINT_PORT</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00020.html#a6d33f21be3f0c5cf91c5d638e8aca086">trigger_mode_t</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the external interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>the port of external interrupt, optional value: #EXINT0, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a6c87103fd7c63fc99ee4b631c0a4dac4">EXINT1</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a92c5398067978d1aefd4ba3c276dec32">EXINT2</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a3c37ddaa34bf4297b421d8577be06895">EXINT3</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4a766aca243fc0f7aa292c791202bef6e7">EXINT4</a>, <a class="el" href="a00011.html#af11f5754cc92430795a63bb53d964cd4af59c814bf9818345f24bb79e7533945c">EXINT5</a> </td></tr>
+    <tr><td class="paramname">trigger</td><td>the trigger mode, optional value: #RISING, #FALLING </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aca7d297005ee41b91c0e638a40bec585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca7d297005ee41b91c0e638a40bec585">&#9670;&nbsp;</a></span>RT_SYSINT_GetFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RT_SYSINT_GetFlag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4c">SYSINT_DEVICE</a>&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check interrupt flag of SPI, UART1, WatchDog, ExternalInterrupt, Debug, Timer2, Timer1, Timer0 or UART0. </p>
+<dl class="section note"><dt>Note</dt><dd>SYS_IRQ_REG[8:0]: 9 devices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>Optional value: #SYSINT_SPIINT, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca0363b01262967c7900f56bf11fb3541d">SYSINT_UART1INT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca3fce9e90d8963a30d0fdb51cd9009db9">SYSINT_UART0INT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4caa245202adffe4900175deab41b6518fc">SYSINT_WDTINT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4caf7b71238d06781c61f2d4894f74b12c3">SYSINT_EXTINT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca108e51031e1626a71e03626005ee11c2">SYSINT_DBGINT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4cace28a954633dd9ea0cdef0ad00fe87a2">SYSINT_TC2INT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca6a6e9a3e70344b1de433dcde4bfa569d">SYSINT_TC1INT</a>, <a class="el" href="a00011.html#afa38f6b3d96898de1e521bf88e097a4ca046fae26abf2ef23f7ea24607cd837f5">SYSINT_TC0INT</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf51664514fdf6f702d8209e95e445dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf51664514fdf6f702d8209e95e445dc">&#9670;&nbsp;</a></span>RT_SYSINT_Off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_SYSINT_Off </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Turn off system interrupt. </p>
+<dl class="section note"><dt>Note</dt><dd>SYS_CTL0_REG[0]: 1=enable system interrupt, 0=disable system interrupt. </dd></dl>
+
+</div>
+</div>
+<a id="ae38d9088d19c0550caf1dacec0b3475b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38d9088d19c0550caf1dacec0b3475b">&#9670;&nbsp;</a></span>RT_SYSINT_On()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RT_SYSINT_On </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Turn on system interrupt. </p>
+<dl class="section note"><dt>Note</dt><dd>SYS_CTL0_REG[0]: 1=enable system interrupt, 0=disable system interrupt. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath">
+    <!-- id is needed for treeview function! -->
+    <!-- <ul>
+        <li class="navelem"><a class="el" href="dir_9c8c494a5e1ae1f33037b0e9d49f06c7.html">release</a></li><li class="navelem"><a class="el" href="dir_42743c43973611cb0b05144d150e48a5.html">include</a></li><li class="navelem"><a class="el" href="a00011.html">Interrupt.h</a></li>
+        <li class="footer">Generated on Mon Jul 16 2018 08:55:27 for Camel Library Documentaion by
+            <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+    </ul> -->
+    <div class="card">
+        <!-- <div class="card-header"> -->
+            <!-- Quote -->
+        <!-- </div> -->
+        <div class="card-body">
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <p class="card-text d-flex justify-content-between">
+                <a href="#" class="btn btn-primary">Return To Top</a>
+                <a href="http://www.doxygen.org/index.html">Generated on Mon Jul 16 2018 08:55:27 for Camel Library Documentaion by <img class="footer" src="doxygen.png" alt="doxygen"/>  1.8.14</a>
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
