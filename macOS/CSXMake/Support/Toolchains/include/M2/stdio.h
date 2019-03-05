@@ -29,7 +29,7 @@ void puts(const char* string);
  *
  * @return char  The character got from uart0.
  */
-char getchar();
+unsigned char getchar();
 
 /**
  * @brief Get a decimal integer from uart0.

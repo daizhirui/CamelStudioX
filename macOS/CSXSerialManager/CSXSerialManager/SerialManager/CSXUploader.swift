@@ -55,7 +55,7 @@ class CSXUploader: NSObject {
     @objc func requestTimeout(_ notification: Notification) {
         if self.checkPortInNotification(notification) {
             self.stopUpload()
-            self.delegate?.csxUploader(self, failure: "Request is timeout")
+            self.delegate?.csxUploader(self, failure: "Request is timeout", suggestedPortAction: nil)
         }
     }
     
@@ -64,7 +64,7 @@ class CSXUploader: NSObject {
         if self.checkPortInNotification(notification) {
             self.stopUpload()
             let port = userInfo[CSXSerialManager.Key.PortName] as? String
-            self.delegate?.csxUploader(self, failure: "\(port ?? "Serialport") is disconnected")
+            self.delegate?.csxUploader(self, failure: "\(port ?? "Serialport") is disconnected", suggestedPortAction: .remove)
         }
     }
     
@@ -73,10 +73,10 @@ class CSXUploader: NSObject {
         if self.checkPortInNotification(notification) {
             self.stopUpload()
             guard let error = userInfo[CSXSerialManager.Key.Error] as? Error else {
-                self.delegate?.csxUploader(self, failure: "Unknown serialport error")
+                self.delegate?.csxUploader(self, failure: "Unknown serialport error", suggestedPortAction: .close)
                 return
             }
-            self.delegate?.csxUploader(self, failure: error.localizedDescription)
+            self.delegate?.csxUploader(self, failure: error.localizedDescription, suggestedPortAction: .close)
         }
     }
     
@@ -131,7 +131,7 @@ class CSXUploader: NSObject {
                                                searchingRangeLength: 200, timeout: 10, userInfo: [CSXUploader.UploadStage.sendBinary],
                                                execute: {
                                                 guard let binaryData = try? Data(contentsOf: binaryURL) else {
-                                                    self.delegate?.csxUploader(self, failure: "Fail to read the binray")
+                                                    self.delegate?.csxUploader(self, failure: "Fail to read the binray", suggestedPortAction: nil)
                                                     self.stopUpload()
                                                     return
                                                 }
@@ -197,7 +197,7 @@ class CSXUploader: NSObject {
     
     func nextStep(with request: SerialRequest) {
         guard let unwrappedBuffer = self.buffer else {
-            self.delegate?.csxUploader(self, failure: "Lost internal buffer")
+            self.delegate?.csxUploader(self, failure: "Lost internal buffer", suggestedPortAction: nil)
             return
         }
         unwrappedBuffer.addRequest(request: request)
@@ -205,7 +205,7 @@ class CSXUploader: NSObject {
     
     func stopUpload() {
         self.buffer?.serialPort.baudRate = 9600
-        self.buffer?.closePort()
+//        self.buffer?.closePort()
         self.buffer?.reset()
         self.heartBeatTimer?.invalidate()
         self.heartBeatTimer = nil
@@ -214,7 +214,7 @@ class CSXUploader: NSObject {
 
 protocol CSXUploaderDelegate {
     func csxUploader(_ uploader: CSXUploader, didFinish stage: CSXUploader.UploadStage)
-    func csxUploader(_ uplodaer: CSXUploader, failure reason: String)
+    func csxUploader(_ uplodaer: CSXUploader, failure reason: String, suggestedPortAction: SerialPortAction?)
     func didUploadSuccessfully(_ uploader: CSXUploader)
     func didCloseSerialPort(_ uploader: CSXUploader, portName: String)
 }

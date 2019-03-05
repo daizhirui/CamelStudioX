@@ -13,6 +13,10 @@ public enum SerialPortMode {
     case normal, request, upload
 }
 
+public enum SerialPortAction {
+    case open, close, remove
+}
+
 public class CSXSerialBuffer: NSObject {
     
     public var screenView: NSTextView?
@@ -160,9 +164,20 @@ extension CSXSerialBuffer: ORSSerialPortDelegate {
                 }
             }
             if let view = self.screenView {
+                
                 let attributedString = NSAttributedString(string: aString, attributes: [NSAttributedString.Key.foregroundColor : view.textColor!])
                 view.textStorage?.append(attributedString)
-                view.pageDownAndModifySelection(nil)
+                
+                // Unnecessary yet
+//                if (self.string as NSString).length > 1000000000 {  // the string is too long
+//                    (self.string as NSString).replacingCharacters(in: NSMakeRange(0, 500000000), with: "")
+//                    view.string = ""
+//                    let newContent = NSAttributedString(string: self.string,
+//                                                              attributes: [NSAttributedString.Key.foregroundColor : view.textColor!])
+//                    view.textStorage?.append(newContent)
+//                }
+                
+                view.setSelectedRange(NSMakeRange((view.string as NSString).length, 0))
                 if self.autoScroll {
                     view.scrollToEndOfDocument(self)
                 }
@@ -182,6 +197,7 @@ extension CSXSerialBuffer: ORSSerialPortDelegate {
     }
 }
 
+// MARK:- SerialOutputViewDelegate
 extension CSXSerialBuffer: SerialOutputViewDelegate {
     func serialOutputView(_ textView: SerialOutputView, userDidInput content: String) {
         self.sendString(content)
@@ -189,6 +205,7 @@ extension CSXSerialBuffer: SerialOutputViewDelegate {
     
 }
 
+// MARK:- Protocol, Enumeration
 protocol CSXSerialBufferDelegate {
     func csxSerialBuffer(_ buffer: CSXSerialBuffer, didReceive request: SerialRequest)
     func csxSerialBuffer(_ buffer: CSXSerialBuffer, isTimeout request: SerialRequest)

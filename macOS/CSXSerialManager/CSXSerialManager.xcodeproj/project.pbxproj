@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2353EA232164EEFA004A9545 /* CSXUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353EA222164EEFA004A9545 /* CSXUploader.swift */; };
-		2380A7CF2165F201002640A8 /* SerialMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2380A7CE2165F201002640A8 /* SerialMonitor.xib */; };
+		2375F9FD218D9D5900FE5C23 /* SerialMonitorWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FC218D9D5900FE5C23 /* SerialMonitorWindow.xib */; };
+		2375F9FF218D9D8100FE5C23 /* SerialMonitorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375F9FE218D9D8100FE5C23 /* SerialMonitorWindowController.swift */; };
+		2380A7CF2165F201002640A8 /* SerialMonitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2380A7CE2165F201002640A8 /* SerialMonitorView.xib */; };
 		23BE07D9215E7BA9001E3A30 /* CSXSerialManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 23BE07D7215E7BA9001E3A30 /* CSXSerialManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23BE07EA215E7C59001E3A30 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BE07E9215E7C59001E3A30 /* ORSSerial.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		23BE07EC215E7C9C001E3A30 /* CSXSerialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE07EB215E7C9C001E3A30 /* CSXSerialManager.swift */; };
@@ -55,7 +57,9 @@
 
 /* Begin PBXFileReference section */
 		2353EA222164EEFA004A9545 /* CSXUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSXUploader.swift; sourceTree = "<group>"; };
-		2380A7CE2165F201002640A8 /* SerialMonitor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SerialMonitor.xib; sourceTree = "<group>"; };
+		2375F9FC218D9D5900FE5C23 /* SerialMonitorWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SerialMonitorWindow.xib; sourceTree = "<group>"; };
+		2375F9FE218D9D8100FE5C23 /* SerialMonitorWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialMonitorWindowController.swift; sourceTree = "<group>"; };
+		2380A7CE2165F201002640A8 /* SerialMonitorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SerialMonitorView.xib; sourceTree = "<group>"; };
 		23BE07D4215E7BA9001E3A30 /* CSXSerialManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSXSerialManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BE07D7215E7BA9001E3A30 /* CSXSerialManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSXSerialManager.h; sourceTree = "<group>"; };
 		23BE07D8215E7BA9001E3A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,8 +170,10 @@
 				23D33D26215FA5E20016AA91 /* SerialOutputView.swift */,
 				23D33D0B215F76710016AA91 /* SerialPortSettingViewController.swift */,
 				23D33CE9215F4E400016AA91 /* SerialPortSettingView.xib */,
+				2380A7CE2165F201002640A8 /* SerialMonitorView.xib */,
 				23D33D0D215F77F10016AA91 /* SerialMonitorViewController.swift */,
-				2380A7CE2165F201002640A8 /* SerialMonitor.xib */,
+				2375F9FC218D9D5900FE5C23 /* SerialMonitorWindow.xib */,
+				2375F9FE218D9D8100FE5C23 /* SerialMonitorWindowController.swift */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -285,8 +291,9 @@
 			files = (
 				23DF1B022167446F00D69F1F /* ch34x.pkg in Resources */,
 				23D33CEA215F4E400016AA91 /* SerialPortSettingView.xib in Resources */,
+				2375F9FD218D9D5900FE5C23 /* SerialMonitorWindow.xib in Resources */,
 				23DF1B032167446F00D69F1F /* pl2303.pkg in Resources */,
-				2380A7CF2165F201002640A8 /* SerialMonitor.xib in Resources */,
+				2380A7CF2165F201002640A8 /* SerialMonitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +318,7 @@
 				23BE07EE215E7DB2001E3A30 /* CSXSerialBuffer.swift in Sources */,
 				23BE07F0215E7DF5001E3A30 /* SerialRequest.swift in Sources */,
 				23D33D0E215F77F10016AA91 /* SerialMonitorViewController.swift in Sources */,
+				2375F9FF218D9D8100FE5C23 /* SerialMonitorWindowController.swift in Sources */,
 				23D33D27215FA5E20016AA91 /* SerialOutputView.swift in Sources */,
 				23BE07EC215E7C9C001E3A30 /* CSXSerialManager.swift in Sources */,
 				23D33D0C215F76710016AA91 /* SerialPortSettingViewController.swift in Sources */,

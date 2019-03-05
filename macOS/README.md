@@ -12,7 +12,6 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 ## Improvement to do
 
 - [ ] Unify debugging print
-- [ ] Add file system monitor to file browser, update files modified other-where automatically 
 - [ ] Update software architecture diagram
 - [ ] Write a formal README.md file
 
@@ -73,7 +72,22 @@ main():
 
 ## History
 
-### 4.0 Build 50
+### 4.0.3 Build 53
+
+- Improve the experience and the performance of the serial monitor
+- Improve the auto-completer of the code editor
+
+### 4.0.2 Build 52
+
+- Fix the UI of the tabs when a mouse is connected
+
+### 4.0.1 Build 51
+
+- Update Sparkle Framework
+- Add file system monitor to file browser, update files modified other-where automatically
+- Add "Tools" to the main menu, which contains two submenus: "Serial Monitor Window" and "Serial Driver Installer"
+
+### 4.0.0 Build 50
 Third generation of CamelStudioX, modular software architecture. Its UI is totally redesigned.
 
 Function List:

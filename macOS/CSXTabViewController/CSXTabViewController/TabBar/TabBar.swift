@@ -43,24 +43,22 @@ public class TabBar: NSScrollView {
         // setup scroller
         self.hasVerticalScroller = false    // no vertical scroller
         self.hasHorizontalRuler = true
+//        self.horizontalScroller?.isHidden = false
+//        self.autohidesScrollers = false
     }
     /// Redraw tab bar
     public func reload() {
-        // The horizontal scroller bar may appear
-        // when system preference sets the scroller bar auto-appearing when an external mouse is connected.
-        let scrollerBarHeight: CGFloat = self.horizontalScroller?.frame.height ?? 0
-        self.setFrameSize(NSSize(width: self.frame.width, height: Tab.defaultHeight + scrollerBarHeight))
+        
+        self.setFrameSize(NSSize(width: self.frame.width, height: Tab.defaultHeight))
         let tabHeight = self.tabDict.first?.value.frame.height ?? Tab.defaultHeight
         let tabWidth = (self.tabDict.first?.value.frame.width ?? Tab.defaultWidth) + 1
         let allTabsWidth = tabWidth * CGFloat(self.tabDict.count)
         // a new document view to store all the tabs
-        let newDocumentView = NSView(frame: NSMakeRect(0, 0, allTabsWidth, tabHeight + TabBar.scrollerHeight))
-        if #available(macOS 10.14, *) {
-            newDocumentView.wantsLayer = true
-//            newDocumentView.layer?.backgroundColor = NSColor(named: NSColor.Name("SelectedTabColorForDarkMode"),
-//                                                             bundle: Bundle(for: Tab.self))!.cgColor
-            newDocumentView.layer?.backgroundColor = NSColor.white.cgColor
-        }
+        // The horizontal scroller bar may appear
+        // when system preference sets the scroller bar auto-appearing when an external mouse is connected.
+        // But the tab must be aligned to the upper side of the tabbar. So, we should use a flilppedNSView
+        let newDocumentView = FlippedNSView(frame: NSMakeRect(0, 0, allTabsWidth, tabHeight))
+        
         // get origin scroll position
         var newVisibleRect = self.contentView.bounds
         
@@ -68,7 +66,7 @@ public class TabBar: NSScrollView {
             guard let tab = self.tabDict[id] else { continue }
             newDocumentView.addSubview(tab)
             let x = tabWidth * CGFloat(index)
-            tab.setFrameOrigin(NSPoint(x: x, y: TabBar.scrollerHeight))
+            tab.setFrameOrigin(NSPoint(x: x, y: 0)) // isFlipped = true!
             if tab.isSelected { // update scroll position
                 if x > (newVisibleRect.origin.x + self.frame.width - tabWidth / 2)
                     || x < (newVisibleRect.origin.x - tabWidth) {
@@ -78,7 +76,7 @@ public class TabBar: NSScrollView {
                     } else if newX > allTabsWidth - self.frame.width {
                         newX = allTabsWidth - self.frame.width
                     }
-                    newVisibleRect.origin = NSPoint(x: newX, y: TabBar.scrollerHeight)
+                    newVisibleRect.origin = NSPoint(x: newX, y: 0)
                 }
             }
         }

@@ -77,7 +77,8 @@ public class Tab: NSView {
             }
         }
     }
-    var tabAppearance = TabAppearance(backgroundColor: NSColor.white, foregroundColor: NSColor.black)
+    var tabAppearance = Tab.unselectedAppearance
+    //old: TabAppearance(backgroundColor: NSColor.white, foregroundColor: NSColor.black)
     var delegate: TabDelegate?
     public var id: TabID = 0
     

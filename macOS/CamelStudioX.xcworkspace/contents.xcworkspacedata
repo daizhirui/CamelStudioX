@@ -35,6 +35,12 @@
       location = "group:CSXLog/CSXLog.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Sparkle/Sparkle.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CamelStudioXHelp/CamelStudioXHelp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:README.md">
    </FileRef>
 </Workspace>

@@ -7,14 +7,14 @@
 		<key>CSXSerialManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>14</integer>
 		</dict>
 		<key>CSXSerialManagerTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

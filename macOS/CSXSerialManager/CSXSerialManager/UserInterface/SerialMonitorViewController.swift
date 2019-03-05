@@ -11,13 +11,13 @@ import ORSSerial
 
 public class SerialMonitorViewController: NSViewController {
     
+    public static var count = 0
+    
     public static func initiate() -> SerialMonitorViewController {
-//        let sb = NSStoryboard(name: "SerialMonitor", bundle: Bundle(for: SerialMonitorViewController.self))
-//        let vc = sb.instantiateController(withIdentifier: "SerialMonitorViewController") as! SerialMonitorViewController
-//        return vc
-        return SerialMonitorViewController.init(nibName: NSNib.Name("SerialMonitor"), bundle: Bundle(for: SerialMonitorViewController.self))
+        return SerialMonitorViewController.init(nibName: NSNib.Name("SerialMonitorView"), bundle: Bundle(for: SerialMonitorViewController.self))
     }
     
+    @IBOutlet weak var portPopupButton: NSPopUpButton!
     @IBOutlet weak var openPortButton: NSButton!
     @IBOutlet var outputView: SerialOutputView!
     @IBOutlet weak var baudrateLabel: NSTextField!
@@ -33,21 +33,45 @@ public class SerialMonitorViewController: NSViewController {
     
     @objc var serialManager: CSXSerialManager = CSXSerialManager.shared
     @objc public var selectedPort: ORSSerialPort? {
+        willSet {
+            if let port = self.selectedPort, port.isOpen {
+                self.onOpenOrClosePort(self.openPortButton)
+            }
+        }
         didSet {
             self.updateBaudrateLabel()
         }
     }
     var uploader = CSXUploader(csxSerialManager: CSXSerialManager.shared)
 
+    deinit {
+        SerialMonitorViewController.count -= 1
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         self.sendTextView.toolTip = "Input what you want to send"
         self.outputView.userInputDelegate = self
         self.uploader.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.serialPortEmergencyReaction(_:)),
+                                               name: CSXSerialManager.didDisconnectSerialPortNotification,
+                                               object: self.serialManager)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.serialPortEmergencyReaction(_:)),
+                                               name: CSXSerialManager.didEncounterErrorNotification,
+                                               object: self.serialManager)
+    }
+    
+    public override func viewDidAppear() {
+        super.viewDidAppear()
+        SerialMonitorViewController.count += 1
     }
     
     override public func viewWillDisappear() {
+        super.viewWillDisappear()
+        SerialMonitorViewController.count -= 1
+        
         guard let port = self.selectedPort else { return }
         port.close()
         guard let buffer = self.serialManager.getSerialBuffer(for: port) else { return }
@@ -60,6 +84,16 @@ public class SerialMonitorViewController: NSViewController {
     func updateBaudrateLabel() {
         if let port = self.selectedPort {
             self.baudrateLabel.stringValue = "Baudrate: \(port.baudRate) bps"
+        }
+    }
+    
+    @objc func serialPortEmergencyReaction(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        guard let portName = userInfo[CSXSerialManager.Key.PortName] as? String else { return }
+        if self.selectedPort?.name == portName {
+            self.openPortButton.title = "Open"
+            self.portPopupButton.select(nil)    // deselect all the ports
         }
     }
  
@@ -158,9 +192,8 @@ public class SerialMonitorViewController: NSViewController {
                 self.progressInfo.stringValue = "Fail to get buffer!"
                 return
             }
-            port.open()
-            self.serialManager.connectTextViewToPort(with: self.outputView, to: port)
-            self.openPortButton.title = "Close"
+            if !port.isOpen { self.onOpenOrClosePort(self.openPortButton) }
+            
             self.uploader.upload(with: URL(fileURLWithPath: self.binaryPath.stringValue),
                                  to: buffer, targetAddress: self.targetAddress.stringValue)
             self.loadButton.title = "Cancel"
@@ -214,12 +247,11 @@ extension SerialMonitorViewController: CSXUploaderDelegate {
         self.progressInfo.stringValue = "\((Float(stage.rawValue) / Float(CSXUploader.UploadStage.setBaudrate9600.rawValue) * 100).rounded(.up))%"
     }
     
-    func csxUploader(_ uplodaer: CSXUploader, failure reason: String) {
+    func csxUploader(_ uplodaer: CSXUploader, failure reason: String, suggestedPortAction: SerialPortAction?) {
         self.progressInfo.stringValue = reason
         self.progressInfo.toolTip = reason
         self.progressBar.stopAnimation(self)
         self.loadButton.title = "Load"
-        
     }
     
     func didUploadSuccessfully(_ uploader: CSXUploader) {

@@ -14,7 +14,7 @@ public class CSXTabViewController: NSViewController {
         return CSXTabViewController(nibName: NSNib.Name("CSXTabViewController"), bundle: Bundle(for: CSXTabViewController.self))
     }
     // MARK:- public properties
-    public let tabBar = TabBar.loadFromXib()!
+    let tabBar = TabBar.loadFromXib()!
     public var delegate: CSXTabViewControllerDelegate?
     // MARK:- private properties
     let tabView = NSTabView()
@@ -62,6 +62,7 @@ public class CSXTabViewController: NSViewController {
                       tabSelectedHandler: ((TabID) -> Void)?, tabCloseHandler: ((TabID) -> Void)?) -> Int {
         // create a new tab view item
         let tabViewItem = NSTabViewItem()
+        tabViewItem.viewController = viewController
         tabViewItem.view = viewController.view
         // create a new tab
         let id = self.tabBar.addTab(title: tabTitle, tabImage: tabImage, selectedHandler: tabSelectedHandler, closeHandler: tabCloseHandler)
@@ -92,6 +93,10 @@ public class CSXTabViewController: NSViewController {
     
     public func updateTabTitle(tabID: TabID, newTitle: String) {
         self.tabBar.updateTabTitle(tabID: tabID, newTitle: newTitle)
+    }
+    
+    public func tabViewItem(for tabID: TabID) -> NSTabViewItem? {
+        return self.tabViewItemDict[tabID]
     }
 }
 

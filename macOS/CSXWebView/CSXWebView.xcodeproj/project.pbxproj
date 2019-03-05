@@ -96,7 +96,7 @@
 		23DF1B162167913400D69F1F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Zhirui Dai";
 				TargetAttributes = {
 					23DF1B1E2167913400D69F1F = {
@@ -288,6 +288,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = daizhirui.CSXWebView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -316,6 +317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = daizhirui.CSXWebView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};

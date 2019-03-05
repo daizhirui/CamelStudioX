@@ -19,6 +19,7 @@
 		2328C91220E1E1C8004348FE /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328C91120E1E1C8004348FE /* TabBar.swift */; };
 		23671FE520E2707B00892546 /* TabDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23671FE420E2707B00892546 /* TabDelegate.swift */; };
 		23671FE720E2709700892546 /* TabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23671FE620E2709700892546 /* TabBarDelegate.swift */; };
+		23BB14C121F9CA590051EDB0 /* FlippedNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BB14C021F9CA590051EDB0 /* FlippedNSView.swift */; };
 		23BE07C8215E2F13001E3A30 /* TabColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23BE07C7215E2F13001E3A30 /* TabColor.xcassets */; };
 		23DF1B0721675D1400D69F1F /* CSXTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DF1B0621675D1400D69F1F /* CSXTabViewController.xib */; };
 		23F5DFD820E287DD000F2DAF /* CSXTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F5DFD720E287DD000F2DAF /* CSXTabViewController.swift */; };
@@ -67,6 +68,7 @@
 		2328C91120E1E1C8004348FE /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		23671FE420E2707B00892546 /* TabDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDelegate.swift; sourceTree = "<group>"; };
 		23671FE620E2709700892546 /* TabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegate.swift; sourceTree = "<group>"; };
+		23BB14C021F9CA590051EDB0 /* FlippedNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedNSView.swift; sourceTree = "<group>"; };
 		23BE07C7215E2F13001E3A30 /* TabColor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabColor.xcassets; sourceTree = "<group>"; };
 		23DF1B0621675D1400D69F1F /* CSXTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSXTabViewController.xib; sourceTree = "<group>"; };
 		23F5DFD720E287DD000F2DAF /* CSXTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSXTabViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				23F5DFE820E3156B000F2DAF /* TabBar.xib */,
 				2328C91120E1E1C8004348FE /* TabBar.swift */,
 				23671FE620E2709700892546 /* TabBarDelegate.swift */,
+				23BB14C021F9CA590051EDB0 /* FlippedNSView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				23F5DFDE20E2CF8E000F2DAF /* CSXTabViewControllerDelegate.swift in Sources */,
 				2328C91220E1E1C8004348FE /* TabBar.swift in Sources */,
 				23F5DFD820E287DD000F2DAF /* CSXTabViewController.swift in Sources */,
+				23BB14C121F9CA590051EDB0 /* FlippedNSView.swift in Sources */,
 				23671FE520E2707B00892546 /* TabDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

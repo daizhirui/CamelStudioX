@@ -59,30 +59,29 @@ extension CSXSerialManager {
     @objc func serialPortsWereConnected(_ aNotification: Notification) {
         guard let userInfo = aNotification.userInfo else { return }
         guard let ports = userInfo[ORSConnectedSerialPortsKey] as? [ORSSerialPort] else { return }
-        var portNames = [String]()
+        
         for port in ports {
             let buffer = CSXSerialBuffer(port: port)
             buffer.delegate = self
             self.bufferDict[port] = buffer
-            portNames.append(port.name)
+            
+            NotificationCenter.default.post(name: CSXSerialManager.didConnectSerialPortNotification,
+                                            object: self,
+                                            userInfo: [CSXSerialManager.Key.PortName : port.name])
         }
-        
-        NotificationCenter.default.post(name: CSXSerialManager.didConnectSerialPortNotification,
-                                        object: self,
-                                        userInfo: [CSXSerialManager.Key.PortName : portNames])
     }
     
     @objc func serialPortsWereDisconnected(_ aNotification: Notification) {
         guard let userInfo = aNotification.userInfo else { return }
-        guard let ports = userInfo[ORSDisconnectedSerialPortsKey] as? [ORSSerialPort] else { return }
-        var portNames = [String]()
+        guard let ports = userInfo[ORSDisconnectedSerialPortsKey] as? [ORSSerialPort] else { return }   // disconnected ports
+        
         for port in ports {
             self.bufferDict.removeValue(forKey: port)
-            portNames.append(port.name)
+            
+            NotificationCenter.default.post(name: CSXSerialManager.didDisconnectSerialPortNotification,
+                                            object: self,
+                                            userInfo: [CSXSerialManager.Key.PortName : port.name])
         }
-        NotificationCenter.default.post(name: CSXSerialManager.didDisconnectSerialPortNotification,
-                                        object: self,
-                                        userInfo: [CSXSerialManager.Key.PortName : portNames])
     }
 }
 
