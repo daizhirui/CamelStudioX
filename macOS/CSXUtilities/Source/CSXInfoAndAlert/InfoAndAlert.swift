@@ -14,8 +14,8 @@ public class InfoAndAlert: NSObject, NSUserNotificationCenterDelegate {
     public static let shared: InfoAndAlert = InfoAndAlert()
     
     static let alertViewController: AlertViewController = {
-        let sb = NSStoryboard.init(name: NSStoryboard.Name.init("Alert"), bundle: Bundle.init(for: InfoAndAlert.self))
-        let windowController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("AlertWindowController")) as! NSWindowController
+        let sb = NSStoryboard.init(name: "Alert", bundle: Bundle.init(for: InfoAndAlert.self))
+        let windowController = sb.instantiateController(withIdentifier: "AlertWindowController") as! NSWindowController
         let viewController = windowController.contentViewController as! AlertViewController
         return viewController
     }()

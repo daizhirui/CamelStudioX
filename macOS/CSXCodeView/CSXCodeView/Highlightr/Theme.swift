@@ -151,7 +151,7 @@ open class Theme {
         }
         else
         {
-            returnString = NSAttributedString(string: string, attributes:[NSAttributedString.Key.font:codeFont] )
+            returnString = NSAttributedString(string: string, attributes:[NSAttributedString.Key.font:codeFont as Any] )
         }
         
         return returnString

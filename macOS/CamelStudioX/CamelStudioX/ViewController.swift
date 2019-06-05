@@ -282,13 +282,13 @@ extension ViewController {
     
     func buildTarget() {
         self.sidePanelTabBar.selectSegment(withTag: 1)
-        self.onSidePanelTabBar(self.sidePanelTabBar)
+        self.onSidePanelTabBar(self.sidePanelTabBar as Any)
         self.targetManager.onBuild(nil)
     }
     
     func downloadToChip() {
         self.sidePanelTabBar.selectSegment(withTag: 2)
-        self.onSidePanelTabBar(self.sidePanelTabBar)
+        self.onSidePanelTabBar(self.sidePanelTabBar as Any)
         guard let target = self.targetManager.getSelectedTarget() else {
             self.serialMonitor.progressInfo.stringValue = "ERROR: No target is selected!"
             return
