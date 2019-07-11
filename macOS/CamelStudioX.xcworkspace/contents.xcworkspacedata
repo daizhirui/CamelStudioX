@@ -38,9 +38,9 @@
       location = "group:Sparkle/Sparkle.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:README.md">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:README.md">
    </FileRef>
 </Workspace>
