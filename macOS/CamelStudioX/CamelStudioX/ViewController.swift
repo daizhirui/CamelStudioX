@@ -37,8 +37,9 @@ class ViewController: NSViewController {
     var document: Document?
 
     @IBOutlet weak var viewSplitView: NSSplitView!
-    @IBOutlet weak var sidePanelTabBar: NSSegmentedControl!
     @IBOutlet weak var sidePanelTabView: NSTabView!
+    let PROJECT_FILES_TAB = 0
+    let SERIAL_MONITOR_TAB = 1
     var sidePanelViewWidth: CGFloat = 0
     let fileBrowser = CSXFileBrowser.initiate()
     @IBOutlet weak var fileBrowserView: NSView!
@@ -55,35 +56,43 @@ class ViewController: NSViewController {
     let serialMonitor = SerialMonitorViewController.initiate()
     @IBOutlet weak var serialMonitorView: NSView!
     @IBOutlet weak var mainAreaTabView: NSTabView!
+    let PROJECT_SETTINGS_TAB = 0
+    let CSXMAKE_LOG_TAB = 1
+    let EDITOR_TAB = 2
     let editorViewController = CSXTabViewController.initiate()
     var fileViewPackages = Set<FileViewPackage>()
-    
-    let webView = CSXWebViewController.initiate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        // setup file browser
         self.fileBrowserView.addSubViewWithQuickLayout(view: self.fileBrowser.view,
                                                        topDistance: 0, bottomDistance: 0, leadingDistance: 0, trailingDistance: 0,
                                                        options: [])
         self.fileBrowser.delegate = self
         // set in `Document`
-//        self.fileBrowser.folderURL = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Desktop")
+//        self.fileBrowser.folderURL = URL(fileURLWithPath:NSHomeDirectory()).appendingPathComponent("Desktop")
+        // setup serial monitor
+        self.serialMonitorView.addSubViewWithQuickLayout(view: self.serialMonitor.view,
+                                                         topDistance: 0, bottomDistance: 0, leadingDistance: 0, trailingDistance: 0,
+                                                         options: [])
+        // setup project settings
         self.targetManager.delegate = self
         self.projectSettingView.addSubViewWithQuickLayout(view: self.targetManager.view,
                                                           topDistance: 0, bottomDistance: 0, leadingDistance: 0, trailingDistance: 0,
                                                           options: [])
+        // setup csxmake log
         self.makeLogView.addSubViewWithQuickLayout(view: self.csxMake.makeLogViewController.view,
                                                    topDistance: 0, bottomDistance: 0, leadingDistance: 0, trailingDistance: 0,
                                                    options: [])
-        self.serialMonitorView.addSubViewWithQuickLayout(view: self.serialMonitor.view,
-                                                         topDistance: 0, bottomDistance: 0, leadingDistance: 0, trailingDistance: 0,
-                                                         options: [])
+        
         self.mainAreaTabView.addTabViewItem(NSTabViewItem(viewController: self.editorViewController))
-        self.mainAreaTabView.addTabViewItem(NSTabViewItem(viewController: self.webView))
-        self.mainAreaTabView.selectTabViewItem(at: 1)
+        // 0: project setting
+        // 1: make log
+        // 2: editor
+        // 3: webview
+        self.mainAreaTabView.selectTabViewItem(at: self.EDITOR_TAB)
     }
     
     override var representedObject: Any? {
@@ -102,6 +111,7 @@ class ViewController: NSViewController {
         
         guard let document = self.document else {
             self.dismiss(self)
+            CSXLog.printLog("\(#file), \(#function): Failed to fetch the document instance!\n")
             return
         }
         if document.cmsxFile == nil {
@@ -168,6 +178,7 @@ class ViewController: NSViewController {
         self.fileBrowser.folderURL = document.cmsxFile.projectURL
         self.fileBrowser.start()    // Start up the fileBrowser!
         self.targetManager.defaultBuildFolder = document.cmsxFile.projectURL.appendingPathComponent("build")
+        self.targetManager.projectName = document.cmsxFile.projectName
     }
     
     override func viewDidDisappear() {
@@ -179,47 +190,38 @@ class ViewController: NSViewController {
     }
 }
 
-enum MainAreaButtonFunction: Int {
-    case SidePanel = 0
-    case NewProject = 1
-    case OpenProject = 2
-    case OpenExample = 3
-    case SaveAll = 4
-    case BuildTarget = 5
-    case DownloadToChip = 6
-    case CamelDocumentation = 7
-    case Tutorial = 8
-    case InstallSerialDriver = 9
-    case OpenExtraSerialMonitor = 10
+enum ToolBarFunction: Int {
+    case ProjectFiles = 0
+    case SerialMonitor = 1
+    case SidePanel = 2
+    case NewProject = 3
+    case OpenProject = 4
+    case OpenExample = 5
+    case ProjectSettings = 6
+    case SaveAll = 7
+    case BuildTarget = 8
+    case DownloadToChip = 9
+    case Documentations = 10
+    case Help = 11
+    case InstallSerialDriver = 12
 }
 // MARK:- MainAreaButton Action
 extension ViewController {
     // MARK:- IBOutlet Actions
-    @IBAction func onSidePanelTabBar(_ sender: Any) {
-        var index = 0
-        if let sender = sender as? NSSegmentedControl {
-            index = sender.selectedSegment
-        } else if let sender = sender as? NSButton {
-            index = sender.tag
-            self.sidePanelTabBar.selectSegment(withTag: index)
+    @IBAction func onToolBarButtons(_ sender: Any) {
+        guard let sender = sender as? NSButton else { return }
+        let index = sender.tag
+
+        guard let function = ToolBarFunction(rawValue: index) else {
+            CSXLog.printLog("\(#function): Wrong Toolbar Button Tag: \(index)")
+            return
         }
         
-        self.sidePanelTabView.selectTabViewItem(at: index)
-        if index != 1 && self.mainAreaTabView.numberOfTabViewItems > 1 {    // not target manager
-            self.mainAreaTabView.selectTabViewItem(at: 1)
-        }
-    }
-    @IBAction func onMainAreaButtons(_ sender: Any) {
-        
-        var index = 0
-        if let sender = sender as? NSSegmentedControl {
-            index = sender.selectedSegment
-        } else if let sender = sender as? NSButton {
-            index = sender.tag
-        }
-        
-        guard let function = MainAreaButtonFunction(rawValue: index) else { return }
         switch function {
+        case .ProjectFiles:
+            self.sidePanelTabView.selectTabViewItem(at: self.PROJECT_FILES_TAB)
+        case .SerialMonitor:
+            self.sidePanelTabView.selectTabViewItem(at: self.SERIAL_MONITOR_TAB)
         case .SidePanel:
             self.switchSidePanel(nil)
         case .NewProject:
@@ -228,22 +230,24 @@ extension ViewController {
             self.openProject()
         case .OpenExample:
             self.openExample(sender)
+        case .ProjectSettings:
+            self.mainAreaTabView.selectTabViewItem(at: self.PROJECT_SETTINGS_TAB)
         case .SaveAll:
             self.saveAll(nil)
         case .BuildTarget:
             self.buildTarget()
         case .DownloadToChip:
             self.downloadToChip()
-        case .CamelDocumentation:
-            self.openCamelDocumentation()
-        case .Tutorial:
-            self.openTutorial()
+        case .Documentations:
+            (NSApplication.shared.delegate as! AppDelegate).openCamelDocumentation(nil)
+        case .Help:
+            (NSApplication.shared.delegate as! AppDelegate).openHelp(nil)
         case .InstallSerialDriver:
             self.installSerialDriver()
-        case .OpenExtraSerialMonitor:
-            self.openExtraSerialMonitor()
+        
         }
     }
+
     @IBAction func switchSidePanel(_ sender: Any?) {
         let sidePanelView = self.viewSplitView.subviews[0]
         if self.viewSplitView.isSubviewCollapsed(sidePanelView) {
@@ -254,8 +258,9 @@ extension ViewController {
         } else {
             // Hide side panel
             self.sidePanelViewWidth = sidePanelView.frame.width
-            self.viewSplitView.setPosition(0, ofDividerAt: 0)
+            // set the view hidden at first to inactivate the constraints of views in the left panel
             sidePanelView.isHidden = true
+            self.viewSplitView.setPosition(0, ofDividerAt: 0)
             self.viewSplitView.adjustSubviews()
         }
     }
@@ -281,20 +286,19 @@ extension ViewController {
     }
     
     func buildTarget() {
-        self.sidePanelTabBar.selectSegment(withTag: 1)
-        self.onSidePanelTabBar(self.sidePanelTabBar as Any)
         self.targetManager.onBuild(nil)
     }
     
     func downloadToChip() {
-        self.sidePanelTabBar.selectSegment(withTag: 2)
-        self.onSidePanelTabBar(self.sidePanelTabBar as Any)
+        self.sidePanelTabView.selectTabViewItem(at: self.SERIAL_MONITOR_TAB)
         guard let target = self.targetManager.getSelectedTarget() else {
             self.serialMonitor.progressInfo.stringValue = "ERROR: No target is selected!"
+            InfoAndAlert.shared.showAlertWindow(type: .alert, title: "Error Occurred", message: "No target is selected!")
             return
         }
         guard let document = self.document else {
             self.serialMonitor.progressInfo.stringValue = "ERROR: Internal document is lost!"
+            InfoAndAlert.shared.showAlertWindow(type: .alert, title: "Error Occurred", message: "Internal document is lost!")
             return
         }
         if document.cmsxFile.serialPortName.count > 0 && self.serialMonitor.selectedPort == nil {
@@ -307,29 +311,17 @@ extension ViewController {
         }
         guard self.serialMonitor.selectedPort != nil else {
             self.serialMonitor.progressInfo.stringValue = "ERROR: No serial port is selected!"
+            InfoAndAlert.shared.showAlertWindow(type: .alert, title: "Error Occurred", message: "No serial port is selected!")
             return
         }
         guard target.targetAddress.count > 0 else {
             self.serialMonitor.progressInfo.stringValue = "ERROR: Target Address is empty!"
+            InfoAndAlert.shared.showAlertWindow(type: .alert, title: "Error Occurred", message: "Target Address is empty!")
             return
         }
         self.serialMonitor.targetAddress.stringValue = "10000000"
         self.serialMonitor.binaryPath.stringValue = target.binaryURL.relativePath
         self.serialMonitor.onLoad(self)
-    }
-    
-    @IBAction func openCamelDocumentation(_ sender: Any? = nil) {
-        // switch to webView
-        guard let documentationFolder = Bundle.main.url(forResource: "Documentation", withExtension: nil) else { return }
-        self.mainAreaTabView.selectTabViewItem(at: 2)
-        self.webView.loadURL(documentationFolder.appendingPathComponent("index.html"))
-    }
-    
-    func openTutorial() {
-        // switch to webView
-        guard let tutorialURL = Bundle.main.url(forResource: "Tutorial.pdf", withExtension: nil) else { return }
-        self.mainAreaTabView.selectTabViewItem(at: 2)
-        self.webView.loadURL(tutorialURL)
     }
     
     func installSerialDriver() {
@@ -360,27 +352,31 @@ extension ViewController: CSXFileBrowserDelegate {
     
     func fileBrowserSelectionDidChange(_ fileBrowser: CSXFileBrowser, notification: Notification) {
         CSXLog.printLog("\(ViewController.self):\(#line): FileBrowser Selection changed")
+        
         if self.fileBrowser.selections.count == 1 {
             let fileNode = self.fileBrowser.selections.first!
             
             guard fileNode.nodeType != .Directory else { return }
             
-            if fileNode.fileExtension == "cmsx" { // refuse to open cmsx
-//                self.sidePanelTabBar.selectSegment(withTag: 1)
-//                self.onSidePanelTabBar(self.sidePanelTabBar)
+            if fileNode.fileExtension == "cmsx" { // refuse to open cmsx, open project settings instead
+                self.mainAreaTabView.selectTabViewItem(at: self.PROJECT_SETTINGS_TAB)
                 return
             } else if fileNode.fileExtension == "bin" { // refuse to open binary
                 return
             }
             
             for package in self.fileViewPackages {
+                var shouldReturn = false
                 if package.fileNode == fileNode {
-                    self.editorViewController.selectTab(id: package.tabID)
-                    return
+                    shouldReturn = true
                 } else if package.fileNode.url == fileNode.url {
                     // fileNode is updated! Because the filebrowser refreshes!
                     package.fileNode = fileNode
+                    shouldReturn = true
+                }
+                if shouldReturn {
                     self.editorViewController.selectTab(id: package.tabID)
+                    self.mainAreaTabView.selectTabViewItem(at: EDITOR_TAB)
                     return
                 }
             }
@@ -415,6 +411,7 @@ extension ViewController: CSXFileBrowserDelegate {
             self.fileViewPackages.insert(FileViewPackage(tabID: tabID,
                                                          fileNode: fileNode,
                                                          codeViewController: codeViewController))
+            self.mainAreaTabView.selectTabViewItem(at: self.EDITOR_TAB)
         }
     }
     
@@ -464,7 +461,8 @@ extension ViewController: CSXFileBrowserDelegate {
 extension ViewController: CSXTargetManagerViewControllerDelegate {
     
     func csxTargetManagerWillBuildTarget(_ targetManager: CSXTargetManagerViewController) {
-        self.mainAreaTabView.selectTabViewItem(at: 0)
+        self.fileBrowser.outlineView.deselectAll(nil)
+        self.mainAreaTabView.selectTabViewItem(at: self.CSXMAKE_LOG_TAB)
     }
     
     func csxTargetManagerDidBuildTarget(_ targetManager: CSXTargetManagerViewController) {

@@ -15,6 +15,7 @@ public class MakeLogViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         self.logTextView.turnOffAllSmartOrAutoFunctionExceptLinkDetection()
+        self.logTextView.font = NSFont.boldSystemFont(ofSize: 12)
     }
     
     @IBAction public func onSave(_ sender: NSButton) {

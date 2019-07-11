@@ -11,6 +11,7 @@ If you are interested in CamelStudioX(for macOS) lower than 4.0 (like 3.8.0), pl
 
 ## Improvement to do
 
+- [ ] Migrate from HockeyApp to AppCenter
 - [ ] Unify debugging print
 - [ ] Update software architecture diagram
 - [ ] Write a formal README.md file
@@ -71,6 +72,18 @@ main():
 ```
 
 ## History
+
+### 4.1.0 Build 55
+
+- New toolbar! Now you can customize your own toolbar!
+- Project Settings Panel is moved to the right side.
+- Help and Documentation are opened in a new window now! CamelStudioX supports you open multiple help or documentation windows now!
+- CamelStudioX Make System Output panel is slightly adjusted to become more readable.
+
+### 4.0.4 Build 54
+
+- Fix a bug of the OpenPortButton in the Serial Monitor
+- Solve a mistake in M2/SPI.h
 
 ### 4.0.3 Build 53
 

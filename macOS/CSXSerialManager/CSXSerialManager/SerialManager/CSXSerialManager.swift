@@ -8,6 +8,7 @@
 
 import Cocoa
 import ORSSerial
+import CSXLog
 
 public class CSXSerialManager: NSObject {
     
@@ -87,21 +88,21 @@ extension CSXSerialManager {
 
 extension CSXSerialManager: CSXSerialBufferDelegate {
     func didOpenSerialPort(_ buffer: CSXSerialBuffer) {
-        print("Port \(buffer.serialPort.name) opened")
+        CSXLog.printLog("\(CSXSerialManager.self): Port \(buffer.serialPort.name) opened")
         NotificationCenter.default.post(name: CSXSerialManager.didOpenSerialPortNotification,
                                         object: self,
                                         userInfo: [CSXSerialManager.Key.Port : buffer.serialPort])
     }
     
     func didCloseSerialPort(_ buffer: CSXSerialBuffer) {
-        print("Port \(buffer.serialPort.name) closed")
+        CSXLog.printLog("\(CSXSerialManager.self): Port \(buffer.serialPort.name) closed")
         NotificationCenter.default.post(name: CSXSerialManager.didCloseSerialPortNotification,
                                         object: self,
                                         userInfo: [CSXSerialManager.Key.Port : buffer.serialPort])
     }
     
     func csxSerialBuffer(_ buffer: CSXSerialBuffer, didReceive request: SerialRequest) {
-        print("Receive: \(request.response)")
+        CSXLog.printLog("\(CSXSerialManager.self): Receive: \(request.response)")
         NotificationCenter.default.post(name: CSXSerialManager.didReceiveRequestNotification,
                                         object: self,
                                         userInfo: [CSXSerialManager.Key.Port : buffer.serialPort,
@@ -109,7 +110,7 @@ extension CSXSerialManager: CSXSerialBufferDelegate {
     }
     
     func csxSerialBuffer(_ buffer: CSXSerialBuffer, isTimeout request: SerialRequest) {
-        print("Timeout: \(request.response)")
+        CSXLog.printLog("\(CSXSerialManager.self): Timeout: \(request.response)")
         NotificationCenter.default.post(name: CSXSerialManager.requestIsTimeoutNotification,
                                         object: self,
                                         userInfo: [CSXSerialManager.Key.Port : buffer.serialPort,

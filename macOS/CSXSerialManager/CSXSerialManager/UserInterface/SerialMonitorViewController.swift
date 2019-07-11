@@ -55,6 +55,14 @@ public class SerialMonitorViewController: NSViewController {
         self.outputView.userInputDelegate = self
         self.uploader.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.serialPortOpenedOrClosed(_:)),
+                                               name: CSXSerialManager.didOpenSerialPortNotification,
+                                               object: self.serialManager)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.serialPortOpenedOrClosed(_:)),
+                                               name: CSXSerialManager.didCloseSerialPortNotification,
+                                               object: self.serialManager)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.serialPortEmergencyReaction(_:)),
                                                name: CSXSerialManager.didDisconnectSerialPortNotification,
                                                object: self.serialManager)
@@ -84,6 +92,18 @@ public class SerialMonitorViewController: NSViewController {
     func updateBaudrateLabel() {
         if let port = self.selectedPort {
             self.baudrateLabel.stringValue = "Baudrate: \(port.baudRate) bps"
+        } else {
+            self.baudrateLabel.stringValue = ""
+        }
+    }
+    
+    @objc func serialPortOpenedOrClosed(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let port = userInfo[CSXSerialManager.Key.Port] as? ORSSerialPort else { return }
+        if port.isOpen {
+            self.openPortButton.title = "Close"
+        } else {
+            self.openPortButton.title = "Open"
         }
     }
     
@@ -92,7 +112,6 @@ public class SerialMonitorViewController: NSViewController {
         
         guard let portName = userInfo[CSXSerialManager.Key.PortName] as? String else { return }
         if self.selectedPort?.name == portName {
-            self.openPortButton.title = "Open"
             self.portPopupButton.select(nil)    // deselect all the ports
         }
     }
@@ -101,11 +120,9 @@ public class SerialMonitorViewController: NSViewController {
         guard let port = self.selectedPort else { return }
         if port.isOpen {
             port.close()
-            sender.title = "Open"
         } else {
             port.open()
             self.serialManager.connectTextViewToPort(with: self.outputView, to: port)
-            sender.title = "Close"
         }
     }
     @IBAction func onClearOutput(_ sender: NSButton) {
@@ -149,7 +166,7 @@ public class SerialMonitorViewController: NSViewController {
         panel.canCreateDirectories = true
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "mm-dd-yyyy hh:mm"
-        panel.nameFieldStringValue = "MakeLog-\(dateFormatter.string(from: Date())).txt"
+        panel.nameFieldStringValue = "SerialLog-\(dateFormatter.string(from: Date())).txt"
         guard let mainWindow = NSApp.mainWindow else { return }
         panel.beginSheetModal(for: mainWindow) { (response: NSApplication.ModalResponse) in
             if response.rawValue == NSApplication.ModalResponse.OK.rawValue {

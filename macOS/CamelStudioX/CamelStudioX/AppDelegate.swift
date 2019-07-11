@@ -226,5 +226,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
     @IBAction func createNewSerialMonitorWindow(_ sender: Any?) {
         SerialMonitorWindowController.initiate().showWindow(nil)
     }
+    
+    @IBAction func openHelp(_ sender: Any?) {
+        guard let tutorialURL = Bundle.main.url(forResource: "Tutorial.pdf", withExtension: nil) else { return }
+        let webViewController = CSXWebViewController.initiate()
+        let window = NSWindow(contentViewController: webViewController)
+        window.title = "CamelStudioX Help"
+        window.setContentSize(NSSize(width: 800, height: 600))
+        let wc = NSWindowController(window: window)
+        wc.showWindow(nil)
+        webViewController.loadURL(tutorialURL)
+    }
+    
+    @IBAction func openCamelDocumentation(_ sender: Any?) {
+        guard let documentationFolder = Bundle.main.url(forResource: "Documentation", withExtension: nil) else { return }
+        let webViewController = CSXWebViewController.initiate()
+        let window = NSWindow(contentViewController: webViewController)
+        window.title = "CamelStudioX Documentations"
+        window.setContentSize(NSSize(width: 800, height: 600))
+        let wc = NSWindowController(window: window)
+        wc.showWindow(nil)
+        webViewController.loadURL(documentationFolder.appendingPathComponent("index.html"))
+    }
 }
 

@@ -37,9 +37,9 @@
     {                                    \
         RT_UART_Off(UART1);              \
         if (MorS)                        \
-            MemoryWrite32(SPI_CTL, 0x4); \
+            MemoryWrite32(SPI_CTL_REG, 0x4); \
         else                             \
-            MemoryWrite32(SPI_CTL, 0x0); \
+            MemoryWrite32(SPI_CTL_REG, 0x0); \
         RT_SPI_ClearState();             \
     }
 

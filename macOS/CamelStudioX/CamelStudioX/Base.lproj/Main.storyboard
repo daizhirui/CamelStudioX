@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14460.1"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14490.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -214,7 +214,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
-                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
+                                        <menuItem title="Show SidePanel" keyEquivalent="s" id="kIP-vf-haE" userLabel="Show SidePanel">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="switchSidePanel:" target="Ady-hI-5gd" id="vzH-Cy-BD7"/>
@@ -233,7 +233,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Tools" id="7an-Wj-XOD">
                                     <items>
-                                        <menuItem title="Serial Monitor Window" id="c51-y2-oSc">
+                                        <menuItem title="Serial Monitor" id="c51-y2-oSc" userLabel="Serial Monitor">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="createNewSerialMonitorWindow:" target="Voe-Tx-rLC" id="4F7-Qt-CLW"/>
@@ -283,9 +283,15 @@
                                                 <action selector="toggleDebugMode:" target="Voe-Tx-rLC" id="T14-66-Lkl"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="CamelStudioX Documentations" id="tug-O5-hCU">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openCamelDocumentation:" target="Voe-Tx-rLC" id="nLr-iN-en5"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="CamelStudioX Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="openCamelDocumentation" target="Ady-hI-5gd" id="0Rw-Ly-5Y0"/>
+                                                <action selector="openHelp:" target="Voe-Tx-rLC" id="RlC-LK-vhy"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -316,11 +322,204 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="CamelStudioX" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="Ckk-yw-fiv">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="903" height="496"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="1A091CBE-0A8E-47BC-9DC2-ED708F1D67B2" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="EI7-4H-Yy2">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="9565D0E8-04DC-4EB6-B48E-12910B007D18" label="Project Files" paletteLabel="Project Files" toolTip="Project Files: show project files" image="csx_filetree" sizingBehavior="auto" id="6Vr-Ci-8S4" userLabel="ProjectFilesButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" id="1fH-3n-mTw">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_filetree" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0JL-he-vqg">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="rhx-de-BZT"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="A81DDE07-50CD-432D-B265-263A780808BD" label="Serial Monitor" paletteLabel="Serial Monitor" toolTip="Serial Monitor: show project serial monitor, choose memu &quot;Tools&gt;Serial Monitor&quot; to open extra serial monitors" tag="1" image="csx_usb" sizingBehavior="auto" id="hD8-vP-UvP" userLabel="SerialMonitorButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="1" id="pj9-ki-NUB">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_usb" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fWP-Wd-R5T">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="FkH-L8-5J8"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="8A9DF191-531B-471B-A3EF-085898E13F79" label="Left Panel" paletteLabel="Left Panel" toolTip="Left Panel: switch left panel" tag="2" image="csx_sidepanel" sizingBehavior="auto" id="8bn-tp-wSj" userLabel="LeftPanelButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="2" id="cVN-b3-m3t">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_sidepanel" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pQJ-OM-G9e">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="0zv-g3-F0H"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="C944B4AA-BE95-4ABD-8027-1F7AAF1F6449" label="New Project" paletteLabel="New Project" toolTip="New Project: create a new project" tag="3" image="csx_newproj" sizingBehavior="auto" id="mnc-Sg-Gzn" userLabel="NewProjectButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="3" id="gmr-lZ-uep">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_newproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4zn-ii-jg0">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="pCO-8k-dJN"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="44868C3E-4E28-490D-9ABF-49881B5AE7C4" label="Open Project" paletteLabel="Open Project" toolTip="Open Project: open an existing project" tag="4" image="csx_openproj" sizingBehavior="auto" id="Ev8-tc-IBU" userLabel="OpenProjectButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="4" id="JsN-Pt-NfP">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_openproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vmH-e3-jM5">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="XV5-ZT-y6f"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="75C3C625-E232-455D-81E4-67B59F7249C1" label="Examples" paletteLabel="Examples" toolTip="Examples: open an example provided by Camel Micro Inc." tag="5" image="csx_list" sizingBehavior="auto" id="lEw-JR-yl0" userLabel="ExamplesButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="5" id="0p0-Z3-xli">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_list" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5cE-fC-QWC">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="e7g-Ig-AfV"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="BB50D49C-C647-4905-A800-63558693F417" label="Project Settings" paletteLabel="Project Settings" toolTip="Project Settings: manage project targets" tag="6" image="csx_setting" sizingBehavior="auto" id="eQw-Kx-53h" userLabel="ProjectSettingsButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="6" id="EYT-fA-vYR">
+                                        <rect key="frame" x="5" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_setting" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Htd-hc-p2U">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="27r-hj-D2m"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="D1C36E20-4A32-43D1-83C1-30C6ABAD17FC" label="Save" paletteLabel="Save" toolTip="Save: save all project files" tag="7" image="csx_save" sizingBehavior="auto" id="KBY-fn-LYJ" userLabel="SaveButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="7" id="7nP-V4-buW">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_save" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iz1-0X-yuX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="vUg-WS-Hxb"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="BD16C512-66C5-43DA-9AB7-8BBBDC8AD6E6" label="Build" paletteLabel="Build" toolTip="Build: build the current target" tag="8" image="csx_build" sizingBehavior="auto" id="0AI-2R-6U4" userLabel="BuildButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="8" id="K6Y-FL-0BB">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_build" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F2m-3r-5vi">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="sI9-rX-Aaz"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="A084B6DD-6381-47DC-B583-3C4C9A86D78B" label="Download to Chip" paletteLabel="Download to Chip" toolTip="Download to Chip: download the binary to your chip" tag="9" image="csx_download" sizingBehavior="auto" id="GWg-yH-O73" userLabel="DownloadToChipButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="9" id="TTr-Lk-EaZ">
+                                        <rect key="frame" x="9" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_download" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K0J-cg-KwG">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="QmT-E6-g5a"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="2B533BF6-61F0-4A81-B2F1-314A13763C69" label="Documentations" paletteLabel="Documentations" toolTip="Documentations: open documentation browser" tag="10" image="csx_library" sizingBehavior="auto" id="2bT-ZU-1fr" userLabel="DocumentationsButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="10" id="f3K-xR-6Rb">
+                                        <rect key="frame" x="6" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_library" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YAn-PL-vdI">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="Dh7-gU-9lB"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="7E6C6F73-3333-41EF-8671-18C28E11C096" label="Help" paletteLabel="Help" toolTip="Help: open help " tag="11" image="csx_info" sizingBehavior="auto" id="plT-An-slk" userLabel="HelpButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="11" id="gYZ-LN-2Ae">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_info" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="INc-bf-wY2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="cRu-Kr-Dqo"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="84D7D75A-2F9B-41B9-B113-F9ABAA5498DE" label="Install Driver" paletteLabel="Install Driver" toolTip="Install Serial Driver: install a serial driver, PL2303 or CH340" tag="12" image="csx_driver" sizingBehavior="auto" id="F1U-zn-Wu5" userLabel="InstallDriverButton">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="12" id="mvT-QI-6h2">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_driver" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k5e-8Z-M3e">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="onToolBarButtons:" target="6f7-a7-6o1" id="y4j-5h-h2b"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="afW-MR-qgG"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="3M6-PQ-uTN"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="6Vr-Ci-8S4"/>
+                                <toolbarItem reference="hD8-vP-UvP"/>
+                                <toolbarItem reference="afW-MR-qgG"/>
+                                <toolbarItem reference="8bn-tp-wSj"/>
+                                <toolbarItem reference="afW-MR-qgG"/>
+                                <toolbarItem reference="mnc-Sg-Gzn"/>
+                                <toolbarItem reference="Ev8-tc-IBU"/>
+                                <toolbarItem reference="lEw-JR-yl0"/>
+                                <toolbarItem reference="eQw-Kx-53h"/>
+                                <toolbarItem reference="KBY-fn-LYJ"/>
+                                <toolbarItem reference="0AI-2R-6U4"/>
+                                <toolbarItem reference="GWg-yH-O73"/>
+                                <toolbarItem reference="3M6-PQ-uTN"/>
+                                <toolbarItem reference="2bT-ZU-1fr"/>
+                                <toolbarItem reference="plT-An-slk"/>
+                                <toolbarItem reference="F1U-zn-Wu5"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="98r-iN-zZc"/>
                         </connections>
@@ -337,7 +536,6 @@
                             <viewController key="viewController" id="OHO-yZ-A1i">
                                 <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a7f-hd-xMV">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_filetree" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ezK-kX-BWv">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -353,7 +551,6 @@
                             <viewController key="viewController" id="lRx-0e-Zcs">
                                 <button key="view" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="FsU-N8-BFJ">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_setting" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="swy-GT-CMG">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -369,7 +566,6 @@
                             <viewController key="viewController" id="jOY-Ej-Tpe">
                                 <button key="view" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="v20-PZ-ROG">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_usb" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IXP-xv-5F8">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -386,7 +582,6 @@
                             <viewController key="viewController" id="C8I-8b-vKn">
                                 <button key="view" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="UKo-fj-nj3">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_newproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Tm-0a-fNE">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -402,7 +597,6 @@
                             <viewController key="viewController" id="56m-cl-r9B">
                                 <button key="view" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="WLV-xW-Qc6">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_openproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Abt-D3-F76">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -418,7 +612,6 @@
                             <viewController key="viewController" id="Sgk-Sg-1Fl">
                                 <button key="view" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-tF-fdc">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_save" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jpD-Xi-qtm">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -434,7 +627,6 @@
                             <viewController key="viewController" id="jme-tF-5Ky">
                                 <button key="view" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cor-f2-rf2">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_build" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WdN-rE-BQV">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -450,7 +642,6 @@
                             <viewController key="viewController" id="WPa-sy-fIh">
                                 <button key="view" verticalHuggingPriority="750" tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="aQ8-69-9ok">
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" bezelStyle="rounded" image="csx_download" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kv7-sw-V3k">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -468,129 +659,57 @@
                     </connections>
                 </touchBar>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="286.5" y="363"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="CamelStudioX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="1056" height="678"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1056" height="615"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-MQ-G7k">
-                                <rect key="frame" x="0.0" y="0.0" width="1056" height="678"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1056" height="615"/>
                                 <subviews>
-                                    <splitView arrangesAllSubviews="NO" dividerStyle="thin" id="dok-a6-jDC" userLabel="SidePanel Split View">
-                                        <rect key="frame" x="0.0" y="0.0" width="296" height="678"/>
+                                    <tabView fixedFrame="YES" type="noTabsNoBorder" initialItem="zVK-Ab-yXp" id="NzG-Op-bRU">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="615"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" id="jUt-GO-pqR" userLabel="Tabbar">
-                                                <rect key="frame" x="0.0" y="0.0" width="296" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="7rH-1z-Zdm">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment toolTip="File Manager" image="csx_filetree" selected="YES"/>
-                                                        <segment toolTip="Project Setting" image="csx_setting" tag="1"/>
-                                                        <segment toolTip="Serial Monitor" image="csx_usb" tag="2">
-                                                            <nil key="label"/>
-                                                        </segment>
-                                                    </segments>
-                                                </segmentedCell>
-                                                <connections>
-                                                    <action selector="onSidePanelTabBar:" target="5gI-5U-AMq" id="btC-MG-bF9"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <tabView fixedFrame="YES" type="noTabsNoBorder" initialItem="zVK-Ab-yXp" id="NzG-Op-bRU">
-                                                <rect key="frame" x="0.0" y="23" width="296" height="655"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                                <tabViewItems>
-                                                    <tabViewItem label="FileBrowser" identifier="" id="zVK-Ab-yXp">
-                                                        <view key="view" id="avD-tm-6y5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="655"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        </view>
-                                                    </tabViewItem>
-                                                    <tabViewItem label="Project Setting" identifier="" id="eDD-Fm-Lwo">
-                                                        <view key="view" id="TUZ-wr-i9D">
-                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="549"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        </view>
-                                                    </tabViewItem>
-                                                    <tabViewItem label="Serial Monitor" identifier="" id="gOe-0c-5oE">
-                                                        <view key="view" id="usx-bh-9Ai">
-                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="549"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        </view>
-                                                    </tabViewItem>
-                                                </tabViewItems>
-                                            </tabView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="296" id="sDz-Fa-Np0"/>
-                                        </constraints>
-                                        <holdingPriorities>
-                                            <real value="250"/>
-                                            <real value="250"/>
-                                        </holdingPriorities>
-                                    </splitView>
-                                    <splitView arrangesAllSubviews="NO" dividerStyle="thin" id="4jj-b4-3PH" userLabel="Main Area Split View">
-                                        <rect key="frame" x="297" y="0.0" width="759" height="678"/>
+                                        <font key="font" metaFont="system"/>
+                                        <tabViewItems>
+                                            <tabViewItem label="FileBrowser" identifier="" id="zVK-Ab-yXp">
+                                                <view key="view" id="avD-tm-6y5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="615"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </view>
+                                            </tabViewItem>
+                                            <tabViewItem label="Serial Monitor" identifier="" id="gOe-0c-5oE">
+                                                <view key="view" id="usx-bh-9Ai">
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="400"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </view>
+                                            </tabViewItem>
+                                        </tabViewItems>
+                                    </tabView>
+                                    <tabView fixedFrame="YES" type="noTabsNoBorder" id="MYk-JZ-dOv">
+                                        <rect key="frame" x="297" y="0.0" width="759" height="615"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" id="kOB-qE-aFS">
-                                                <rect key="frame" x="0.0" y="0.0" width="759" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="capsule" trackingMode="momentary" id="7GP-RH-lSa">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment toolTip="Side Panel" image="csx_sidepanel" width="55"/>
-                                                        <segment toolTip="New Project" image="csx_newproj" width="55" tag="1"/>
-                                                        <segment toolTip="Open Project" image="csx_openproj" width="55"/>
-                                                        <segment toolTip="Open Example" image="csx_list" width="55"/>
-                                                        <segment toolTip="Save All" image="csx_save" width="55"/>
-                                                        <segment toolTip="Build Target" image="csx_build" width="55"/>
-                                                        <segment toolTip="Download to chip" image="csx_download" width="55"/>
-                                                        <segment toolTip="Camel Documentation" image="csx_library" width="55"/>
-                                                        <segment toolTip="Tutorial" image="csx_info" width="55">
-                                                            <nil key="label"/>
-                                                        </segment>
-                                                        <segment toolTip="Install Serial Driver" image="csx_driver" width="55">
-                                                            <nil key="label"/>
-                                                        </segment>
-                                                        <segment image="csx_usb" width="55">
-                                                            <nil key="label"/>
-                                                        </segment>
-                                                    </segments>
-                                                </segmentedCell>
-                                                <connections>
-                                                    <action selector="onMainAreaButtons:" target="5gI-5U-AMq" id="hpt-3K-Byt"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <tabView fixedFrame="YES" type="noTabsNoBorder" id="MYk-JZ-dOv">
-                                                <rect key="frame" x="0.0" y="23" width="759" height="655"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                                <tabViewItems>
-                                                    <tabViewItem label="Make Log" identifier="" id="hJb-hG-WDf">
-                                                        <view key="view" id="IZq-6j-pM0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="759" height="655"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        </view>
-                                                    </tabViewItem>
-                                                </tabViewItems>
-                                            </tabView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="CHz-bw-Ney"/>
-                                        </constraints>
-                                        <holdingPriorities>
-                                            <real value="250"/>
-                                            <real value="250"/>
-                                        </holdingPriorities>
-                                    </splitView>
+                                        <font key="font" metaFont="system"/>
+                                        <tabViewItems>
+                                            <tabViewItem label="Project Setting" identifier="" id="eDD-Fm-Lwo">
+                                                <view key="view" id="TUZ-wr-i9D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="759" height="615"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </view>
+                                            </tabViewItem>
+                                            <tabViewItem label="Make Log" identifier="" id="hJb-hG-WDf">
+                                                <view key="view" id="IZq-6j-pM0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="759" height="615"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </view>
+                                            </tabViewItem>
+                                        </tabViewItems>
+                                    </tabView>
                                 </subviews>
                                 <holdingPriorities>
                                     <real value="250"/>
@@ -611,29 +730,28 @@
                         <outlet property="makeLogView" destination="IZq-6j-pM0" id="QFu-U7-P31"/>
                         <outlet property="projectSettingView" destination="TUZ-wr-i9D" id="09X-6z-0Gn"/>
                         <outlet property="serialMonitorView" destination="usx-bh-9Ai" id="wIX-hw-yXU"/>
-                        <outlet property="sidePanelTabBar" destination="jUt-GO-pqR" id="JJH-2V-PEK"/>
                         <outlet property="sidePanelTabView" destination="NzG-Op-bRU" id="5Ic-kU-T6H"/>
                         <outlet property="viewSplitView" destination="Q1k-MQ-G7k" id="qxW-k0-Xwa"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="888"/>
+            <point key="canvasLocation" x="272" y="1171.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="csx_build" width="48" height="48"/>
-        <image name="csx_download" width="48" height="48"/>
-        <image name="csx_driver" width="48" height="48"/>
-        <image name="csx_filetree" width="48" height="48"/>
-        <image name="csx_info" width="48" height="48"/>
-        <image name="csx_library" width="48" height="48"/>
-        <image name="csx_list" width="48" height="48"/>
-        <image name="csx_newproj" width="48" height="48"/>
-        <image name="csx_openproj" width="48" height="48"/>
-        <image name="csx_save" width="48" height="48"/>
-        <image name="csx_setting" width="48" height="48"/>
-        <image name="csx_sidepanel" width="48" height="48"/>
-        <image name="csx_usb" width="48" height="48"/>
+        <image name="csx_build" width="24" height="24"/>
+        <image name="csx_download" width="24" height="24"/>
+        <image name="csx_driver" width="24" height="24"/>
+        <image name="csx_filetree" width="24" height="24"/>
+        <image name="csx_info" width="24" height="24"/>
+        <image name="csx_library" width="24" height="24"/>
+        <image name="csx_list" width="24" height="24"/>
+        <image name="csx_newproj" width="24" height="24"/>
+        <image name="csx_openproj" width="24" height="24"/>
+        <image name="csx_save" width="24" height="24"/>
+        <image name="csx_setting" width="24" height="24"/>
+        <image name="csx_sidepanel" width="24" height="24"/>
+        <image name="csx_usb" width="24" height="24"/>
     </resources>
 </document>

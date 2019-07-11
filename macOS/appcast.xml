@@ -5,6 +5,25 @@
 <title>4.0.3</title>
 <pubDate>Wed, 05 Jun 2019 18:40:58 +0800</pubDate>
 <sparkle:minimumSystemVersion>10.12.2</sparkle:minimumSystemVersion>
-<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.0.3/CamelStudioX_4.0.3_Build53.zip" sparkle:version="53" sparkle:shortVersionString="4.0.3" length="80138408" type="application/octet-stream" sparkle:dsaSignature="MC0CFAFYhwv7VKmEneE9jhXHFcp2tyCsAhUAqw/ajIMEaOGoYmdSD+JKBWhMF/U="/>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX_4.0.3_Build53.zip" sparkle:version="53" sparkle:shortVersionString="4.0.3" length="80138408" type="application/octet-stream" sparkle:dsaSignature="MC4CFQC6XO1OwWofjYhdJRe4JJ4yQ6bFjgIVAKnsFxmOHv3P9Y4zwlShu+3QsYql"/>
 </item>
+<item>
+<title>4.0.4</title>
+<pubDate>Wed, 10 Jul 2019 20:12:32 +0800</pubDate>
+<sparkle:minimumSystemVersion>10.12.2</sparkle:minimumSystemVersion>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX_4.0.4_Build54.zip" sparkle:version="54" sparkle:shortVersionString="4.0.4" length="76791875" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCjokbwK0rKmdmRLCV3NlUjhhwALgIUUeirpRm0dTz8BY6VhV+uzQucVf4="/>
+<sparkle:deltas>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX54-53.delta" sparkle:version="54" sparkle:shortVersionString="4.0.4" sparkle:deltaFrom="53" length="277779" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCKnbp1KwrhssDaj06zAJP8NXHUdQIUffNsODdH/+IZzQa95WEJPDF6uts="/></sparkle:deltas>
+</item>
+<item>
+<title>4.1.0</title>
+<pubDate>Thu, 11 Jul 2019 22:35:47 +0800</pubDate>
+<sparkle:minimumSystemVersion>10.12.2</sparkle:minimumSystemVersion>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX_4.1.0_Build55.zip" sparkle:version="55" sparkle:shortVersionString="4.1.0" length="76793699" type="application/octet-stream" sparkle:dsaSignature="MCwCFFM7nh+EamcV1KApJLnm41k2k2B0AhRK26AvZeF3q/RD5zdistVJ9yDymA=="/>
+<sparkle:deltas>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX55-54.delta" sparkle:version="55" sparkle:shortVersionString="4.1.0" sparkle:deltaFrom="54" length="154609" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCwN/yDCDf/SylhzkFb23L8RMeqAQIVAMnBbz6t1ZxjyLSD4nUpPgdLLtmw"/>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.0/CamelStudioX55-53.delta" sparkle:version="55" sparkle:shortVersionString="4.1.0" sparkle:deltaFrom="53" length="358056" type="application/octet-stream" sparkle:dsaSignature="MCwCFH4tvm5qMdAitNgWcxGiMZOZfLUsAhQCFx8HHhBSenfmc/W5/UJdSdZFEw=="/></sparkle:deltas>
+</item>
+
+
 </channel></rss>

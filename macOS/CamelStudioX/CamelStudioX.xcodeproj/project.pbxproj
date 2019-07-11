@@ -29,7 +29,6 @@
 		2380A811216656D4002640A8 /* cmsproj.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2380A80E216656D4002640A8 /* cmsproj.icns */; };
 		23977C96216F5039007E8F5A /* CSXToolchains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23977C95216F5039007E8F5A /* CSXToolchains.framework */; };
 		23977C97216F5039007E8F5A /* CSXToolchains.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23977C95216F5039007E8F5A /* CSXToolchains.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A47BB22179F44C00AEAC2D /* CamelStudioXHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = 23A47BB12179F41000AEAC2D /* CamelStudioXHelp.help */; };
 		23A47BB52179F53B00AEAC2D /* CSXLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230BED492167D6E700B129C0 /* CSXLog.framework */; };
 		23A47BB62179F53B00AEAC2D /* CSXLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 230BED492167D6E700B129C0 /* CSXLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23D96B622179E54B008B2695 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D96B612179E54B008B2695 /* Sparkle.framework */; };
@@ -337,7 +336,6 @@
 				230BED262167B53700B129C0 /* updateKey.pem in Resources */,
 				2380A810216656D4002640A8 /* cmsx.icns in Resources */,
 				230BED202167AF1800B129C0 /* Register.storyboard in Resources */,
-				23A47BB22179F44C00AEAC2D /* CamelStudioXHelp.help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

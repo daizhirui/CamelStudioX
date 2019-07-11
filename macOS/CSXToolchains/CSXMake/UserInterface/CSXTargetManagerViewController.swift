@@ -16,6 +16,7 @@ public class CSXTargetManagerViewController: NSViewController {
     }
     // MARK:- Properties
     // MARK:- UI
+    @IBOutlet weak var projectTargetsBox: NSBox!
     @IBOutlet weak var targetNameButton: NSPopUpButton!
     @IBOutlet weak var chipTypeButton: NSPopUpButton!
     @IBOutlet weak var targetTypeButton: NSPopUpButton!
@@ -58,6 +59,14 @@ public class CSXTargetManagerViewController: NSViewController {
                 self.reloadAllLists()
                 self.updateOfficialLibraryButton()
             }
+        }
+    }
+    public var projectName: String {
+        get {
+            return (self.projectTargetsBox.title as NSString).substring(from: 10)
+        }
+        set(name) {
+            return self.projectTargetsBox.title = "Project - \(name)"
         }
     }
     

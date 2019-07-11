@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CSXSourceListViewController" customModule="CSXMake" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="CSXSourceListViewController" customModule="CSXToolchains" customModuleProvider="target">
             <connections>
                 <outlet property="addItemButton" destination="xlp-Yy-5Sc" id="g8N-hn-jD9"/>
                 <outlet property="listTitle" destination="bYQ-1x-D4d" id="9Aq-YR-201"/>
@@ -50,9 +50,9 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bYQ-1x-D4d">
-                    <rect key="frame" x="-2" y="146" width="37" height="17"/>
+                    <rect key="frame" x="-2" y="146" width="40" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="5wE-m5-ZHi">
-                        <font key="font" usesAppearanceFont="YES"/>
+                        <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

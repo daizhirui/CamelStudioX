@@ -390,6 +390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ---------------------------------------------------------------------------------------
  */
 
+@property (readonly) int fileDescriptor;
 /**
  *  A Boolean value that indicates whether the port is open. (read-only)
  */
