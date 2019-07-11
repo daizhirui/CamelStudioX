@@ -56,10 +56,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23A5DD83215FE93200BCDB45"
-               BuildableName = "CSXToolchains.framework"
-               BlueprintName = "CSXToolchains"
-               ReferencedContainer = "container:../CSXMake/CSXToolchains.xcodeproj">
+               BlueprintIdentifier = "23BE07D3215E7BA9001E3A30"
+               BuildableName = "CSXSerialManager.framework"
+               BlueprintName = "CSXSerialManager"
+               ReferencedContainer = "container:../CSXSerialManager/CSXSerialManager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -70,10 +70,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23BE07D3215E7BA9001E3A30"
-               BuildableName = "CSXSerialManager.framework"
-               BlueprintName = "CSXSerialManager"
-               ReferencedContainer = "container:../CSXSerialManager/CSXSerialManager.xcodeproj">
+               BlueprintIdentifier = "23A5DD83215FE93200BCDB45"
+               BuildableName = "CSXToolchains.framework"
+               BlueprintName = "CSXToolchains"
+               ReferencedContainer = "container:../CSXToolchains/CSXToolchains.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -158,20 +158,6 @@
                BuildableName = "Sparkle.framework"
                BlueprintName = "Sparkle"
                ReferencedContainer = "container:../Sparkle/Sparkle.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23A47BA52179F35A00AEAC2D"
-               BuildableName = "CamelStudioXHelp.help"
-               BlueprintName = "CamelStudioXHelp"
-               ReferencedContainer = "container:../CamelStudioXHelp/CamelStudioXHelp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
