@@ -17,6 +17,7 @@ import CSXWebView
 import CSXLog
 import CSXUtilities
 import ORSSerial
+import AppCenterCrashes
 
 class FileViewPackage: NSObject {
     var tabID: Int
@@ -64,7 +65,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        MSCrashes.generateTestCrash()
         // Do any additional setup after loading the view.
         // setup file browser
         self.fileBrowserView.addSubViewWithQuickLayout(view: self.fileBrowser.view,

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="rcX-cl-WUk">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="JXa-ot-cej">
+            <objects>
+                <windowController storyboardIdentifier="SendCrashReportWindowController" id="rcX-cl-WUk" sceneMemberID="viewController">
+                    <window key="window" title="Send Crash Reports" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="52A-pJ-N6l">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="rcX-cl-WUk" id="6Eu-Ib-uXP"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="HMz-wv-uy7" kind="relationship" relationship="window.shadowedContentViewController" id="S8Y-Qo-ZdT"/>
+                    </connections>
+                </windowController>
+                <customObject id="UDS-GF-tAP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="125"/>
+        </scene>
+        <!--Send Crash Report View Controller-->
+        <scene sceneID="PVR-6r-eW7">
+            <objects>
+                <viewController storyboardIdentifier="SendCrashReportViewController" id="HMz-wv-uy7" customClass="SendCrashReportViewController" customModule="CamelStudioX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dai-ss-gxV">
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="209"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-um-pWo">
+                                <rect key="frame" x="197" y="121" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="HMf-rT-5pc"/>
+                                    <constraint firstAttribute="width" constant="48" id="tFZ-ko-xgE"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="NSMultipleDocuments" id="bbk-JN-Q2B"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-yU-Enb">
+                                <rect key="frame" x="91" y="50" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FIn-pM-v87"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqc-gh-8yD">
+                                <rect key="frame" x="291" y="80" width="131" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="4mm-W2-Upu"/>
+                                    <constraint firstAttribute="width" constant="131" id="b2x-IW-fFl"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="csx_appcenter" id="hKE-gT-0KX"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haE-v0-abN">
+                                <rect key="frame" x="101" y="79" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2Ud-Mx-FHW"/>
+                                    <constraint firstAttribute="height" constant="50" id="ioK-0i-2hc"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="NSComputer" id="1Cv-9q-wjm"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fnw-Vx-Q3h">
+                                <rect key="frame" x="142" y="50" width="159" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Sending Crash Reports ..." id="FVV-C4-Otq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2Q-ee-hnd">
+                                <rect key="frame" x="185" y="14" width="72" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="hZH-Si-b08"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KMg-tK-gGV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onOkButton:" target="HMz-wv-uy7" id="pCh-sP-kXk"/>
+                                </connections>
+                            </button>
+                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="RgX-2x-zyK">
+                                <rect key="frame" x="171" y="94" width="100" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="NLg-q9-x9a"/>
+                                    <constraint firstAttribute="height" constant="18" id="U92-nO-mV8"/>
+                                </constraints>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lqc-gh-8yD" firstAttribute="centerY" secondItem="haE-v0-abN" secondAttribute="centerY" id="6Rf-Ha-RpH"/>
+                            <constraint firstItem="d2Q-ee-hnd" firstAttribute="top" secondItem="fnw-Vx-Q3h" secondAttribute="bottom" constant="8" id="6vy-La-lqv"/>
+                            <constraint firstItem="d2Q-ee-hnd" firstAttribute="centerX" secondItem="dai-ss-gxV" secondAttribute="centerX" id="7xe-su-Ceu"/>
+                            <constraint firstItem="eWN-um-pWo" firstAttribute="top" secondItem="dai-ss-gxV" secondAttribute="top" constant="40" id="HLc-ZG-PWs"/>
+                            <constraint firstAttribute="trailing" secondItem="lqc-gh-8yD" secondAttribute="trailing" constant="20" id="OYL-fJ-5fX"/>
+                            <constraint firstItem="lqc-gh-8yD" firstAttribute="leading" secondItem="RgX-2x-zyK" secondAttribute="trailing" constant="20" id="a3I-ZF-HIK"/>
+                            <constraint firstItem="RgX-2x-zyK" firstAttribute="leading" secondItem="haE-v0-abN" secondAttribute="trailing" constant="20" id="aoM-MO-5CX"/>
+                            <constraint firstItem="RgX-2x-zyK" firstAttribute="centerY" secondItem="haE-v0-abN" secondAttribute="centerY" id="bYq-y7-6I4"/>
+                            <constraint firstItem="RgX-2x-zyK" firstAttribute="centerX" secondItem="dai-ss-gxV" secondAttribute="centerX" id="hQs-4E-TFR"/>
+                            <constraint firstItem="lqc-gh-8yD" firstAttribute="leading" secondItem="RgX-2x-zyK" secondAttribute="trailing" constant="20" id="hYr-L3-LaC"/>
+                            <constraint firstItem="fnw-Vx-Q3h" firstAttribute="centerX" secondItem="dai-ss-gxV" secondAttribute="centerX" id="jap-1R-3zx"/>
+                            <constraint firstItem="RgX-2x-zyK" firstAttribute="top" secondItem="eWN-um-pWo" secondAttribute="bottom" constant="8" id="mxR-sI-Ytw"/>
+                            <constraint firstItem="fnw-Vx-Q3h" firstAttribute="top" secondItem="haE-v0-abN" secondAttribute="bottom" constant="12" id="nGh-t1-fNh"/>
+                            <constraint firstItem="eWN-um-pWo" firstAttribute="centerX" secondItem="dai-ss-gxV" secondAttribute="centerX" id="xA4-KJ-ooD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="okButton" destination="d2Q-ee-hnd" id="fSJ-OC-EF1"/>
+                        <outlet property="progressInfo" destination="fnw-Vx-Q3h" id="ztY-Vo-Y8g"/>
+                    </connections>
+                </viewController>
+                <customObject id="6z7-4H-Cl6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="555.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSComputer" width="32" height="32"/>
+        <image name="NSMultipleDocuments" width="32" height="32"/>
+        <image name="csx_appcenter" width="608" height="226"/>
+    </resources>
+</document>

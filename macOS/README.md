@@ -73,6 +73,10 @@ main():
 
 ## History
 
+### 4.1.1 Build 56
+
+- Replace HockkeyApp SDK with MSAppCenter SDK.
+
 ### 4.1.0 Build 55
 
 - New toolbar! Now you can customize your own toolbar!

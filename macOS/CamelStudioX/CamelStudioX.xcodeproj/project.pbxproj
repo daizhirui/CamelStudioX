@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2307A68E216536C5005364AC /* CMSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307A68D216536C5005364AC /* CMSX.swift */; };
-		230BED1A2167AC4A00B129C0 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230BED192167AC4900B129C0 /* HockeySDK.framework */; };
-		230BED1B2167AC4A00B129C0 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 230BED192167AC4900B129C0 /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		230BED202167AF1800B129C0 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230BED1E2167AF1800B129C0 /* Register.storyboard */; };
 		230BED212167AF1800B129C0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230BED1F2167AF1800B129C0 /* RegisterViewController.swift */; };
 		230BED262167B53700B129C0 /* updateKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 230BED252167B53700B129C0 /* updateKey.pem */; };
@@ -52,6 +50,10 @@
 		23DF1B2F216793A700D69F1F /* CSXWebView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DF1B2E216793A700D69F1F /* CSXWebView.framework */; };
 		23DF1B30216793A700D69F1F /* CSXWebView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23DF1B2E216793A700D69F1F /* CSXWebView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23F1FA852168755D008DE758 /* Tutorial.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 23F1FA842168755D008DE758 /* Tutorial.pdf */; };
+		23FCB46522D7975700EC5E1E /* SendCrashReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FCB46422D7975700EC5E1E /* SendCrashReport.storyboard */; };
+		23FCB46722D79B5700EC5E1E /* SendCrashReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCB46622D79B5700EC5E1E /* SendCrashReportViewController.swift */; };
+		23FCB46922D7A8C000EC5E1E /* Pods_CamelStudioX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4801FC090ED9E8E56979A694 /* Pods_CamelStudioX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A09B96DE739D495558CDF029 /* Pods_CamelStudioX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4801FC090ED9E8E56979A694 /* Pods_CamelStudioX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +65,7 @@
 			files = (
 				23A47BB62179F53B00AEAC2D /* CSXLog.framework in Embed Frameworks */,
 				23DF1AF02167295E00D69F1F /* CSXSerialManager.framework in Embed Frameworks */,
+				23FCB46922D7A8C000EC5E1E /* Pods_CamelStudioX.framework in Embed Frameworks */,
 				23DF1AE72167293A00D69F1F /* CSXTabViewController.framework in Embed Frameworks */,
 				23DF1AE32167292F00D69F1F /* CSXWelcome.framework in Embed Frameworks */,
 				23977C97216F5039007E8F5A /* CSXToolchains.framework in Embed Frameworks */,
@@ -71,7 +74,6 @@
 				23D96B632179E54B008B2695 /* Sparkle.framework in Embed Frameworks */,
 				23DF1B30216793A700D69F1F /* CSXWebView.framework in Embed Frameworks */,
 				23DF1AED2167294C00D69F1F /* ORSSerial.framework in Embed Frameworks */,
-				230BED1B2167AC4A00B129C0 /* HockeySDK.framework in Embed Frameworks */,
 				23DF1AF62167296F00D69F1F /* CSXCodeView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -81,7 +83,6 @@
 
 /* Begin PBXFileReference section */
 		2307A68D216536C5005364AC /* CMSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSX.swift; sourceTree = "<group>"; };
-		230BED192167AC4900B129C0 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
 		230BED1C2167AC9E00B129C0 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		230BED1E2167AF1800B129C0 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		230BED1F2167AF1800B129C0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +120,11 @@
 		23DF1B1321678E6800D69F1F /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		23DF1B2E216793A700D69F1F /* CSXWebView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSXWebView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1FA842168755D008DE758 /* Tutorial.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Tutorial.pdf; path = Tutorial/Tutorial.pdf; sourceTree = "<group>"; };
+		23FCB46422D7975700EC5E1E /* SendCrashReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendCrashReport.storyboard; sourceTree = "<group>"; };
+		23FCB46622D79B5700EC5E1E /* SendCrashReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCrashReportViewController.swift; sourceTree = "<group>"; };
+		4801FC090ED9E8E56979A694 /* Pods_CamelStudioX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CamelStudioX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E8F3AD12907C399D576961D /* Pods-CamelStudioX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CamelStudioX.release.xcconfig"; path = "Target Support Files/Pods-CamelStudioX/Pods-CamelStudioX.release.xcconfig"; sourceTree = "<group>"; };
+		EE67FECEA88531A2AF655B3A /* Pods-CamelStudioX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CamelStudioX.debug.xcconfig"; path = "Target Support Files/Pods-CamelStudioX/Pods-CamelStudioX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,21 +142,33 @@
 				23D96B622179E54B008B2695 /* Sparkle.framework in Frameworks */,
 				23DF1B2F216793A700D69F1F /* CSXWebView.framework in Frameworks */,
 				23DF1AEC2167294C00D69F1F /* ORSSerial.framework in Frameworks */,
-				230BED1A2167AC4A00B129C0 /* HockeySDK.framework in Frameworks */,
 				23DF1AF52167296F00D69F1F /* CSXCodeView.framework in Frameworks */,
+				A09B96DE739D495558CDF029 /* Pods_CamelStudioX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230BED1D2167AF1800B129C0 /* HockeyRegister */ = {
+		22ABCA03BE03A5B74279FE5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE67FECEA88531A2AF655B3A /* Pods-CamelStudioX.debug.xcconfig */,
+				8E8F3AD12907C399D576961D /* Pods-CamelStudioX.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		230BED1D2167AF1800B129C0 /* MSAppCenter */ = {
 			isa = PBXGroup;
 			children = (
 				230BED1E2167AF1800B129C0 /* Register.storyboard */,
 				230BED1F2167AF1800B129C0 /* RegisterViewController.swift */,
+				23FCB46422D7975700EC5E1E /* SendCrashReport.storyboard */,
+				23FCB46622D79B5700EC5E1E /* SendCrashReportViewController.swift */,
 			);
-			path = HockeyRegister;
+			path = MSAppCenter;
 			sourceTree = "<group>";
 		};
 		230BED2C2167B7F100B129C0 /* Support */ = {
@@ -182,7 +200,6 @@
 				23D96B612179E54B008B2695 /* Sparkle.framework */,
 				23977C95216F5039007E8F5A /* CSXToolchains.framework */,
 				230BED492167D6E700B129C0 /* CSXLog.framework */,
-				230BED192167AC4900B129C0 /* HockeySDK.framework */,
 				23DF1B2E216793A700D69F1F /* CSXWebView.framework */,
 				23DF1B1021677BB700D69F1F /* CSXUtilities.framework */,
 				23DF1AF42167296F00D69F1F /* CSXCodeView.framework */,
@@ -195,6 +212,7 @@
 				2353EA2F21652454004A9545 /* CamelStudioX */,
 				2353EA2E21652454004A9545 /* Products */,
 				23A47BB32179F4D500AEAC2D /* Frameworks */,
+				22ABCA03BE03A5B74279FE5A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,7 +229,7 @@
 			children = (
 				230BED2D2167B9B700B129C0 /* Preference */,
 				230BED2C2167B7F100B129C0 /* Support */,
-				230BED1D2167AF1800B129C0 /* HockeyRegister */,
+				230BED1D2167AF1800B129C0 /* MSAppCenter */,
 				2380A8122166570C002640A8 /* Document */,
 				2353EA3021652454004A9545 /* AppDelegate.swift */,
 				234E64D9216B35D000623AC6 /* WindowController.swift */,
@@ -250,6 +268,7 @@
 		23A47BB32179F4D500AEAC2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4801FC090ED9E8E56979A694 /* Pods_CamelStudioX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,6 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2353EA3F21652455004A9545 /* Build configuration list for PBXNativeTarget "CamelStudioX" */;
 			buildPhases = (
+				A0DF1434BC4D59C14A7294A3 /* [CP] Check Pods Manifest.lock */,
 				2353EA2921652454004A9545 /* Sources */,
 				2353EA2A21652454004A9545 /* Frameworks */,
 				2353EA2B21652454004A9545 /* Resources */,
@@ -324,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FCB46522D7975700EC5E1E /* SendCrashReport.storyboard in Resources */,
 				23F1FA852168755D008DE758 /* Tutorial.pdf in Resources */,
 				2380A811216656D4002640A8 /* cmsproj.icns in Resources */,
 				23DF1B0F2167713500D69F1F /* Examples in Resources */,
@@ -374,7 +395,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ ${RELEASE} -eq 1 ]; then\n    echo \"RELEASE\"\n    export VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" CamelStudioX/Info.plist)\n    export ZIP_NAME=\"CamelStudioX_${VERSION}_Build$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" CamelStudioX/Info.plist).zip\"\n    echo PROJECT_DIR=$PROJECT_DIR\n    echo ZIP_NAME=$ZIP_NAME\n    cd ../ReleaseUpdates/Tools\n    make\n    echo \"Complete\"\nfi\n";
+			shellScript = "if [ ${RELEASE} -eq 1 ]; then\n    echo \"RELEASE\"\n    export VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" CamelStudioX/Info.plist)\n    export ZIP_NAME=\"CamelStudioX_${VERSION}_Build$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" CamelStudioX/Info.plist).zip\"\n    echo PROJECT_DIR=$PROJECT_DIR\n    echo ZIP_NAME=$ZIP_NAME\n    cd ../ReleaseUpdates/Tools\n    rm -rf ../${ZIP_NAME}\n    ditto -c -k --sequesterRsrc --keepParent ../../DerivedData/CamelStudioX/Build/Products/Release/CamelStudioX.app ../${ZIP_NAME}\n    ./generate_appcast dsa_priv.pem ../\n    rm -r ../.tmp\n    cat ../appcast.xml  | sed -e \"s/https:\\/\\/raw.githubusercontent.com\\/daizhirui\\/CamelStudioX\\/master\\/macOS\\//https:\\/\\/camelmicro.oss-cn-beijing.aliyuncs.com\\//g\" > ../China/appcast.xml\n    cat ../appcast.xml  | sed -e \"s/https:\\/\\/raw.githubusercontent.com\\/daizhirui\\/CamelStudioX\\/master\\/macOS\\//https:\\/\\/github.com\\/daizhirui\\/CamelStudioX\\/releases\\/download\\/v${VERSION}\\//g\" > ../International/appcast.xml;cp ../International/appcast.xml ../../appcast.xml\n    echo \"Complete\"\nfi\n";
+		};
+		A0DF1434BC4D59C14A7294A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CamelStudioX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -391,6 +434,7 @@
 				2307A68E216536C5005364AC /* CMSX.swift in Sources */,
 				2353EA3521652454004A9545 /* Document.swift in Sources */,
 				234CFC8221667A1000F3CF3F /* CMS.swift in Sources */,
+				23FCB46722D79B5700EC5E1E /* SendCrashReportViewController.swift in Sources */,
 				230BED302167B9B700B129C0 /* PreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +571,7 @@
 		};
 		2353EA4021652455004A9545 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE67FECEA88531A2AF655B3A /* Pods-CamelStudioX.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -534,10 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 79DD7SDR2J;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HockeySDK-Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CamelStudioX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,10 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 79DD7SDR2J;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HockeySDK-Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CamelStudioX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

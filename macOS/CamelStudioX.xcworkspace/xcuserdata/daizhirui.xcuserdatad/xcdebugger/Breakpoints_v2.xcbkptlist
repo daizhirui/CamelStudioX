@@ -50,5 +50,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CamelStudioX/CamelStudioX/AppDelegate.swift"
+            timestampString = "584558329.5154361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
+            landmarkName = "crashes(_:willSend:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CamelStudioX.AppDelegate.crashes(_: Swift.Optional&lt;__C.MSCrashes&gt;, willSend: Swift.Optional&lt;__C.MSErrorReport&gt;) -&gt; ()"
+                  moduleName = "CamelStudioX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daizhirui/Development/Camel/CamelStudioX/macOS/CamelStudioX/CamelStudioX/AppDelegate.swift"
+                  timestampString = "584556665.1244119"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "303"
+                  endingLineNumber = "303"
+                  offsetFromSymbolStart = "173">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in CamelStudioX.AppDelegate.crashes(_: Swift.Optional&lt;__C.MSCrashes&gt;, willSend: Swift.Optional&lt;__C.MSErrorReport&gt;) -&gt; ()"
+                  moduleName = "CamelStudioX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daizhirui/Development/Camel/CamelStudioX/macOS/CamelStudioX/CamelStudioX/AppDelegate.swift"
+                  timestampString = "584556665.125667"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "304"
+                  endingLineNumber = "304"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

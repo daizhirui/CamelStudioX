@@ -10,3 +10,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 RELEASE=1
+#include "../Pods/Target Support Files/Pods-CamelStudioX/Pods-CamelStudioX.release.xcconfig"

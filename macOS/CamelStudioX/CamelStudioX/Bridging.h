@@ -9,7 +9,7 @@
 #ifndef Bridging_h
 #define Bridging_h
 
-#import <HockeySDK/HockeySDK.h>
+//#import <HockeySDK/HockeySDK.h>
 
 
 #endif /* Bridging_h */

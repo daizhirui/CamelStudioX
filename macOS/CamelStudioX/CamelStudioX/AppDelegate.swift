@@ -20,9 +20,18 @@ import CSXTabViewController
 import CSXWebView
 import CSXUtilities
 import ORSSerial
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
+
+let APP_CENTER_IDENTIFIER = "798a2dae-49b0-4400-bcad-af69bda80417"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
+    
+    var sendCrashReportViewController: SendCrashReportViewController?
+    var userName: String = "N/A"
+    var userMailAddress: String = "N/A"
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -91,7 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
             CSXLog.printLog(string)
         }
         #endif
-        self.setupHockeySDK()
+        self.setupMSAppCenter()
         // Do some additional configuration if needed here
         // Insert code here to initialize your application
         if let exampleFolder = Bundle.main.url(forResource: "Examples", withExtension: nil) {
@@ -156,24 +165,59 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
         }
     }
     
-    // MARK:- HockeySDK
-    func setupHockeySDK() {
-        let hockeyManager = BITHockeyManager.shared()
-        hockeyManager?.configure(withIdentifier: "798a2dae49b04400bcadaf69bda80417")
-        hockeyManager?.crashManager.isAutoSubmitCrashReport = true
+    // MARK:- MSAppCenter
+    func setupMSAppCenter() {
+//        let hockeyManager = BITHockeyManager.shared()
+//        hockeyManager?.configure(withIdentifier: "798a2dae49b04400bcadaf69bda80417")
+        // Enable catching uncaught exceptions thrown on the main thread
+        // https://docs.microsoft.com/en-us/appcenter/sdk/crashes/macos#enable-catching-uncaught-exceptions-thrown-on-the-main-thread
+        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
+        MSCrashes.setDelegate(self)
+        // Ask for the users' consent to send a crash log
+        // https://docs.microsoft.com/en-us/appcenter/sdk/crashes/macos#ask-for-the-users-consent-to-send-a-crash-log
+        MSCrashes.setUserConfirmationHandler({ (errorReports: [MSErrorReport]) in
+            
+            // Your code to present your UI to the user, e.g. an NSAlert.
+            let alert: NSAlert = NSAlert()
+            alert.messageText = "Sorry about that!"
+            alert.informativeText = "Do you want to send an anonymous crash report so we can fix the issue?"
+            alert.addButton(withTitle: "Always send")
+            alert.addButton(withTitle: "Send")
+            alert.addButton(withTitle: "Don't send")
+            alert.alertStyle = .warning
+            
+            switch (alert.runModal()) {
+            case NSApplication.ModalResponse.alertFirstButtonReturn:
+                MSCrashes.notify(with: .always)
+                break;
+            case NSApplication.ModalResponse.alertSecondButtonReturn:
+                MSCrashes.notify(with: .send)
+                break;
+            case NSApplication.ModalResponse.alertThirdButtonReturn:
+                MSCrashes.notify(with: .dontSend)
+                break;
+            default:
+                break;
+            }
+            
+            return true // Return true if the SDK should await user confirmation, otherwise return false.
+        })
+        MSAppCenter.setLogLevel(MSLogLevel.verbose)
+        
         if let userID = UserDefaults.standard.object(forKey: "UserID") as? String,
             let userName = UserDefaults.standard.object(forKey: "UserName") as? String,
             let userMailAddress = UserDefaults.standard.object(forKey: "UserMailAddress") as? String {
-            hockeyManager?.setUserID(userID)
-            hockeyManager?.setUserName(userName)
-            hockeyManager?.setUserEmail(userMailAddress)
-            CSXLog.printLog("HockeyAppSDK: User ID = \(userID)")
-            CSXLog.printLog("HockeyAppSDK: User Name = \(userName)")
-            CSXLog.printLog("HockeyAppSDK: User Mail Address = \(userMailAddress)")
+            MSAppCenter.setUserId(userID)
+            self.userName = userName
+            self.userMailAddress = userMailAddress
+            CSXLog.printLog("MSAppCenter: User ID = \(userID)")
+            CSXLog.printLog("MSAppCenter: User Name = \(userName)")
+            CSXLog.printLog("MSAppCenter: User Mail Address = \(userMailAddress)")
         } else {
             self.openRegisterWindow()
         }
-        hockeyManager?.start()
+        
+        MSAppCenter.start(APP_CENTER_IDENTIFIER, withServices: [MSAnalytics.self, MSCrashes.self])
     }
     func openRegisterWindow() {
         let sb = NSStoryboard.init(name: "Register", bundle: nil)
@@ -181,14 +225,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
             NSApp.runModal(for: registerWC.window!)
         }
     }
-    func feedParameters(for updater: SUUpdater, sendingSystemProfile sendingProfile: Bool) -> [[String : String]] {
-        return BITSystemProfile.shared().systemUsageData() as! [[String : String]]
-    }
+//    func feedParameters(for updater: SUUpdater, sendingSystemProfile sendingProfile: Bool) -> [[String : String]] {
+//        return BITSystemProfile.shared().systemUsageData() as! [[String : String]]
+//    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
     
     // MARK:- Welcome Window Control
     static let wc = WelcomeWindowController.initiate()
@@ -250,3 +293,40 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
     }
 }
 
+extension AppDelegate: MSCrashesDelegate {
+    func crashes(_ crashes: MSCrashes!, shouldProcessErrorReport errorReport: MSErrorReport!) -> Bool {
+        return true; // return true if the crash report should be processed, otherwise false.
+    }
+    
+    func crashes(_ crashes: MSCrashes!, willSend errorReport: MSErrorReport!) {
+        // Your code, e.g. to present a custom UI.
+        DispatchQueue.main.async {
+            let sb = NSStoryboard(name: "SendCrashReport", bundle: Bundle.main)
+            guard let reportWC = sb.instantiateController(withIdentifier: "SendCrashReportWindowController") as? NSWindowController
+                else { return }
+            guard let vc = reportWC.contentViewController as? SendCrashReportViewController else { return }
+            self.sendCrashReportViewController = vc
+            reportWC.showWindow(nil)
+        }
+    }
+    
+    func crashes(_ crashes: MSCrashes!, didSucceedSending errorReport: MSErrorReport!) {
+        DispatchQueue.main.async {
+            self.sendCrashReportViewController?.progressInfo.stringValue = "Succeeded!"
+            self.sendCrashReportViewController?.okButton.isHidden = false
+        }
+    }
+    
+    func crashes(_ crashes: MSCrashes!, didFailSending errorReport: MSErrorReport!, withError error: Error!) {
+        DispatchQueue.main.async {
+            self.sendCrashReportViewController?.progressInfo.stringValue = "Failed: \(error.localizedDescription)"
+            self.sendCrashReportViewController?.okButton.isHidden = false
+        }
+    }
+    
+    func attachments(with crashes: MSCrashes, for errorReport: MSErrorReport) -> [MSErrorAttachmentLog] {
+        let attachment1 = MSErrorAttachmentLog.attachment(withText: "\(self.userName): \(self.userMailAddress)", filename: "user_info.txt")
+//        let attachment2 = MSErrorAttachmentLog.attachment(withBinary: "Fake image".data(using: String.Encoding.utf8), filename: nil, contentType: "image/jpeg")
+        return [attachment1!]
+    }
+}
