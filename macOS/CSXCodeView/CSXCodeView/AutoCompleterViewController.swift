@@ -35,7 +35,28 @@ class AutoCompleterViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.view.wantsLayer = true
+        self.view.shadow = NSShadow()
+        self.view.layer?.shadowColor = NSColor.black.cgColor
+        self.view.layer?.shadowOpacity = 0.8
+        self.view.layer?.shadowOffset = CGSize(width: 3, height: -3)
+        self.view.layer?.shadowRadius = 8
+        self.view.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        self.view.layer?.cornerRadius = 5.0
+        
+        self.tableView.wantsLayer = true
+        self.tableView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        self.tableView.layer?.cornerRadius = 5.0
+        self.tableView.backgroundColor = NSColor.clear
         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.doubleAction = #selector(self.insertSelection)
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        self.view.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        self.tableView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
     }
     
     func selectLastPossibleWord() {
@@ -54,7 +75,7 @@ class AutoCompleterViewController: NSViewController {
         }
     }
     
-    func insertSelection() {
+    @objc func insertSelection() {
         guard let codeView = self.csxCodeView else { return }
         if self.tableView.selectedRow >= 0 && self.tableView.selectedRow < self.possibleWords.count {
             let selectedWord = self.possibleWords[self.tableView.selectedRow]
@@ -105,8 +126,8 @@ extension AutoCompleterViewController: AutoCompleterDelegate {
             self.view.setFrameOrigin(NSPoint(x: x, y: y))
             if let longestWord = self.possibleWords.max(by: {s1, s2 in return s1.count < s2.count}) {
                 let textSize = longestWord.size(withAttributes: self.tableView.attributedStringValue.attributes(at: 0, effectiveRange: nil))
-                let width = textSize.width > 300 ? 300 : textSize.width + 20
-                var height = CGFloat(self.tableView.numberOfRows) * (self.tableView.rowHeight + 2.0)
+                let width = textSize.width > 600 ? 600 : textSize.width + 20
+                var height = CGFloat(self.tableView.numberOfRows) * (self.tableView.rowHeight + 3.0)
                 height = height > 100 ? 100 : height
                 self.view.setFrameSize(NSSize(width: width, height: height))
             }
@@ -126,6 +147,33 @@ extension AutoCompleterViewController: NSTableViewDataSource {
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         return self.possibleWords[row]
+    }
+}
+
+extension AutoCompleterViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 18
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "autocompletion"),
+                                                owner: nil) as? NSTableCellView
+            else { return nil }
+        guard let textField = cellView.textField else { return nil }
+        textField.stringValue = self.possibleWords[row]
+        return cellView
+    }
+    
+    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
+        self.insertSelection()
+    }
+    
+    func tableViewSelectionIsChanging(_ notification: Notification) {
+        self.tableView.rowView(atRow: self.tableView.selectedRow, makeIfNecessary: false)?.isEmphasized = false
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        self.tableView.rowView(atRow: self.tableView.selectedRow, makeIfNecessary: false)?.isEmphasized = true
     }
 }
 

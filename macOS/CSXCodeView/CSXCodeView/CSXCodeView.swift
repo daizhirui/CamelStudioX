@@ -342,6 +342,14 @@ public class CSXCodeView: NSTextView {
             }
         }
     }
+    
+    public override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+        if !self.autoCompleterViewController.view.frame.contains(event.locationInWindow) {
+            self.autoCompleterViewController.hideView()
+        }
+        
+    }
 }
 
 struct CharacterRegx {
