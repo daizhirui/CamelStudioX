@@ -285,7 +285,6 @@
 				2353EA2A21652454004A9545 /* Frameworks */,
 				2353EA2B21652454004A9545 /* Resources */,
 				23DF1AE42167292F00D69F1F /* Embed Frameworks */,
-				230BED182167AC1900B129C0 /* ShellScript */,
 				2388D3FF2178330C004FC995 /* ShellScript */,
 			);
 			buildRules = (
@@ -363,23 +362,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		230BED182167AC1900B129C0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FILE=\"${SRCROOT}/HockeySDK-Mac/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi\n";
-		};
 		2388D3FF2178330C004FC995 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,7 +567,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daizhirui.CamelStudioX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daizhirui.CamelStudioX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CamelStudioX/Bridging.h";
@@ -609,7 +591,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daizhirui.CamelStudioX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daizhirui.CamelStudioX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CamelStudioX/Bridging.h";

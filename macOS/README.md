@@ -73,6 +73,11 @@ main():
 
 ## History
 
+### 4.1.4 Build 59
+
+- Fix a crash on macOS 10.12.*
+- Auto update recent project table in Welcome Window
+
 ### 4.1.3 Build 58
 
 - Fix UI of Welcome Window in old systems

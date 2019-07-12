@@ -330,7 +330,7 @@
                         <toolbar key="toolbar" implicitIdentifier="1A091CBE-0A8E-47BC-9DC2-ED708F1D67B2" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="EI7-4H-Yy2">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="9565D0E8-04DC-4EB6-B48E-12910B007D18" label="Project Files" paletteLabel="Project Files" toolTip="Project Files: show project files" image="csx_filetree" sizingBehavior="auto" id="6Vr-Ci-8S4" userLabel="ProjectFilesButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" id="1fH-3n-mTw">
+                                    <button key="view" verticalHuggingPriority="750" id="1fH-3n-mTw">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_filetree" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0JL-he-vqg">
@@ -343,7 +343,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="A81DDE07-50CD-432D-B265-263A780808BD" label="Serial Monitor" paletteLabel="Serial Monitor" toolTip="Serial Monitor: show project serial monitor, choose memu &quot;Tools&gt;Serial Monitor&quot; to open extra serial monitors" tag="1" image="csx_usb" sizingBehavior="auto" id="hD8-vP-UvP" userLabel="SerialMonitorButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="1" id="pj9-ki-NUB">
+                                    <button key="view" verticalHuggingPriority="750" tag="1" id="pj9-ki-NUB">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_usb" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fWP-Wd-R5T">
@@ -356,7 +356,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="8A9DF191-531B-471B-A3EF-085898E13F79" label="Left Panel" paletteLabel="Left Panel" toolTip="Left Panel: switch left panel" tag="2" image="csx_sidepanel" sizingBehavior="auto" id="8bn-tp-wSj" userLabel="LeftPanelButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="2" id="cVN-b3-m3t">
+                                    <button key="view" verticalHuggingPriority="750" tag="2" id="cVN-b3-m3t">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_sidepanel" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pQJ-OM-G9e">
@@ -369,7 +369,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="C944B4AA-BE95-4ABD-8027-1F7AAF1F6449" label="New Project" paletteLabel="New Project" toolTip="New Project: create a new project" tag="3" image="csx_newproj" sizingBehavior="auto" id="mnc-Sg-Gzn" userLabel="NewProjectButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="3" id="gmr-lZ-uep">
+                                    <button key="view" verticalHuggingPriority="750" tag="3" id="gmr-lZ-uep">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_newproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4zn-ii-jg0">
@@ -382,7 +382,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="44868C3E-4E28-490D-9ABF-49881B5AE7C4" label="Open Project" paletteLabel="Open Project" toolTip="Open Project: open an existing project" tag="4" image="csx_openproj" sizingBehavior="auto" id="Ev8-tc-IBU" userLabel="OpenProjectButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="4" id="JsN-Pt-NfP">
+                                    <button key="view" verticalHuggingPriority="750" tag="4" id="JsN-Pt-NfP">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_openproj" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vmH-e3-jM5">
@@ -395,7 +395,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="75C3C625-E232-455D-81E4-67B59F7249C1" label="Examples" paletteLabel="Examples" toolTip="Examples: open an example provided by Camel Micro Inc." tag="5" image="csx_list" sizingBehavior="auto" id="lEw-JR-yl0" userLabel="ExamplesButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="5" id="0p0-Z3-xli">
+                                    <button key="view" verticalHuggingPriority="750" tag="5" id="0p0-Z3-xli">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_list" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5cE-fC-QWC">
@@ -408,7 +408,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="BB50D49C-C647-4905-A800-63558693F417" label="Project Settings" paletteLabel="Project Settings" toolTip="Project Settings: manage project targets" tag="6" image="csx_setting" sizingBehavior="auto" id="eQw-Kx-53h" userLabel="ProjectSettingsButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="6" id="EYT-fA-vYR">
+                                    <button key="view" verticalHuggingPriority="750" tag="6" id="EYT-fA-vYR">
                                         <rect key="frame" x="5" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_setting" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Htd-hc-p2U">
@@ -421,7 +421,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="D1C36E20-4A32-43D1-83C1-30C6ABAD17FC" label="Save" paletteLabel="Save" toolTip="Save: save all project files" tag="7" image="csx_save" sizingBehavior="auto" id="KBY-fn-LYJ" userLabel="SaveButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="7" id="7nP-V4-buW">
+                                    <button key="view" verticalHuggingPriority="750" tag="7" id="7nP-V4-buW">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_save" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iz1-0X-yuX">
@@ -434,7 +434,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="BD16C512-66C5-43DA-9AB7-8BBBDC8AD6E6" label="Build" paletteLabel="Build" toolTip="Build: build the current target" tag="8" image="csx_build" sizingBehavior="auto" id="0AI-2R-6U4" userLabel="BuildButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="8" id="K6Y-FL-0BB">
+                                    <button key="view" verticalHuggingPriority="750" tag="8" id="K6Y-FL-0BB">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_build" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F2m-3r-5vi">
@@ -447,7 +447,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="A084B6DD-6381-47DC-B583-3C4C9A86D78B" label="Download to Chip" paletteLabel="Download to Chip" toolTip="Download to Chip: download the binary to your chip" tag="9" image="csx_download" sizingBehavior="auto" id="GWg-yH-O73" userLabel="DownloadToChipButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="9" id="TTr-Lk-EaZ">
+                                    <button key="view" verticalHuggingPriority="750" tag="9" id="TTr-Lk-EaZ">
                                         <rect key="frame" x="9" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_download" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K0J-cg-KwG">
@@ -460,7 +460,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="2B533BF6-61F0-4A81-B2F1-314A13763C69" label="Documentations" paletteLabel="Documentations" toolTip="Documentations: open documentation browser" tag="10" image="csx_library" sizingBehavior="auto" id="2bT-ZU-1fr" userLabel="DocumentationsButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="10" id="f3K-xR-6Rb">
+                                    <button key="view" verticalHuggingPriority="750" tag="10" id="f3K-xR-6Rb">
                                         <rect key="frame" x="6" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_library" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YAn-PL-vdI">
@@ -473,7 +473,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="7E6C6F73-3333-41EF-8671-18C28E11C096" label="Help" paletteLabel="Help" toolTip="Help: open help " tag="11" image="csx_info" sizingBehavior="auto" id="plT-An-slk" userLabel="HelpButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="11" id="gYZ-LN-2Ae">
+                                    <button key="view" verticalHuggingPriority="750" tag="11" id="gYZ-LN-2Ae">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_info" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="INc-bf-wY2">
@@ -486,7 +486,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="84D7D75A-2F9B-41B9-B113-F9ABAA5498DE" label="Install Driver" paletteLabel="Install Driver" toolTip="Install Serial Driver: install a serial driver, PL2303 or CH340" tag="12" image="csx_driver" sizingBehavior="auto" id="F1U-zn-Wu5" userLabel="InstallDriverButton">
-                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="12" id="mvT-QI-6h2">
+                                    <button key="view" verticalHuggingPriority="750" tag="12" id="mvT-QI-6h2">
                                         <rect key="frame" x="0.0" y="14" width="82" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="csx_driver" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k5e-8Z-M3e">

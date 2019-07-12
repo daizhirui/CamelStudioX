@@ -24,8 +24,8 @@ public class WelcomeWindowController: NSWindowController {
     @IBOutlet public weak var openExampleButton: NSButton!
     @IBOutlet weak var leftView: NSView!
     @IBOutlet weak var recentProjectTable: NSTableView!
-    var selectedProjectNameTextField: NSTextField!
-    var selectedProjectURLTextField: NSTextField!
+    var selectedProjectNameTextField: NSTextField?
+    var selectedProjectURLTextField: NSTextField?
     @IBOutlet weak var versionLabel: NSTextField!
     var recentProjectURLs: [URL] = {
         var urls = [URL]()
@@ -69,6 +69,11 @@ public class WelcomeWindowController: NSWindowController {
         self.window?.contentView?.addTrackingArea(area)
     }
     
+    public override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        self.updateRecentProjectTable()
+    }
+    
     /// show close button when the mouse enters left view
     override public func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
@@ -79,6 +84,17 @@ public class WelcomeWindowController: NSWindowController {
     override public func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
         self.closeButton.isHidden = true
+    }
+    
+    public func updateRecentProjectTable() {
+        var urls = [URL]()
+        for url in NSDocumentController.shared.recentDocumentURLs {
+            if FileManager.default.fileExists(atPath: url.relativePath) {
+                urls.append(url)
+            }
+        }
+        self.recentProjectURLs = urls
+        self.recentProjectTable.reloadData()
     }
     
     // MARK: action
@@ -176,13 +192,18 @@ extension WelcomeWindowController: NSTableViewDelegate {
     public func tableViewSelectionDidChange(_ notification: Notification) {
         // old selection
         if #available(macOS 10.13, *) {
+            print(1)
             self.selectedProjectNameTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
                                                                    bundle: Bundle(for: WelcomeWindowController.self))
+            print(2)
             self.selectedProjectURLTextField?.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
                                                                   bundle: Bundle(for: WelcomeWindowController.self))
         } else {
-            self.selectedProjectNameTextField.textColor = NSColor.systemGray
-            self.selectedProjectURLTextField.textColor = NSColor.systemGray
+            print(3)
+            self.selectedProjectNameTextField?.textColor = NSColor.systemGray
+            
+            print(4)
+            self.selectedProjectURLTextField?.textColor = NSColor.systemGray
         }
         // new selection
         if let stackView = self.getSelectedCellView()?.subviews[0] as? NSStackView {
