@@ -62,8 +62,9 @@ class AutoCompleterViewController: NSViewController {
             let currentPart = self.autoCompleter.currentWord
             let partToInsert = (selectedWord as NSString).replacingCharacters(in: NSMakeRange(0, currentPart.count), with: "")
             let cursorPos = codeView.selectedRange().lowerBound
-            codeView.insertText(partToInsert, replacementRange: NSMakeRange(cursorPos, 0))
-            codeView.setSelectedRange(NSMakeRange(cursorPos + partToInsert.count, 0))
+            codeView.replaceSubString(with: StringInsertion(content: partToInsert,
+                                                            range: NSMakeRange(cursorPos, 0),
+                                                            cursorOffset: 0))
             self.hideView()
         }
     }

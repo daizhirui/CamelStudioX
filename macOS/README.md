@@ -73,6 +73,12 @@ main():
 
 ## History
 
+### 4.1.2 Build 57
+
+- Fix a bug of smart punctuation: '0' eats ')'
+- Improve smart punctuation: auto pair of single quotation marks and double quotation marks
+- New feature: quick comment by using "Command + /"
+
 ### 4.1.1 Build 56
 
 - Replace HockkeyApp SDK with MSAppCenter SDK.

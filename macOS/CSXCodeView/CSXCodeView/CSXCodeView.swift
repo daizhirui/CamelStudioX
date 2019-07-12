@@ -127,22 +127,10 @@ public class CSXCodeView: NSTextView {
     }
     
     // MARK:- Auto Indent
-    func insertSubString(with insertion: StringInsertion) {
-        self.undoManager?.registerUndo(withTarget: self) {
-            target in
-            target.removeSubString(with: insertion)
-        }
-        self.string.insert(contentsOf: insertion.content, at: self.string.index(insertion.position))
-        self.setSelectedRange(NSMakeRange(insertion.position + insertion.length, 0))
-    }
-    
-    func removeSubString(with insertion: StringInsertion) {
-        self.undoManager?.registerUndo(withTarget: self) {
-            target in
-            target.insertSubString(with: insertion)
-        }
-        self.string.removeSubrange(self.string.range(pos: insertion.position, length: insertion.length))
-        self.setSelectedRange(NSMakeRange(insertion.position, 0))
+    func replaceSubString(with insertion: StringInsertion) {
+        let range = NSMakeRange(insertion.range.lowerBound, (insertion.content as NSString).length)
+        self.insertText(insertion.content, replacementRange: insertion.range)   // undo manager records this automatically
+        self.setSelectedRange(NSMakeRange(range.upperBound - insertion.cursorOffset, 0))
     }
     
     static let characterRegx = CharacterRegx()
@@ -150,7 +138,7 @@ public class CSXCodeView: NSTextView {
         let selectedRangeBeforeKeyDown = self.selectedRange()
         let keyCode = event.keyCode
         let regxSet = CSXCodeView.characterRegx
-
+        // manipulate auto completer
         if self.autoCompleterViewController.viewIsShowed {
             switch keyCode {
             case 49: self.autoCompleterViewController.hideView()            // space
@@ -166,16 +154,30 @@ public class CSXCodeView: NSTextView {
             case 36:
                 self.autoCompleterViewController.insertSelection()          // enter
                 return
-            default:    break
+            default:
+                break
             }
         }
         
         var cursorPos = selectedRangeBeforeKeyDown.lowerBound
+        
+        // quick comment
+        if keyCode == 44 && event.modifierFlags.contains(NSEvent.ModifierFlags.command) {   // command + /
+            let posToInsert = self.lineNumberView.lineIndices[self.lineNumberView.lineNumberForCharacterIndex(index: cursorPos)]
+            if (self.string as NSString).substring(with: NSMakeRange(posToInsert, 2)) == "//" {
+                self.replaceSubString(with: StringInsertion(content: "", range: NSMakeRange(posToInsert, 2), cursorOffset: posToInsert - cursorPos + 2))
+            } else {
+                self.replaceSubString(with: StringInsertion(content: "//", range: NSMakeRange(posToInsert, 0), cursorOffset: posToInsert - cursorPos))
+            }
+            return
+        }
+        
+        
         if selectedRangeBeforeKeyDown.length > 0 {  // a subString is selected
             guard let leftChar = event.characters else { return }
             
             func wrapSubString() {
-                self.insertText(leftChar, replacementRange: NSMakeRange(cursorPos, 0))
+                self.replaceSubString(with: StringInsertion(content: leftChar, range: NSMakeRange(cursorPos, 0), cursorOffset: 0))
                 let rightChar: String
                 switch leftChar {
                 case "{":
@@ -193,16 +195,18 @@ public class CSXCodeView: NSTextView {
                 }
                 
                 let length = selectedRangeBeforeKeyDown.length
-                self.insertText(rightChar, replacementRange: NSMakeRange(cursorPos + length + 1, 0))
+                self.replaceSubString(with: StringInsertion(content: rightChar,
+                                                            range: NSMakeRange(cursorPos + length + 1, 0),
+                                                            cursorOffset: 0))
             }
             
             switch keyCode {
             case 25:
-                if let char = event.characters, char == "9" {
+                if let char = event.characters, char == "9" {   // '9'
                     super.keyDown(with: event)
                     return
                 } else {
-                    wrapSubString()
+                    wrapSubString() // '('
                 }
             case 33, 39:    // 33: [ { 39: ' "
                 wrapSubString()
@@ -215,11 +219,11 @@ public class CSXCodeView: NSTextView {
             cursorPos = self.selectedRange().lowerBound
             
             switch keyCode {
-            case 25:    // 9 (
+            case 25:    // 9 or (
                 if let char = event.characters, char == "(" {
                     fallthrough
                 }
-            case 33, 39:    // 33: [ { 39: ' "
+            case 33:    // 33: [ { 
                 guard let leftChar = event.characters else { return }
                 
                 let rightChar: String
@@ -230,18 +234,42 @@ public class CSXCodeView: NSTextView {
                     rightChar = "]"
                 case "(":
                     rightChar = ")"
-                case "\"":
-                    rightChar = "\""
-                case "'":
-                    rightChar = "'"
                 default:
                     return
                 }
                 
-                self.insertText(rightChar, replacementRange: NSMakeRange(cursorPos, 0))
-                self.setSelectedRange(NSMakeRange(cursorPos, 0))
-            case 29:    // 0 )
-                fallthrough
+                self.replaceSubString(with: StringInsertion(content: rightChar, range: NSMakeRange(cursorPos, 0), cursorOffset: 1))
+            case 39:
+                guard let leftChar = event.characters else { return }
+                if cursorPos < self.string.count {
+                    let nextCharacter = (self.string as NSString).substring(with: NSMakeRange(cursorPos, 1))
+                    switch nextCharacter {
+                    case "\"":
+                        if regxSet.doubleQuotationMark.matches(in: self.string,
+                                                               options: [],
+                                                               range: NSMakeRange(0, cursorPos)).count % 2 == 0 {
+                            self.replaceSubString(with: StringInsertion(content: "", range: NSMakeRange(cursorPos, 1), cursorOffset: 0))
+                            return
+                        }
+                    case "'":
+                        if regxSet.singleQuotationMark.matches(in: self.string,
+                                                               options: [],
+                                                               range: NSMakeRange(0, cursorPos)).count % 2 == 0 {
+                            self.replaceSubString(with: StringInsertion(content: "", range: NSMakeRange(cursorPos, 1), cursorOffset: 0))
+                            return
+                        }
+                    default:
+                        // auto pair
+                        self.replaceSubString(with: StringInsertion(content: leftChar, range: NSMakeRange(cursorPos, 0), cursorOffset: 1))
+                        return;
+                    }
+                }
+            case 29:    // 0 or )
+                if let char = event.characters, char == ")" {
+                    fallthrough
+                } else {
+                    return
+                }
             case 30:    // ] }
                 if cursorPos < self.string.count {
                     let nextCharacter = (self.string as NSString).substring(with: NSMakeRange(cursorPos, 1))
@@ -251,34 +279,33 @@ public class CSXCodeView: NSTextView {
                     case "}":
                         let leftCount = regxSet.leftCurlyBrace.matches(in: self.string,
                                                                        options: [],
-                                                                       range: NSMakeRange(0, cursorPos - 1)).count
+                                                                       range: NSMakeRange(0, cursorPos)).count
                         let rightCount = regxSet.rightCurlyBrace.matches(in: self.string,
                                                                          options: [],
-                                                                         range: NSMakeRange(0, cursorPos - 1)).count
+                                                                         range: NSMakeRange(0, cursorPos)).count
                         braceDiff = leftCount - rightCount
                     case "]":
                         let leftCount = regxSet.leftSquareBracket.matches(in: self.string,
                                                                           options: [],
-                                                                          range: NSMakeRange(0, cursorPos - 1)).count
+                                                                          range: NSMakeRange(0, cursorPos)).count
                         let rightCount = regxSet.rightSquareBracket.matches(in: self.string,
                                                                             options: [],
-                                                                            range: NSMakeRange(0, cursorPos - 1)).count
+                                                                            range: NSMakeRange(0, cursorPos)).count
                         braceDiff = leftCount - rightCount
                     case ")":
                         let leftCount = regxSet.leftParenthesis.matches(in: self.string,
                                                                         options: [],
-                                                                        range: NSMakeRange(0, cursorPos - 1)).count
+                                                                        range: NSMakeRange(0, cursorPos)).count
                         let rightCount = regxSet.rightParenthesis.matches(in: self.string,
                                                                           options: [],
-                                                                          range: NSMakeRange(0, cursorPos - 1)).count
+                                                                          range: NSMakeRange(0, cursorPos)).count
                         braceDiff = leftCount - rightCount
                     default:
                         return
                     }
                     
-                    if braceDiff > 0 {
-                        self.removeSubString(with: StringInsertion(position: cursorPos, content: nextCharacter))
-                        self.setSelectedRange(NSMakeRange(cursorPos, 0))
+                    if braceDiff == 0 {
+                        self.replaceSubString(with: StringInsertion(content: "", range: NSMakeRange(cursorPos, 1), cursorOffset: 0))
                     }
                 }
             case 36:    //enter
@@ -292,22 +319,24 @@ public class CSXCodeView: NSTextView {
                 guard numberOfSpacesToInsertBefore > 0 else { return }
                 var sequenceToInsert = String(repeating: " ", count: numberOfSpacesToInsertBefore)
                 
+                var cursorOffset = 0
                 if cursorPos < self.string.count {
                     let nextCharacter = (self.string as NSString).substring(with: NSMakeRange(cursorPos, 1))
                     
                     if nextCharacter == "}" {
                         let numberOfSpacesToInsertAfter = numberOfSpacesToInsertBefore - 4
                         sequenceToInsert.append("\n")
+                        cursorOffset = 1
                         if numberOfSpacesToInsertAfter > 0 {
                             sequenceToInsert.append(String(repeating: " ", count: numberOfSpacesToInsertAfter))
                         }
                     }
                 }
-                self.insertText(sequenceToInsert, replacementRange: NSMakeRange(cursorPos, 0))
-                self.setSelectedRange(NSMakeRange(cursorPos + numberOfSpacesToInsertBefore, 0))
+                self.replaceSubString(with: StringInsertion(content: sequenceToInsert,
+                                                            range: NSMakeRange(cursorPos, 0),
+                                                            cursorOffset: cursorOffset))
             case 48:    // tab
-                self.insertSubString(with: StringInsertion(position: cursorPos, content: String(repeating: " ", count: 4)))
-                self.setSelectedRange(NSMakeRange(cursorPos + 4, 0))
+                self.replaceSubString(with: StringInsertion(content: "    ", range: NSMakeRange(cursorPos - 1, 1), cursorOffset: 0))
             default:
                 break
             }
@@ -322,12 +351,12 @@ struct CharacterRegx {
     let rightParenthesis = try! NSRegularExpression(pattern: "\\)", options: [])
     let leftSquareBracket = try! NSRegularExpression(pattern: "\\[", options: [])
     let rightSquareBracket = try! NSRegularExpression(pattern: "\\]", options: [])
+    let singleQuotationMark = try! NSRegularExpression(pattern: "\\'", options: [])
+    let doubleQuotationMark = try! NSRegularExpression(pattern: "\\\"", options: [])
 }
 
 struct StringInsertion {
-    var position: Int = 0
     var content: String
-    var length: Int {
-        return self.content.count
-    }
+    var range: NSRange
+    var cursorOffset: Int
 }
