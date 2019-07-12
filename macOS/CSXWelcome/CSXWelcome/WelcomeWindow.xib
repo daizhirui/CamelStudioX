@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14460.1"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14490.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -45,7 +45,7 @@
                                             <constraint firstAttribute="height" constant="128" id="9g8-a7-Eu8"/>
                                             <constraint firstAttribute="width" constant="128" id="laA-a6-zlB"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="1rZ-Ov-JaF"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="1rZ-Ov-JaF"/>
                                     </imageView>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="3qN-Gx-dQE" userLabel="Close Button">
                                         <rect key="frame" x="8" y="380" width="12" height="12"/>
@@ -211,7 +211,7 @@
                                                                                 <constraint firstAttribute="width" constant="40" id="d7h-bZ-hUN"/>
                                                                                 <constraint firstAttribute="height" constant="40" id="dXL-Bw-89j"/>
                                                                             </constraints>
-                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="LDK-Pd-iiD"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="LDK-Pd-iiD"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <constraints>
@@ -324,10 +324,10 @@
         </touchBar>
     </objects>
     <resources>
-        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSApplicationIcon" width="32" height="32"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
-        <image name="ic_example" width="48" height="48"/>
-        <image name="ic_new" width="48" height="48"/>
-        <image name="ic_open" width="48" height="48"/>
+        <image name="ic_example" width="24" height="24"/>
+        <image name="ic_new" width="24" height="24"/>
+        <image name="ic_open" width="24" height="24"/>
     </resources>
 </document>

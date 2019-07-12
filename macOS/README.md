@@ -73,6 +73,11 @@ main():
 
 ## History
 
+### 4.1.3 Build 58
+
+- Fix UI of Welcome Window in old systems
+- Filter unexisting recent projects
+
 ### 4.1.2 Build 57
 
 - Fix a bug of smart punctuation: '0' eats ')'

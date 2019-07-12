@@ -27,6 +27,15 @@ public class WelcomeWindowController: NSWindowController {
     var selectedProjectNameTextField: NSTextField!
     var selectedProjectURLTextField: NSTextField!
     @IBOutlet weak var versionLabel: NSTextField!
+    var recentProjectURLs: [URL] = {
+        var urls = [URL]()
+        for url in NSDocumentController.shared.recentDocumentURLs {
+            if FileManager.default.fileExists(atPath: url.relativePath) {
+                urls.append(url)
+            }
+        }
+        return urls
+    }()
     
     override public func windowDidLoad() {
 //        super.windowDidLoad()
@@ -106,7 +115,7 @@ extension WelcomeWindowController {
 extension WelcomeWindowController: NSTableViewDataSource {
     
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        return NSDocumentController.shared.recentDocumentURLs.count
+        return self.recentProjectURLs.count
     }
     
     public func getSelectedCellView() -> NSView? {
@@ -128,11 +137,10 @@ extension WelcomeWindowController: NSTableViewDelegate {
     }
     
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let urls = NSDocumentController.shared.recentDocumentURLs
         // 表格列的标识
         let key = (tableColumn?.identifier)!
         // 单元格数据
-        let value = urls[row]
+        let value = self.recentProjectURLs[row]
         // 根据表格列的标识，创建单元视图
         let view = tableView.makeView(withIdentifier: key, owner: self)
         let subviews = view?.subviews
@@ -145,7 +153,7 @@ extension WelcomeWindowController: NSTableViewDelegate {
                 projectNameLabel.stringValue = value.deletingPathExtension().lastPathComponent
                 if #available(macOS 10.13, *) {
                     projectNameLabel.textColor = NSColor(named: NSColor.Name("UnselectionColor"),
-                                                        bundle: Bundle(for: WelcomeWindowController.self))
+                                                         bundle: Bundle(for: WelcomeWindowController.self))
                 } else {
                     projectNameLabel.textColor = NSColor.systemGray
                 }

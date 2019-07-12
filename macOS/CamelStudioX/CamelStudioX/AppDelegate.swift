@@ -88,7 +88,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
     
     @IBAction func showExampleMenu(_ sender: Any) {
         guard let view = sender as? NSView else { return }
-//        guard let window = NSApp.mainWindow else { return }
         AppDelegate.exampleMenu.popUp(positioning: nil, at: view.frame.origin, in: view)
     }
     
@@ -167,8 +166,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
     
     // MARK:- MSAppCenter
     func setupMSAppCenter() {
-//        let hockeyManager = BITHockeyManager.shared()
-//        hockeyManager?.configure(withIdentifier: "798a2dae49b04400bcadaf69bda80417")
         // Enable catching uncaught exceptions thrown on the main thread
         // https://docs.microsoft.com/en-us/appcenter/sdk/crashes/macos#enable-catching-uncaught-exceptions-thrown-on-the-main-thread
         UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
@@ -225,9 +222,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
             NSApp.runModal(for: registerWC.window!)
         }
     }
-//    func feedParameters(for updater: SUUpdater, sendingSystemProfile sendingProfile: Bool) -> [[String : String]] {
-//        return BITSystemProfile.shared().systemUsageData() as! [[String : String]]
-//    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
