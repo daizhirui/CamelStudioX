@@ -73,6 +73,19 @@ main():
 
 ## History
 
+### 4.1.7 Build 62
+
+- Update to Swift 5.0
+
+### 4.1.6 Build 61
+
+- Solve a mistake in M2/IO.h
+- Update Documentation
+
+### 4.1.5 Build 60
+
+- Improve AutoCompleter
+
 ### 4.1.4 Build 59
 
 - Fix a crash on macOS 10.12.*
