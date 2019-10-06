@@ -73,6 +73,10 @@ main():
 
 ## History
 
+### 4.1.8 Build 63
+
+- Fix a problem of checking updates via GitHub.
+
 ### 4.1.7 Build 62
 
 - Update to Swift 5.0

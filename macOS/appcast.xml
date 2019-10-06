@@ -2,9 +2,9 @@
 <channel>
 <title>CamelStudioX</title>
 <item>
-<title>4.1.7</title>
-<pubDate>Sat, 05 Oct 2019 20:15:31 -0700</pubDate>
+<title>4.1.8</title>
+<pubDate>Sat, 05 Oct 2019 20:36:27 -0700</pubDate>
 <sparkle:minimumSystemVersion>10.12.2</sparkle:minimumSystemVersion>
-<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.7/CamelStudioX_4.1.7_Build62.zip" sparkle:version="62" sparkle:shortVersionString="4.1.7" length="80124312" type="application/octet-stream" sparkle:dsaSignature="MC4CFQDHpfx6NYxuPYo5yzR7kpIw8NDXAwIVAIAFgOncC8I6usUMX3dQD9KLqgYU"/>
+<enclosure url="https://github.com/daizhirui/CamelStudioX/releases/download/v4.1.8/CamelStudioX_4.1.8_Build63.zip" sparkle:version="63" sparkle:shortVersionString="4.1.8" length="80105988" type="application/octet-stream" sparkle:dsaSignature="MCwCFAiyzzfy0WZUsYcVp88XtV/4qKofAhRzWV6cLCPCTyIOeSoqxLHAI3TiSQ=="/>
 </item>
 </channel></rss>

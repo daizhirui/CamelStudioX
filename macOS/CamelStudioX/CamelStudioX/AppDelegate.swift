@@ -57,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
         } else {
             self.sparkleUpdater.updateFeedURL(URL(string: "https://raw.githubusercontent.com/daizhirui/CamelStudioX/master/macOS/appcast.xml"))
         }
+        print(self.sparkleUpdater.feedURL)
     }
     /// Example Menu
     static let exampleMenu = NSMenu(title: "Example")
@@ -100,6 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
         }
         #endif
         self.setupMSAppCenter()
+        self.setupSparkleUpdater()
         // Do some additional configuration if needed here
         // Insert code here to initialize your application
         if let exampleFolder = Bundle.main.url(forResource: "Examples", withExtension: nil) {
