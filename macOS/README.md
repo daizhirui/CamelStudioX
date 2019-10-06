@@ -73,6 +73,10 @@ main():
 
 ## History
 
+### 4.1.9 Build 64
+
+- Fix a mistake of update feed url.
+
 ### 4.1.8 Build 63
 
 - Fix a problem of checking updates via GitHub.

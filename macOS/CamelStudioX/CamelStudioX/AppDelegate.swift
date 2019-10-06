@@ -57,7 +57,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SUUpdaterDelegate {
         } else {
             self.sparkleUpdater.updateFeedURL(URL(string: "https://raw.githubusercontent.com/daizhirui/CamelStudioX/master/macOS/appcast.xml"))
         }
-        print(self.sparkleUpdater.feedURL)
     }
     /// Example Menu
     static let exampleMenu = NSMenu(title: "Example")

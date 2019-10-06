@@ -104,7 +104,7 @@ class PreferenceViewController: NSViewController {
         if self.updateServer.selectedItem?.title == "China" {
             self.sparkleUpdater.updateFeedURL(URL(string: "https://camelmicro.oss-cn-beijing.aliyuncs.com/appcast.xml"))
         } else {
-            self.sparkleUpdater.updateFeedURL(URL(string: "https://raw.githubusercontent.com/daizhirui/CamelStudioX_Mac/master/appcast.xml"))
+            self.sparkleUpdater.updateFeedURL(URL(string: "https://raw.githubusercontent.com/daizhirui/CamelStudioX/master/macOS/appcast.xml"))
         }
     }
     /// cancel setup
